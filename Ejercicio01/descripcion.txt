@@ -1,0 +1,37 @@
+Ejercicio 1 · Ficha de servicio profesional
+Objetivo
+Practicar la estructura básica del documento, los metadatos, los encabezados, los párrafos, los
+enlaces y las listas en un contexto realista.
+Qué tienes que construir
+Crea una página que presente un servicio profesional. Puedes elegir uno de estos ejemplos
+o inventar otro parecido:
+
+La página debe incluir
+usa semántica cuando tenga sentido;
+evita resolver todo con div ;
+no copies literalmente los ejemplos de la teoría;
+usa contenido coherente y realista.
+
+Enfoque de esta hoja
+No intentes “decorar” el ejercicio. Tu objetivo es construir estructuras HTML bien
+pensadas, claras y mantenibles.
+
+mentoría técnica;
+clases particulares de programación;
+consultoría web;
+diseño de portfolios;
+mantenimiento de sitios web.
+
+título principal del servicio;
+una breve presentación del servicio;
+una sección con ventajas o características;
+una sección con pasos del proceso de trabajo;
+
+Condiciones obligatorias
+Debes usar:
+
+Además
+El enlace externo debe abrirse en nueva pestaña y usar correctamente rel .
+Resultado esperado
+Una página sencilla pero creíble, como si fuese la ficha básica de un servicio real.
+
