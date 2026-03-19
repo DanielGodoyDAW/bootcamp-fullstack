@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscripción y seguimiento del bootcamp</title>
+  </head>
+  <body>
+    <header>
+      <h1>Inscripción y seguimiento</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
+        tenetur. Quo culpa deserunt perferendis quaerat, eos sapiente
+        accusantium accusamus aliquid sint consectetur unde natus doloribus
+        consequatur veniam nihil numquam sit.
+      </p>
+    </header>
+
+    <!-- el formulario -->
+
+    <main>
+      <section>
+        <form action="" method="post">
+          <fieldset>
+            <legend>Datos Personales</legend>
+            <p>
+              <label for="c1">Nombre:</label>
+              <input type="text" id="c1" name="nombre" required />
+            </p>
+            <p>
+              <label for="c2">Correo electrónico:</label>
+              <input type="email" id="c2" name="email" required />
+            </p>
+            <p>
+              <label for="c3">Modalidad:</label>
+              <select id="c3" name="modalidad" required>
+                <option value="">Seleccione una modalidad</option>
+                <option value="presencial">Presencial</option>
+                <option value="online">Online</option>
+                <option value="hibrida">Híbrida</option>
+              </select>
+            </p>
+            <p>
+              <label for="c4">Área o áreas de interés:</label>
+              <select id="c4" name="intereses" multiple required>
+                <option value="frontend">Frontend</option>
+                <option value="backend">Backend</option>
+                <option value="fullstack">Fullstack</option>
+                <option value="data-science">Data Science</option>
+                <option value="devops">DevOps</option>
+              </select>
+            </p>
+            <p>
+              <label for="c5">Motivación:</label>
+              <textarea id="c5" name="motivacion" rows="4" required></textarea>
+            </p>
+            <button type="submit">Enviar</button>
+            <button type="reset">Reset</button>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- la tabla -->
+
+      <section>
+        <h2>Sesiones del bootcamp</h2>
+        <table border="1">
+          <caption>
+            Próximas sesiones del bootcamp
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Fecha</th>
+              <th scope="col">Temática</th>
+              <th scope="col">Instructor</th>
+              <th scope="col">Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>01/07/2024</td>
+              <td>Introducción a JavaScript</td>
+              <td>Juan Pérez</td>
+              <td>2 horas</td>
+            </tr>
+            <tr>
+              <td>08/07/2024</td>
+              <td>Desarrollo Backend con Node.js</td>
+              <td>Ana Gómez</td>
+              <td>3 horas</td>
+            </tr>
+            <tr>
+              <td>15/07/2024</td>
+              <td>Frontend con React</td>
+              <td>Carlos Martínez</td>
+              <td>2 horas</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- preguntas frecuentes -->
+
+      <section>
+        <h2>Preguntas frecuentes</h2>
+        <details>
+          <summary>¿Cómo puedo inscribirme en el bootcamp?</summary>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+            tempora, quibusdam aperiam ipsam culpa quidem obcaecati voluptatum
+            recusandae natus. Officia deserunt quisquam expedita, animi
+            cupiditate fugit perferendis eveniet quae saepe.
+          </p>
+        </details>
+        <details>
+          <summary>¿Cuál es la metodología del bootcamp?</summary>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+            tempora, quibusdam aperiam ipsam culpa quidem obcaecati voluptatum
+            recusandae natus. Officia deserunt quisquam expedita, animi
+            cupiditate fugit perferendis eveniet quae saepe.
+          </p>
+        </details>
+        <details>
+          <summary>¿Cómo puedo hacer seguimiento de mi progreso?</summary>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+            tempora, quibusdam aperiam ipsam culpa quidem obcaecati voluptatum
+            recusandae natus. Officia deserunt quisquam expedita, animi
+            cupiditate fugit perferendis eveniet quae saepe.
+          </p>
+        </details>
+      </section>
+
+      <!-- zona de seguimiento -->
+
+      <section>
+        <h2>Seguimiento del progreso</h2>
+        <p>
+          <label for="c6">Modulo de HTML</label>
+          <progress id="c6" value="40" max="100"></progress>
+          <span>40%</span>
+        </p>
+        <p>
+          <label for="c7">Nivel de energía</label>
+          <meter
+            id="c7"
+            min="0"
+            max="10"
+            value="6"
+            low="3"
+            high="7"
+            optimum="8"
+          >
+            6/10
+          </meter>
+          <span>6/10</span>
+        </p>
+      </section>
+    </main>
+    <!-- un pie de página con contacto. -->
+    <footer>
+      <p>
+        &copy; 2026 Todos los derechos reservados | Contacto
+        <a href="mailto:ejemplo@ejemplo.com">ejemplo@ejemplo.com</a>
+      </p>
+    </footer>
+  </body>
+</html>
