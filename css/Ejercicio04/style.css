@@ -1,0 +1,17 @@
+body{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+p{
+    color: salmon;
+    font-size: 14px;
+}
+
+.destacado{
+    color: blue;
+    font-size: 18px;
+}
+
+section p{
+    color: hotpink;
+}

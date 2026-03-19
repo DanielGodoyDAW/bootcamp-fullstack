@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(174, 189, 189);
+   
+}
+.principal{
+     width: calc(60% - 20px);
+    border: 1px solid black;
+}
+
+h1{
+    font-size: clamp(1.5rem, 2vw, 3rem);
+}
