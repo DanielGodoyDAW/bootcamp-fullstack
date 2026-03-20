@@ -3,11 +3,11 @@
     --color-secondary: #3dd162;
     --color-tertiary: #ffa047;
     --color-background: #f0f0f0;
-    --color-text: #333333;
+    --color-text: #333;
 }
 
 body{
-    font-family: 'Datatype', sans-serif;
+    font-family: Datatype, sans-serif;
     margin: 15px;
     padding: 10px;
 }
@@ -16,17 +16,21 @@ h1{
     color: var(--color-primary);
     font-size: clamp(2rem, 5vw, 3rem);
 }
+
 p{
     color: var(--color-text);
     font-size: 16px;
 }
+
 h2{
     color: var(--color-secondary);
 
 }
+
 h3{
     color: var(--color-tertiary);
 }
+
 header{
     background: linear-gradient(var(--color-tertiary), var(--color-primary));
     border-radius: 5px;

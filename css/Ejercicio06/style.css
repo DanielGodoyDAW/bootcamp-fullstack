@@ -9,14 +9,17 @@
 h1{
     color: var(--color-primario);
 }
+
 .class{
     padding: var(--espaciado-medio);
 }
+
 main{
     background-color: var(--color-fondo);
     color: var(--color-texto);
     border-radius: var(--radio-bordes);
 }
+
 a{
     background-color: var(--color-primario);
     border-radius: var(--radio-bordes);
