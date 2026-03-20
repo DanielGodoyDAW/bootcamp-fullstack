@@ -42,5 +42,4 @@ Se considerará bien resuelto si
 
     el archivo externo está bien enlazado;
     los cambios se aplican correctamente;
-    y el ejercicio demuestra que entiendes cuál será la forma normal de trabajo a partir de
-ahora.
+    y el ejercicio demuestra que entiendes cuál será la forma normal de trabajo a partir de ahora.
