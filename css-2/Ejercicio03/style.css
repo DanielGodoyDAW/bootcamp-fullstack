@@ -1,0 +1,17 @@
+li::before {
+    content: "•";
+}
+
+a::after {
+    content: "🔗";
+}
+
+input::placeholder {
+    color: #a2c43c;
+
+}
+
+::selection {
+    background: #3cc477;
+    color: #e80586;
+}
