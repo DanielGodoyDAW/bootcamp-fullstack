@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+
+.texto{
+    height: 100px;
+    overflow: auto;
+}
+
+span{
+    display: inline-block;
+    border: 1px solid black;
+    background-color: lightblue;
+}
+
+.oculta{
+    display: none;
+}
