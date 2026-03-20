@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+}
+
+.contenedor{
+    width: 200px;
+    padding: 10px;
+    margin: 8px;
+    border: 10px solid black;
+    border-radius: 15px;
+}
+
+.contenedor:nth-child(2) {
+    padding: 14px;
+    background-color: rosybrown;
+}
+
+.contenedor:nth-child(3){
+    margin: 14px;
+    background-color: lightsteelblue;
+}
