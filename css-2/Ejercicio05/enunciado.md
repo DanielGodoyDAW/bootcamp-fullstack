@@ -8,7 +8,7 @@ HTML de partida
 
 Crea una página con:
 
-una caja con mucho texto dentro;
+    una caja con mucho texto dentro;
     varios span ;
     varios enlaces o botones pequeños;
     una caja que deba ocultarse.
