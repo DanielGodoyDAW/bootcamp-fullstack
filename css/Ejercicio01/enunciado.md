@@ -37,5 +37,4 @@ Se considerará bien resuelto si
 
     todos los cambios están hechos con style="" ;
     el HTML funciona correctamente;
-    y puedes identificar por qué esta forma existe pero no es la más cómoda para proyectos
-reales.
+    y puedes identificar por qué esta forma existe pero no es la más cómoda para proyectos reales.

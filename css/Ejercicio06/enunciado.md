@@ -28,8 +28,7 @@ En styles.css :
 
 Restricción
 
-Las variables deben tener nombres comprensibles. No valen nombres vagos como --color1 ,
---space2 .
+Las variables deben tener nombres comprensibles. No valen nombres vagos como --color1 , --space2 .
 
 Observa y comprueba
 
