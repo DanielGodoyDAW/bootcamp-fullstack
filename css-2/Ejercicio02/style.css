@@ -1,0 +1,25 @@
+a:hover{
+    color: red;
+}
+
+button:focus-visible{
+    outline: 3px solid #0ea5e9;
+    background-color: aqua;
+}
+
+input[type="checkbox"] {
+    accent-color: red;
+}
+
+input[disabled] {   
+    background-color: #678bc1;
+    padding: 2px;
+}
+
+li:first-child, li:last-child {
+    font-weight: bold;
+}
+
+ ol li:nth-child(2n+1) {
+    background-color: #c1c1c1;
+}

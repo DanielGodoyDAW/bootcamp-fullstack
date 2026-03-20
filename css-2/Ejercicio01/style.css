@@ -1,0 +1,22 @@
+nav a {
+    color: #6f1451;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+nav > a {
+    color: blue;
+}
+
+h2 + p {
+    margin-top: 0;
+}
+
+input[required] {
+    border: 1px solid #42e60b;
+    padding: 5px;
+}
+
+input[type="email"] {
+    background-color: aquamarine;
+}
