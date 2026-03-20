@@ -58,3 +58,7 @@ git push origin --delete nombre-rama
 ```bash
 git fetch --prune
 ```
+
+----------------------------
+
+control + h
