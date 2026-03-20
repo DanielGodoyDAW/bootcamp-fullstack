@@ -1,14 +1,17 @@
 h1{
     font-size: 6rem;
 }
+
 h2{
     font-size: 4rem;
 }
+
 .aviso{
     width: 80%;
     background-color: greenyellow;
     height: 12vh;
 }
+
 .container{
     width: 400px;
     background-color: lightblue;

@@ -1,0 +1,26 @@
+{
+  "name": "bootcamp-fullstack",
+  "version": "1.0.0",
+  "description": "Repositorio de prácticas del Bootcamp Fullstack.  \r Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS** y otros bloques a medida que avanzo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:css:fix": "stylelint \"**/*.css\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielGodoyDAW/bootcamp-fullstack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanielGodoyDAW/bootcamp-fullstack/issues"
+  },
+  "homepage": "https://github.com/DanielGodoyDAW/bootcamp-fullstack#readme",
+  "devDependencies": {
+    "stylelint": "^17.5.0",
+    "stylelint-config-standard": "^40.0.0"
+  }
+}
