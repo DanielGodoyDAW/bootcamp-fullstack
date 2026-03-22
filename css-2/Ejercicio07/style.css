@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+section {
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+
+    & .titulo{
+    max-width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    }
+
+    & .texto{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    & .enlace{
+        text-decoration: none;
+        color: white;
+        background-color: #1e4fdf;
+        padding: 8px 12px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+
+    & .enlace:hover {
+        background-color: #45b92b;
+    }
+}
