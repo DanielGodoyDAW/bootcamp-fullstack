@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: auto;
+    padding: 10px;
+}
+
+/* NAV */
+
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #1e4fdf;
+    color: white;
+
+    & .header-encabezado-nav{
+        display: flex;
+        gap: 20px;
+    }
+
+    & .header-encabezado-enlace{
+        color: white;
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    & .header-encabezado-enlace:hover{
+        background-color: #45b92b;
+        color: white;
+    }
+}
+
+/* MAIN */
+
+.panel{
+    padding: 20px;
+}
+
+.panel-section{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+/* TARJETAS */
+
+.section-article{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    
+    & .article-encabezado{
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    & .article-descripcion{
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    & .article-boton{
+        text-decoration: none;
+        background-color: #1e4fdf;
+        color: white;
+        padding: 8px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    & .article-boton:hover{
+        background-color: #45b92b;
+    }
+
+}
+
+.section-aviso {
+    margin-top: 30px;
+    padding: 15px;
+    border: 1px solid #fc0;
+    background-color: #fff3cd;
+    border-radius: 5px;
+    text-align: center;
+
+    & .section-aviso-texto {
+        margin: 0;
+    }
+}
