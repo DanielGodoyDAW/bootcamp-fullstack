@@ -1,0 +1,57 @@
+*{
+    box-sizing: border-box;
+}
+
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.botijo {
+width: 150px;
+height: 200px;
+}
+
+.enlaces-generic{
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #45b92b;
+    background-color: #1e4fdf;
+
+}
+
+.buton{
+    display: flex;
+    gap: 10px;
+    text-align: center;
+
+    & .buton-generic{
+        padding: 10px;
+        background-color: #1e4fdf;
+        border: 1px solid #45b92b;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+    }
+
+    & .buton-generic:hover{
+        background-color: #45b92b;
+    }
+}
+
+.contenedor-tarjetas {
+    display: flex;
+    gap: 20px;           
+    flex-wrap: wrap;     
+    list-style: none;
+    padding: 0;
+}
+
+.tarjeta {
+    background-color: #eee;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 150px;
+    text-align: center;
+}

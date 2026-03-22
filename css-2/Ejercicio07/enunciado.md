@@ -3,6 +3,7 @@ Nivel 3 · Recomendado
 Objetivo
 
 Empezar a nombrar clases con más claridad y usar nesting con moderación.
+
 HTML de partida
 
 Crea una página con un bloque tipo tarjeta de curso que incluya:
@@ -13,6 +14,7 @@ Crea una página con un bloque tipo tarjeta de curso que incluya:
     variante destacada.
 
 Tarea
+
 Debes:
 
 1. nombrar las clases siguiendo una estructura tipo BEM;
