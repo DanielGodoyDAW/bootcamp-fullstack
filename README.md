@@ -16,7 +16,7 @@ Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS** y otros bloques a m
 bootcamp-fullstack/
 ├─ html/        # Ejercicios de HTML
 ├─ css/         # Ejercicios de CSS
-├─ css-2/       # Ejercicios de CSS avanzadp
+├─ css-2/       # Ejercicios de CSS avanzado
 ├─ form/        # Prácticas relacionadas con formularios
 ├─ fronted/     # Proyecto Pokemon
 ├─ Anotaciones.md
