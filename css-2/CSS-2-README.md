@@ -15,8 +15,8 @@ En esta hoja veremos los contenidos de la segunda sesión de CSS:
 
 La hoja está pensada para que practiques con una **progresión clara**: 
 
-**Primero** aplicarás reglas muy concretas y verificables 
-**Sespues** Resolverás pequeños problemas de maquetación 
+**Primero** aplicarás reglas muy concretas y verificables; 
+**Despues** Resolverás pequeños problemas de maquetación; 
 **Finalmente** dejarás una interfaz sencilla más ordenada y mantenible.
 
 ## Cómo ver los ejercicios
