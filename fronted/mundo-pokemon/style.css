@@ -63,8 +63,8 @@ main{
 }
 
 .container-div{
-   background-color: var(--color-container); 
-   display: flex;
+    background-color: var(--color-container); 
+    display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -87,25 +87,57 @@ img{
    min-width: 150px;
 }
 
-figcaption{
-    background-color: var(--color-fondo-figcaption);
-    color: var(--color-letra-figcaption);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    
+.pokemon-img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.container-div-p-ID{
-    position: absolute;
-    background-color: #cdcdc8;
-    left: 0;
-    bottom: 0;
-    margin: 0;
-    padding: 3px 8px;
-    font-size: 11px;
-    color: #a49383;
+/* Ambas imágenes en el mismo sitio */
+.pokemon-img img {
+  position: absolute;
+  width: 150px;
+  transition: opacity 0.3s ease;
+}
+
+/* Imagen normal visible por defecto */
+.pokemon-img .static {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* GIF oculto */
+.pokemon-img .gif {
+  opacity: 0;
+  z-index: 2;
+}
+
+.container:hover .pokemon-img .static {
+  opacity: 0;
+}
+
+.container:hover .pokemon-img .gif {
+  opacity: 1;
+}
+
+figure {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-div-p-ID {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 3px 8px;
+  font-size: 11px;
+  background-color: #cdcdc8;
+  color: #a49383;
+  z-index: 10; /* por si acaso */
 }
 
 .container > div{
