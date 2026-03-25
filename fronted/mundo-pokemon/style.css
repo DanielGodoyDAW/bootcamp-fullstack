@@ -22,7 +22,7 @@
 
 body{
     position: relative;
-    background-color: #ffe628;
+    background-color: var(--color-body);
     padding: 10px;
     margin: 0;
     display: flex;
@@ -42,7 +42,7 @@ main{
 }
 
 .container{
-    background-color: #fff;
+    background-color: var(--color-letra);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -59,11 +59,11 @@ main{
 }
 
 .container-agua:hover{
-    box-shadow: 0 0 13px 0 #1e90ff46, 0 0 20px 0 #0264c794;
+    box-shadow: 0 0 13px 0 #1e90ff46, 0 0 20px 0 #004991f0;
 }
 
 .container-div{
-   background-color: #dcdcdc; 
+   background-color: var(--color-container); 
    display: flex;
     justify-content: center;
     align-items: center;
@@ -76,8 +76,8 @@ img{
 }
 
 figcaption{
-    background-color: #c3beb6;
-    color: #a49383;
+    background-color: var(--color-fondo-figcaption);
+    color: var(--color-letra-figcaption);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -109,15 +109,15 @@ strong{
 }
 
 .planta:hover{
-    color: #1bbb10;
+    color: var(--color-planta);
 }
 
 .fuego:hover{
-    color: #ff4500;
+    color: var(--color-fuego);
 }
 
 .agua:hover{
-    color: #1e90ff;
+    color: var(--color-agua);
 }
 
 .tipo{
@@ -146,12 +146,12 @@ strong{
 }
 
 .volador:hover{
-    background-color: #1e90ff;
+    background-color: var(--color-agua);
     color: white;
 }
 
 .water:hover{
-    background-color: #1e90ff;
+    background-color: var(--color-agua);
     color: white;
 }
 
@@ -171,15 +171,15 @@ strong{
 }
 
 .evolution-planta:hover{
-    color: #1bbb10;
+    color: var(--color-planta);
 }
 
 .evolution-fuego:hover{
-    color: #ff4500;
+    color: var(--color-fuego);
 }
 
 .evolution-agua:hover{
-    color: #1e90ff;
+    color: var(--color-agua);
 }
 
 .box{
