@@ -12,9 +12,8 @@
 }
 
 .header input{
+    text-align: center;
     width: 100%;
-
-    /* max-width: 550px; */
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -22,6 +21,7 @@
 }
 
 body{
+    position: relative;
     background-color: #ffe628;
     padding: 10px;
     margin: 0;
@@ -34,7 +34,7 @@ main{
     font-family: Ubuntu, sans-serif;
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-items: center;
     max-width: 1000px;
     margin: 0 auto;
@@ -50,6 +50,18 @@ main{
     box-shadow: 0 0 13px 0 #1e1e1e46;
 }
 
+.container-planta:hover{
+    box-shadow: 0 0 13px 0 #017f0946, 0 0 20px 0 #11b901b0;
+}
+
+.container-fuego:hover{
+    box-shadow: 0 0 13px 0 #ff450046, 0 0 20px 0 #ff000046;
+}
+
+.container-agua:hover{
+    box-shadow: 0 0 13px 0 #1e90ff46, 0 0 20px 0 #0264c794;
+}
+
 .container-div{
    background-color: #dcdcdc; 
    display: flex;
@@ -60,7 +72,7 @@ main{
 }
 
 img{
-    max-width: 70px;
+   min-width: 150px;
 }
 
 figcaption{
@@ -93,7 +105,19 @@ p{
 }
 
 strong{
-    font-size: 14px;
+    font-size: 16px;
+}
+
+.planta:hover{
+    color: #1bbb10;
+}
+
+.fuego:hover{
+    color: #ff4500;
+}
+
+.agua:hover{
+    color: #1e90ff;
 }
 
 .tipo{
@@ -106,11 +130,36 @@ strong{
     font-size: 12px;
 }
 
+.veneno:hover{
+    background-color: purple;
+    color: white;
+}
+
+.hierva:hover{
+    background-color: green;
+    color: white;
+}
+
+.fire:hover{
+    background-color: red;
+    color: white;
+}
+
+.volador:hover{
+    background-color: #1e90ff;
+    color: white;
+}
+
+.water:hover{
+    background-color: #1e90ff;
+    color: white;
+}
+
 .evolution{
     border-left: 3px solid brown;
     margin-top: 8px;
     padding-left: 8px;
-    font-size: 12px;
+    font-size: 14px;
     color: #333;
     white-space: nowrap;
 }
@@ -119,4 +168,52 @@ strong{
     display: block;
     font-weight: bold;
     color: #555;
+}
+
+.evolution-planta:hover{
+    color: #1bbb10;
+}
+
+.evolution-fuego:hover{
+    color: #ff4500;
+}
+
+.evolution-agua:hover{
+    color: #1e90ff;
+}
+
+.box{
+    position: fixed; 
+    height: 100px;
+    width: 100px;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.left-top{
+    background-color: #000;
+    top: -50px;
+    left: -50px;
+}
+
+.right-top {
+    background-color: #000;
+    top: -50px;
+    right: -50px; 
+}
+
+.left-botton {
+    background-color: red;
+    border-radius: 50%;
+    bottom: -50px;
+    left: -50px;
+    
+}
+
+.right-botton {
+    background-color: red;
+    border-radius: 50%;
+    bottom: -50px;
+    right: -50px;
+    
 }
