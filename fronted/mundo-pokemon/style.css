@@ -22,6 +22,7 @@
 }
 
 body{
+    position: relative;
     background-color: #ffe628;
     padding: 10px;
     margin: 0;
@@ -119,4 +120,43 @@ strong{
     display: block;
     font-weight: bold;
     color: #555;
+}
+
+.box{
+    background-color: #000;
+    position: fixed; 
+    height: 100px;
+    width: 100px;
+    transform: rotate(45deg);
+    z-index: 100;
+}
+
+.left-top{
+    top: -50px;
+    left: -50px;
+}
+
+.right-top {
+    top: -50px;
+    right: -50px; 
+}
+
+.box-botton{
+    background-color: red;
+    position: fixed; 
+    height: 100px;
+    width: 100px;
+    transform: rotate(45deg);
+    z-index: 100;
+    border-radius: 50%;
+}
+
+.left-botton {
+    bottom: -50px;
+    left: -50px;
+}
+
+.right-botton {
+    bottom: -50px;
+    right: -50px;
 }
