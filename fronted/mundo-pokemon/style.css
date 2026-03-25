@@ -55,7 +55,7 @@ main{
 }
 
 .container-fuego:hover{
-    box-shadow: 0 0 13px 0 #ff450046, 0 0 20px 0 #ff000046;
+    box-shadow: 0 0 13px 0 #ff44008e, 0 0 20px 0 #ff000046;
 }
 
 .container-agua:hover{
@@ -69,6 +69,18 @@ main{
     align-items: center;
     position: relative;
     min-height: 140px;
+}
+
+.container-div-planta:hover{
+    background-color: var(--color-planta);
+}
+
+.container-div-fuego:hover{
+    background-color: var(--color-fuego);
+}
+
+.container-div-agua:hover{
+    background-color: var(--color-agua);
 }
 
 img{
