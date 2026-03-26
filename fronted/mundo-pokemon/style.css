@@ -44,6 +44,7 @@ main{
 .container{
     background-color: var(--color-letra);
     width: 100%;
+    height: 270px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
