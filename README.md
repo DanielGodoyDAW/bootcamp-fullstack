@@ -9,7 +9,7 @@ Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS** y otros bloques a m
 - [CSS2](./css-2/)
 - [Formularios](./form)
 - [Frontend](./fronted)
-- [Anotaciones](./Anotaciones.md)
+- [ComandosGit](./ComandosGit.md)
 
 ## Estructura del repositorio
 ```text
