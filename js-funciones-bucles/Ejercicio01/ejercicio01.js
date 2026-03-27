@@ -15,6 +15,9 @@ function verResolucion(){
         j++;
     }
 
+    console.log(solucionFor);
+    console.log(solucionWhile);
+
     resolucionAE = "Solución con for: " + solucionFor + "<br>" + "Solución con while: " + solucionWhile;
 
     document.getElementById("resolucionAE").innerHTML = resolucionAE;
