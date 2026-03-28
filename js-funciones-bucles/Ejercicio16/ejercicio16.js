@@ -14,8 +14,8 @@ function verResolucion() {
 
   const contadorLog = crearContador();
 
-  console.log(contadorLog()+ `<br>`);
-  console.log(contadorLog()+ `<br>`);
+  console.log(contadorLog()+ `\n`);
+  console.log(contadorLog()+ `\n`);
   console.log(contadorLog());
 
   document.getElementById("resolucionAE").innerHTML = resolucionAE;
