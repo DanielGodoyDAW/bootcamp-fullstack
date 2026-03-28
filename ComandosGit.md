@@ -59,6 +59,22 @@ git push origin --delete nombre-rama
 git fetch --prune
 ```
 
+
+## Palabras clave para tener buenas practicas a la hora de subir un commit
+
+feat: (de feature) – Cuando añades una nueva funcionalidad (ej. la función del cuadrado).
+
+fix: – Cuando arreglas un error o bug.
+
+docs: – Cambios solo en la documentación (comentarios, README).
+
+style: – Cambios de formato que no afectan al código (espacios, puntos y coma, CSS visual).
+
+refactor: – Código que ni arregla un error ni añade una función, solo lo mejoras para que se lea mejor.
+
+test: – Añadir o corregir pruebas.
+
+chore: – Tareas de mantenimiento (actualizar dependencias, configurar herramientas).
 ----------------------------
 
 control + h
