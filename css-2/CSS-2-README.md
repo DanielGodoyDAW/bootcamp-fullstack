@@ -34,3 +34,7 @@ Si hay un `style.css`, estará enlazado desde el HTML.
 - [Ejercicio08](./Ejercicio08)
 
 **Nota:** Los ejercicios están organizados en orden de dificultad progresiva.
+
+## Prioriza estos ejercicios porque consolidan el núcleo de la sesión y pueden usarse como referencia de evaluación continua:
+
+    1, 2, 4, 5, 7, 8
