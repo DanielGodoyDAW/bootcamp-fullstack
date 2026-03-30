@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/DanielGodoyDAW/bootcamp-fullstack#readme",
   "devDependencies": {
-    "stylelint": "^17.5.0",
-    "stylelint-config-standard": "^40.0.0"
+    "stylelint": "^17.6.0",
+    "stylelint-config-recess-order": "^7.7.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-order": "^8.1.1"
   }
 }
