@@ -20,6 +20,8 @@ bootcamp-fullstack/
 ├─ css-2/       # Ejercicios de CSS avanzado
 ├─ form/        # Prácticas relacionadas con formularios
 ├─ js/          # Prácticas de JS
+│   ├── js-variables-condicionales/   # Prácticas de condicionales,variables..
+│   ├── js-funciones-bucles/          # Prácticas de funciones, bucles...
 ├─ fronted/     # Proyecto Pokemon
 ├─ ComandosGit.md #Listado de comandos de git
 └─ README.md
