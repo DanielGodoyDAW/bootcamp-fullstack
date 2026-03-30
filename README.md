@@ -36,7 +36,9 @@ bootcamp-fullstack/
 - CSS: Ejercicio01 → Ejercicio08
 - FORM: Ejercicio01 → Ejercicio11
 - CSS-2: Ejercicios01 → Ejecicios08
-- JS: Ejercicios01 → Ejecicios13
+- JS: 
+    - Variables y Condicionales: Ejercicios01 → Ejecicios13
+    - Funciones y Bucles: Ejercicios01 → Ejecicios18
 
 ## Autor
 - Daniel Godoy Medina ([@DanielGodoyDAW](https://github.com/DanielGodoyDAW))
