@@ -20,3 +20,6 @@ El ejercicio esta en el js, pero se visualiza en el index
 - [Ejercicio11](./Ejercicio11)
 - [Ejercicio12](./Ejercicio12)
 - [Ejercicio13](./Ejercicio13)
+
+## Se consideran de recomendado cumplimiento y especialmente importantes para consolidar la sesión los ejercicios:
+    1, 2, 4, 6, 8, 10 y 13.

@@ -15,3 +15,6 @@ Si hay un `style.css`, estará enlazado desde el HTML.
 - [Ejercicio06](./Ejercicio06)
 - [Ejercicio07](./Ejercicio07)
 - [Ejercicio08](./Ejercicio08)
+
+## Prioriza estos ejercicios porque consolidan el núcleo de la sesión y pueden usarse como referencia de evaluación continua:
+    1, 2, 3, 5, 6, 8

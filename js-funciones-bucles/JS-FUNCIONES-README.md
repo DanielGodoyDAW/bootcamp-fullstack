@@ -32,3 +32,6 @@ innecesariamente. La meta no es solo escribir for o declarar funciones, sino emp
 - [Ejercicio16](./Ejercicio16)
 - [Ejercicio17](./Ejercicio17)
 - [Ejercicio18](./Ejercicio18)
+
+## Se consideran de recomendado cumplimiento y especialmente importantes para consolidar la sesión los ejercicios:
+    1, 3, 5, 7, 9, 11 y 13.

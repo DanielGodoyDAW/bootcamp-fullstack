@@ -25,3 +25,6 @@ Si estás usando VS Code, puedes usar **Live Server** para verlo más cómodo.
 - [Ejercicio09](./Ejercicio09/)
 - [Ejercicio10](./Ejercicio10/)
 - [Ejercicio11](./Ejercicio11/)
+
+## Los ejercicios que debes priorizar porque consolidan el núcleo de la sesión y pueden usarse como referencia de evaluación continua son:
+    1, 2, 3, 5, 7, 10, 11
