@@ -22,6 +22,9 @@ bootcamp-fullstack/
 ├─ js/          # Prácticas de JS
 │   ├── js-variables-condicionales/   # Prácticas de condicionales,variables..
 │   ├── js-funciones-bucles/          # Prácticas de funciones, bucles...
+│   ├── js-arrays-objetos/              # Prácticas de arrays y objetos
+│   ├── js-metodosArrays-transformaciones/     # Prácticas de métodos de arrays y transformaciones
+│ 
 ├─ fronted/     # Proyecto Pokemon
 ├─ ComandosGit.md #Listado de comandos de git
 └─ README.md
