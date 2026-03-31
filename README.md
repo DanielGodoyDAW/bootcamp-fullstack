@@ -42,6 +42,8 @@ bootcamp-fullstack/
 - JS: 
     - Variables y Condicionales: Ejercicios01 → Ejecicios13
     - Funciones y Bucles: Ejercicios01 → Ejecicios18
+    - Arrays y Objetos: Ejercicios01 → Ejecicios21
+    - Métodos de Arrays y Transformaciones: Ejercicios01 → Ejecicios22
 
 ## Autor
 - Daniel Godoy Medina ([@DanielGodoyDAW](https://github.com/DanielGodoyDAW))
