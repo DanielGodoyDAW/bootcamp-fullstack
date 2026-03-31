@@ -1,6 +1,6 @@
 Ejercicio 4. Transformar objetos
 
-Crea un array de objetos productos , donde cada producto tenga al menos:
+Crea un array de objetos productos, donde cada producto tenga al menos:
 
     nombre
     precio
