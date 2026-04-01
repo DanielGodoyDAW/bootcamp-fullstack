@@ -45,3 +45,8 @@ comprobar.
 
 ## Se consideran de recomendado cumplimiento y especialmente importantes para consolidar la sesión los ejercicios:
     1, 3, 5, 7, 9, 12, 15 y 18.
+
+Todas las carpetas de ejercicios constan de
+    Un index.html con un botón para mostrar la solución 
+    Un archivo ejercicioXX.js donde esta la solucion 
+    Un archivo .md con su enunciado. 
