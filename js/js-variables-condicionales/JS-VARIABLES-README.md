@@ -27,4 +27,5 @@ El ejercicio esta en el js, pero se visualiza en el index
 ## Todas las carpetas de ejercicios constan de
     Un index.html con un botón para mostrar la solución 
     Un archivo ejercicioXX.js donde esta la solucion 
+        La solucion suele estar tanto para el console.log, como para mostrarlo en el HTML, con un botón que al hacer click muestra la solución.
     Un archivo .md con su enunciado. 
