@@ -23,3 +23,8 @@ El ejercicio esta en el js, pero se visualiza en el index
 
 ## Se consideran de recomendado cumplimiento y especialmente importantes para consolidar la sesión los ejercicios:
     1, 2, 4, 6, 8, 10 y 13.
+
+## Todas las carpetas de ejercicios constan de
+    Un index.html con un botón para mostrar la solución 
+    Un archivo ejercicioXX.js donde esta la solucion 
+    Un archivo .md con su enunciado. 
