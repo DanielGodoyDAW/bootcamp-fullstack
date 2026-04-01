@@ -36,7 +36,7 @@ innecesariamente. La meta no es solo escribir for o declarar funciones, sino emp
 ## Se consideran de recomendado cumplimiento y especialmente importantes para consolidar la sesión los ejercicios:
     1, 3, 5, 7, 9, 11 y 13.
 
-Todas las carpetas de ejercicios constan de
+## Todas las carpetas de ejercicios constan de
     Un index.html con un botón para mostrar la solución 
     Un archivo ejercicioXX.js donde esta la solucion 
     Un archivo .md con su enunciado. 
