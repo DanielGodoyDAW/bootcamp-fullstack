@@ -1,5 +1,5 @@
-function verResolucion(){
-    let resolucion = " ";
+function verSolucion(){
+    let solucion = " ";
 
-    document.getElementById("resolucionAE").innerHTML = resolucion;
+    document.getElementById("solucion").innerHTML = solucion;
 }
