@@ -1,4 +1,5 @@
 Ejercicio 10. Desestructuración de array
+
 Crea un array con cuatro nombres de colores.
 
 Tareas
