@@ -38,5 +38,5 @@ function verSolucion() {
   console.log("Intereses actualizados:", usuario.intereses);
   solucion += `Intereses actualizados: ${usuario.intereses.join(", ")}<br>`;
 
-  document.getElementById("solucion").innerHTML = solucion;
+  document.getElementById("solucion").innerHTML = solucion; 
 }
