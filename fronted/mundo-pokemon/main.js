@@ -120,12 +120,14 @@ function crearTarjetaPokemon(pokemon) {
   imgGif.src = pokemon.gif;
   imgGif.alt = `imagen de ${pokemon.nombre}`;
 
+  //insertamos dentro de figure el img static y el img gif
   figure.append(imgStatic, imgGif);
 
   const pID = document.createElement("p");
   pID.className = `container-div-p-ID`;
   pID.textContent = `ID: ${pokemon.id}`;
 
+  //insertamos dentro del div el figure y el pID
   containerDiv.append(figure, pID);
 
   //crear div con clase y tipo
@@ -137,19 +139,23 @@ function crearTarjetaPokemon(pokemon) {
   strongClase.className = pokemon.tipo_color;
   strongClase.textContent = pokemon.nombre;
 
+  //insertamos el strong dentro del parrafo
   parrafoClase.append(strongClase);
 
   const parrafoTipo = document.createElement("p");
 
+  //iteramos sobre los tipos del pokemon y por cada tipo creamos un span con la clase del tipo y el texto del tipo, luego insertamos el span dentro del parrafo de tipo
   pokemon.tipos.forEach((tipo) => {
     const spanTipo = document.createElement("span");
     spanTipo.className = `tipo ${obtenerTipoPokemon(tipo)}`;
     spanTipo.textContent = tipo;
+    //insertamos el span dentro del parrafo
     parrafoTipo.append(spanTipo);
   });
 
-  //evolucion
+  //declaramos una variable para el div de evolucion, si el pokemon no tiene evolucion, esta variable quedara en null y no se renderizara el div de evolucion
   let evolutionDiv = null;
+  //si el pokemon tiene evolucion, creamos un div para mostrar la evolucion
   if (pokemon.evolucion) {
     evolutionDiv = document.createElement("div");
     evolutionDiv.className = `evolution`;
@@ -159,14 +165,18 @@ function crearTarjetaPokemon(pokemon) {
     spanEvolution.className = `evolution-pokemon evolution-${pokemon.tipo_color}`;
     spanEvolution.textContent = pokemon.evolucion;
 
+    //insertamos el span dentro del div de evolucion
     evolutionDiv.append(spanEvolution);
   }
+  //insertamos el parrafo de clase, el parrafo de tipo y el div de evolucion dentro del divTipo
   divTipo.append(parrafoClase, parrafoTipo);
 
   if (evolutionDiv) {
+    //insertamos el div de evolucion dentro del divTipo
     divTipo.append(evolutionDiv);
   }
 
+  //insertamos el divTipo dentro del article
   article.append(containerDiv, divTipo);
 
   return article;
@@ -190,12 +200,14 @@ function renderizado(coleccion) {
   //vaciamos el main
   main.innerHTML = "";
 
+  //iteramos sobre la coleccion de pokemons y por cada pokemon creamos una tarjeta y la insertamos en el main
   coleccion.forEach((pokemon) => {
     const tarjeta = crearTarjetaPokemon(pokemon);
     main.append(tarjeta);
   });
 }
 
+//esperamos a que el DOM este cargado para hacer el renderizado de las tarjetas
 document.addEventListener("DOMContentLoaded", () => {
   renderizado(pokemons);
 });
