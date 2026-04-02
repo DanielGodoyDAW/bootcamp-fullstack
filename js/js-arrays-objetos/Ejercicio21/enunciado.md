@@ -1,7 +1,6 @@
 Ejercicio 21. Modelado de un catálogo académico o de ocio
 
-Vas a crear una pequeña estructura de datos que represente un catálogo. Puedes elegir uno
-de estos contextos:
+Vas a crear una pequeña estructura de datos que represente un catálogo. Puedes elegir uno de estos contextos:
 
     catálogo de cursos;
     catálogo de videojuegos;
@@ -36,8 +35,7 @@ Debes realizar, al menos, estas acciones:
 
 Salida orientativa
 
-No se espera una salida única, pero sí que el programa muestre mensajes claros que permitan
-entender:
+No se espera una salida única, pero sí que el programa muestre mensajes claros que permitan entender:
 
     qué datos contiene la colección;
     qué elemento estás consultando;
