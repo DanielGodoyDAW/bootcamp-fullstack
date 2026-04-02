@@ -1,4 +1,5 @@
 Ejercicio 18. Guardar una colección en formato JSON
+
 Crea un array de objetos sencillo. Por ejemplo:
 
     libros;

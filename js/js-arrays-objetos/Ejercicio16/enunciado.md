@@ -1,4 +1,5 @@
 Ejercicio 16. nullish coalescing
+
 Crea varios ejemplos donde una propiedad pueda valer:
 
     null

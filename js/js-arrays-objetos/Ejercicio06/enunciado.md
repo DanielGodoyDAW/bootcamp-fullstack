@@ -1,7 +1,6 @@
 Ejercicio 6. Recorrer un array de textos
 
-Crea un array con cinco nombres de tecnologías, herramientas o conceptos que hayas visto en
-el bootcamp.
+Crea un array con cinco nombres de tecnologías, herramientas o conceptos que hayas visto en el bootcamp.
 
 Tareas
 

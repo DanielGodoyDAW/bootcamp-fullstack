@@ -1,4 +1,5 @@
 Ejercicio 12. Ampliar un array sin modificar el original
+
 Crea un array con tres elementos.
 
 Tareas
