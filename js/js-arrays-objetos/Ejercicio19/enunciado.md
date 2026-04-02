@@ -1,4 +1,5 @@
 Ejercicio 19. Referencia compartida
+
 Crea un objeto con varias propiedades y asígnalo a otra variable.
 
 Tareas
