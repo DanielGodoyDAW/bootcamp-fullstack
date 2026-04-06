@@ -32,8 +32,6 @@ async function cargarPokemons() {
   }
 }
 
-const pokemons = [];
-
 //Funcion para mostrar los pokemons
 
 function crearTarjetaPokemon(pokemon) {
