@@ -1,134 +1,96 @@
 //Coleccion de pokemons
-// const pokemons = [
-//   {
-//     id: 1,
-//     nombre: "Bulbasaur",
-//     tipos: ["Poison", "Grass"],
-//     image:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-//     gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif",
-//     tipo_color: "planta",
-//     evolucion: null,
-//   },
-//   {
-//     id: 2,
-//     nombre: "Ivysaur",
-//     tipos: ["Poison", "Grass"],
-//     image:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-//     gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/2.gif",
-//     tipo_color: "planta",
-//     evolucion: "Bulbasaur",
-//   },
-//   {
-//     id: 3,
-//     nombre: "Venusaur",
-//     tipos: ["Poison", "Grass"],
-//     image:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-//     gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/3.gif",
-//     tipo_color: "planta",
-//     evolucion: "Ivysaur",
-//   },
-//   {
-//     id: 4,
-//     nombre: "Charmander",
-//     tipos: ["Fire"],
-//     image:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-//     gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif",
-//     tipo_color: "fuego",
-//     evolucion: null,
-//   },
-//   {
-//     id: 5,
-//     nombre: "Charmeleon",
-//     tipos: ["Fire"],
-//     image:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-//     gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/5.gif",
-//     tipo_color: "fuego",
-//     evolucion: "Charmander",
-//   },
-//   {
-//     id: 6,
-//     nombre: "Charizard",
-//     tipos: ["Fire", "Flying"],
-//     image:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-//     gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/6.gif",
-//     tipo_color: "fuego",
-//     evolucion: "Charmeleon",
-//   },
-//   {
-//     id: 7,
-//     nombre: "Squirtle",
-//     tipos: ["Water"],
-//     image:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-//     gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif",
-//     tipo_color: "agua",
-//     evolucion: null,
-//   },
-//   {
-//     id: 8,
-//     nombre: "Wartortle",
-//     tipos: ["Water"],
-//     image:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
-//     gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/8.gif",
-//     tipo_color: "agua",
-//     evolucion: "Squirtle",
-//   },
-//   {
-//     id: 9,
-//     nombre: "Blastoise",
-//     tipos: ["Water"],
-//     image:
-//       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
-//     gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/9.gif",
-//     tipo_color: "agua",
-//     evolucion: "Wartortle",
-//   },
-// ];
-
-async function cargarPokemons() {
-  try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=9`);
-    const datos = await response.json();
-
-    console.log(datos.results); // Array con nombre y url de cada pokemon
-
-    // Ahora necesitas hacer fetch a cada URL para obtener los detalles
-    const pokemons = await Promise.all(
-      datos.results.map(async (pokemonLista) => {
-        const respuesta = await fetch(pokemonLista.url);
-        const datosAPI = await respuesta.json();
-
-        return {
-          id: datosAPI.id,
-          nombre:
-            datosAPI.name.charAt(0).toUpperCase() + datosAPI.name.slice(1),
-          tipos: datosAPI.types.map(
-            (tipo) =>
-              tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
-          ),
-          image: datosAPI.sprites.front_default,
-          gif: datosAPI.sprites.versions["generation-v"]["black-white"].animated
-            .front_default,
-          tipo_color: datosAPI.types[0].type.name.toLowerCase(),
-          evolucion: null,
-        };
-      }),
-    );
-
-    return pokemons;
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
-const pokemons = [];
+const pokemons = [
+  {
+    id: 1,
+    nombre: "Bulbasaur",
+    tipos: ["Poison", "Grass"],
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif",
+    tipo_color: "planta",
+    evolucion: null,
+  },
+  {
+    id: 2,
+    nombre: "Ivysaur",
+    tipos: ["Poison", "Grass"],
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/2.gif",
+    tipo_color: "planta",
+    evolucion: "Bulbasaur",
+  },
+  {
+    id: 3,
+    nombre: "Venusaur",
+    tipos: ["Poison", "Grass"],
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/3.gif",
+    tipo_color: "planta",
+    evolucion: "Ivysaur",
+  },
+  {
+    id: 4,
+    nombre: "Charmander",
+    tipos: ["Fire"],
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif",
+    tipo_color: "fuego",
+    evolucion: null,
+  },
+  {
+    id: 5,
+    nombre: "Charmeleon",
+    tipos: ["Fire"],
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
+    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/5.gif",
+    tipo_color: "fuego",
+    evolucion: "Charmander",
+  },
+  {
+    id: 6,
+    nombre: "Charizard",
+    tipos: ["Fire", "Flying"],
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/6.gif",
+    tipo_color: "fuego",
+    evolucion: "Charmeleon",
+  },
+  {
+    id: 7,
+    nombre: "Squirtle",
+    tipos: ["Water"],
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif",
+    tipo_color: "agua",
+    evolucion: null,
+  },
+  {
+    id: 8,
+    nombre: "Wartortle",
+    tipos: ["Water"],
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
+    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/8.gif",
+    tipo_color: "agua",
+    evolucion: "Squirtle",
+  },
+  {
+    id: 9,
+    nombre: "Blastoise",
+    tipos: ["Water"],
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/9.gif",
+    tipo_color: "agua",
+    evolucion: "Wartortle",
+  },
+];
 
 //Funcion para mostrar los pokemons
 
@@ -246,11 +208,6 @@ function renderizado(coleccion) {
 }
 
 //esperamos a que el DOM este cargado para hacer el renderizado de las tarjetas
-// document.addEventListener("DOMContentLoaded", () => {
-//   renderizado(pokemons);
-// });
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const pokemons = await cargarPokemons();
+document.addEventListener("DOMContentLoaded", () => {
   renderizado(pokemons);
 });

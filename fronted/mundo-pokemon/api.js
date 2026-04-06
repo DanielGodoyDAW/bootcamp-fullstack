@@ -5,13 +5,6 @@ async function cargarPokemons() {
 
     console.log(datos.results); // Array con nombre y url de cada pokemon
 
-    fetch("https://pokeapi.co/api/v2/pokemon/1")
-      .then((r) => r.json())
-      .then((datos) => {
-        console.log("El nombre es:", datos.name); // Verifica que sea "bulbasaur"
-        console.log("El id es:", datos.id); // Verifica que sea 1
-      });
-
     // Ahora necesitas hacer fetch a cada URL para obtener los detalles
     const pokemons = await Promise.all(
       datos.results.map(async (pokemonLista) => {
@@ -22,10 +15,8 @@ async function cargarPokemons() {
           id: datosAPI.id,
           nombre:
             datosAPI.name.charAt(0).toUpperCase() + datosAPI.name.slice(1),
-          tipos: datosAPI.types.map(
-            (tipo) =>
-              tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
-          ),
+          tipos: datosAPI.types.map((tipo) =>
+              tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),),
           image: datosAPI.sprites.front_default,
           gif: datosAPI.sprites.versions["generation-v"]["black-white"].animated
             .front_default,
@@ -34,8 +25,8 @@ async function cargarPokemons() {
         };
       }),
     );
-
     return pokemons;
+
   } catch (error) {
     console.error("Error:", error);
   }
