@@ -1,99 +1,107 @@
-//Coleccion de pokemons
-const pokemons = [
-  {
-    id: 1,
-    nombre: "Bulbasaur",
-    tipos: ["Poison", "Grass"],
-    image:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif",
-    tipo_color: "planta",
-    evolucion: null,
-  },
-  {
-    id: 2,
-    nombre: "Ivysaur",
-    tipos: ["Poison", "Grass"],
-    image:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/2.gif",
-    tipo_color: "planta",
-    evolucion: "Bulbasaur",
-  },
-  {
-    id: 3,
-    nombre: "Venusaur",
-    tipos: ["Poison", "Grass"],
-    image:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/3.gif",
-    tipo_color: "planta",
-    evolucion: "Ivysaur",
-  },
-  {
-    id: 4,
-    nombre: "Charmander",
-    tipos: ["Fire"],
-    image:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif",
-    tipo_color: "fuego",
-    evolucion: null,
-  },
-  {
-    id: 5,
-    nombre: "Charmeleon",
-    tipos: ["Fire"],
-    image:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/5.gif",
-    tipo_color: "fuego",
-    evolucion: "Charmander",
-  },
-  {
-    id: 6,
-    nombre: "Charizard",
-    tipos: ["Fire", "Flying"],
-    image:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/6.gif",
-    tipo_color: "fuego",
-    evolucion: "Charmeleon",
-  },
-  {
-    id: 7,
-    nombre: "Squirtle",
-    tipos: ["Water"],
-    image:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif",
-    tipo_color: "agua",
-    evolucion: null,
-  },
-  {
-    id: 8,
-    nombre: "Wartortle",
-    tipos: ["Water"],
-    image:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
-    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/8.gif",
-    tipo_color: "agua",
-    evolucion: "Squirtle",
-  },
-  {
-    id: 9,
-    nombre: "Blastoise",
-    tipos: ["Water"],
-    image:
-      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
-    gif: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/9.gif",
-    tipo_color: "agua",
-    evolucion: "Wartortle",
-  },
-];
+// Función para cargar los pokemons desde la API
+async function cargarPokemons() {
+  try {
+    // Obtener la lista de pokemons
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=9`);
+    const datos = await response.json();
+
+    // Usar Promise.all para esperar a que se resuelvan todas las promesas de los pokemons
+    const pokemons = await Promise.all(
+      datos.results.map(async (pokemonLista) => {
+        const respuesta = await fetch(pokemonLista.url);
+        const datosAPI = await respuesta.json();
+
+        // Obtener el tipo en inglés de la API
+        const tipoIngles = datosAPI.types[0].type.name.toLowerCase();
+        
+        // Convertir a español
+        const tipoEspanol = convertirTipoAlEspanol(tipoIngles);
+
+        // Obtener la evolución
+        const evolucion = await obtenerEvolucion(datosAPI.id);
+
+        return {
+          id: datosAPI.id,
+          nombre:
+            datosAPI.name.charAt(0).toUpperCase() + datosAPI.name.slice(1),
+          tipos: datosAPI.types.map((tipo) =>
+            tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
+          ),
+          image: datosAPI.sprites.front_default,
+          gif: datosAPI.sprites.versions["generation-v"]["black-white"].animated
+            .front_default,
+          tipo_color: tipoEspanol,
+          evolucion: evolucion, // Aquí va el resultado de obtenerEvolucion
+        };
+      }),
+    );
+
+    return pokemons;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// Función para convertir tipos y que el css funcione correctamente, ya que el css esta en español y la API devuelve los tipos en ingles
+function convertirTipoAlEspanol(tipoIngles) {
+  const tiposMap = {
+    grass: "planta",
+    fire: "fuego",
+    water: "agua",
+  };
+  // Retorna el tipo en español o el tipo original si no se encuentra en el mapa
+  return tiposMap[tipoIngles] || tipoIngles;
+}
+
+// Función para obtener la evolución
+async function obtenerEvolucion(pokemonId) {
+  try {
+    // Obtener los datos de la especie
+    const responseSpecies = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`);
+    const datosSpecies = await responseSpecies.json();
+
+    // Obtener la cadena de evolución
+    const urlEvolutionChain = datosSpecies.evolution_chain.url;
+    const responseEvolutionChain = await fetch(urlEvolutionChain);
+    const datosEvolutionChain = await responseEvolutionChain.json();
+
+    // Buscar el pokemon actual en la cadena y obtener su evolución
+    const evolucionEncontrada = buscarEvolucion(datosEvolutionChain.chain, datosSpecies.name);
+    
+    return evolucionEncontrada; 
+  } catch (error) {
+    console.error("Error al obtener evolución:", error);
+    return null;
+  }
+}
+
+// Función recursiva para buscar la evolución en la cadena de evolución
+function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
+  // Si encontramos el pokemon actual
+  if (chain.species.name === nombrePokemon) {
+    if (evolucionAnterior) {
+      return evolucionAnterior.charAt(0).toUpperCase() + evolucionAnterior.slice(1); // Retorna el nombre de la evolución anterior con la primera letra en mayúscula
+    }
+    return null;
+  }
+
+  // Si no es el pokemon actual, buscamos en las evoluciones posteriores
+  for (let evolucion of chain.evolves_to) {
+    const resultado = buscarEvolucion(
+      evolucion, 
+      nombrePokemon, 
+      chain.species.name // Pasamos el nombre actual como evolución anterior
+    );
+    if (resultado !== undefined) { // Si encontramos una evolución, la retornamos
+      return resultado;
+    }
+  }
+
+  return undefined;
+}
+
 
 //Funcion para mostrar los pokemons
-
 function crearTarjetaPokemon(pokemon) {
   //crear contenedor principal
   const article = document.createElement("article");
@@ -114,7 +122,6 @@ function crearTarjetaPokemon(pokemon) {
   imgStatic.alt = `imagen de ${pokemon.nombre}`;
 
   //crear img gif
-
   const imgGif = document.createElement("img");
   imgGif.className = `gif`;
   imgGif.src = pokemon.gif;
@@ -208,6 +215,8 @@ function renderizado(coleccion) {
 }
 
 //esperamos a que el DOM este cargado para hacer el renderizado de las tarjetas
-document.addEventListener("DOMContentLoaded", () => {
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const pokemons = await cargarPokemons();
   renderizado(pokemons);
 });
