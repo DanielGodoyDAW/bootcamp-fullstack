@@ -3,34 +3,99 @@ async function cargarPokemons() {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=9`);
     const datos = await response.json();
 
-    console.log(datos.results); // Array con nombre y url de cada pokemon
-
-    // Ahora necesitas hacer fetch a cada URL para obtener los detalles
     const pokemons = await Promise.all(
       datos.results.map(async (pokemonLista) => {
         const respuesta = await fetch(pokemonLista.url);
         const datosAPI = await respuesta.json();
+
+        // Obtener el tipo en inglés de la API
+        const tipoIngles = datosAPI.types[0].type.name.toLowerCase();
+        
+        // Convertir a español
+        const tipoEspanol = convertirTipoAlEspanol(tipoIngles);
+
+        // Obtener la evolución
+        const evolucion = await obtenerEvolucion(datosAPI.id);
 
         return {
           id: datosAPI.id,
           nombre:
             datosAPI.name.charAt(0).toUpperCase() + datosAPI.name.slice(1),
           tipos: datosAPI.types.map((tipo) =>
-              tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),),
+            tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
+          ),
           image: datosAPI.sprites.front_default,
           gif: datosAPI.sprites.versions["generation-v"]["black-white"].animated
             .front_default,
-          tipo_color: datosAPI.types[0].type.name.toLowerCase(),
-          evolucion: null,
+          tipo_color: tipoEspanol,
+          evolucion: evolucion, // ← Aquí va el resultado de obtenerEvolucion
         };
       }),
     );
-    return pokemons;
 
+    return pokemons;
   } catch (error) {
     console.error("Error:", error);
   }
 }
+
+// Función para convertir tipos
+function convertirTipoAlEspanol(tipoIngles) {
+  const tiposMap = {
+    grass: "planta",
+    fire: "fuego",
+    water: "agua",
+  };
+  
+  return tiposMap[tipoIngles] || tipoIngles;
+}
+
+// Función para obtener la evolución
+async function obtenerEvolucion(pokemonId) {
+  try {
+    // Obtener los datos de la especie
+    const responseSpecies = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`);
+    const datosSpecies = await responseSpecies.json();
+
+    // Obtener la cadena de evolución
+    const urlEvolutionChain = datosSpecies.evolution_chain.url;
+    const responseEvolutionChain = await fetch(urlEvolutionChain);
+    const datosEvolutionChain = await responseEvolutionChain.json();
+
+    // Buscar el pokemon actual en la cadena y obtener su evolución
+    const evolucionEncontrada = buscarEvolucion(datosEvolutionChain.chain, datosSpecies.name);
+    
+    return evolucionEncontrada; // ← FALTABA ESTO
+  } catch (error) {
+    console.error("Error al obtener evolución:", error);
+    return null;
+  }
+}
+
+function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
+  // Si encontramos el pokemon actual
+  if (chain.species.name === nombrePokemon) {
+    if (evolucionAnterior) {
+      return evolucionAnterior.charAt(0).toUpperCase() + evolucionAnterior.slice(1);
+    }
+    return null;
+  }
+
+  // Si no es el pokemon actual, buscamos en las evoluciones posteriores
+  for (let evolucion of chain.evolves_to) {
+    const resultado = buscarEvolucion(
+      evolucion, 
+      nombrePokemon, 
+      chain.species.name // Pasamos el nombre actual como evolución anterior
+    );
+    if (resultado !== undefined) {
+      return resultado;
+    }
+  }
+
+  return undefined;
+}
+
 
 //Funcion para mostrar los pokemons
 
