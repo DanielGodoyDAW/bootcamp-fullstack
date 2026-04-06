@@ -1,8 +1,11 @@
+// Función para cargar los pokemons desde la API
 async function cargarPokemons() {
   try {
+    // Obtener la lista de pokemons
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=9`);
     const datos = await response.json();
 
+    // Usar Promise.all para esperar a que se resuelvan todas las promesas de los pokemons
     const pokemons = await Promise.all(
       datos.results.map(async (pokemonLista) => {
         const respuesta = await fetch(pokemonLista.url);
@@ -28,7 +31,7 @@ async function cargarPokemons() {
           gif: datosAPI.sprites.versions["generation-v"]["black-white"].animated
             .front_default,
           tipo_color: tipoEspanol,
-          evolucion: evolucion, // ← Aquí va el resultado de obtenerEvolucion
+          evolucion: evolucion, // Aquí va el resultado de obtenerEvolucion
         };
       }),
     );
@@ -39,14 +42,14 @@ async function cargarPokemons() {
   }
 }
 
-// Función para convertir tipos
+// Función para convertir tipos y que el css funcione correctamente, ya que el css esta en español y la API devuelve los tipos en ingles
 function convertirTipoAlEspanol(tipoIngles) {
   const tiposMap = {
     grass: "planta",
     fire: "fuego",
     water: "agua",
   };
-  
+  // Retorna el tipo en español o el tipo original si no se encuentra en el mapa
   return tiposMap[tipoIngles] || tipoIngles;
 }
 
@@ -65,18 +68,19 @@ async function obtenerEvolucion(pokemonId) {
     // Buscar el pokemon actual en la cadena y obtener su evolución
     const evolucionEncontrada = buscarEvolucion(datosEvolutionChain.chain, datosSpecies.name);
     
-    return evolucionEncontrada; // ← FALTABA ESTO
+    return evolucionEncontrada; 
   } catch (error) {
     console.error("Error al obtener evolución:", error);
     return null;
   }
 }
 
+// Función recursiva para buscar la evolución en la cadena de evolución
 function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
   // Si encontramos el pokemon actual
   if (chain.species.name === nombrePokemon) {
     if (evolucionAnterior) {
-      return evolucionAnterior.charAt(0).toUpperCase() + evolucionAnterior.slice(1);
+      return evolucionAnterior.charAt(0).toUpperCase() + evolucionAnterior.slice(1); // Retorna el nombre de la evolución anterior con la primera letra en mayúscula
     }
     return null;
   }
@@ -88,7 +92,7 @@ function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
       nombrePokemon, 
       chain.species.name // Pasamos el nombre actual como evolución anterior
     );
-    if (resultado !== undefined) {
+    if (resultado !== undefined) { // Si encontramos una evolución, la retornamos
       return resultado;
     }
   }
@@ -98,7 +102,6 @@ function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
 
 
 //Funcion para mostrar los pokemons
-
 function crearTarjetaPokemon(pokemon) {
   //crear contenedor principal
   const article = document.createElement("article");
@@ -119,7 +122,6 @@ function crearTarjetaPokemon(pokemon) {
   imgStatic.alt = `imagen de ${pokemon.nombre}`;
 
   //crear img gif
-
   const imgGif = document.createElement("img");
   imgGif.className = `gif`;
   imgGif.src = pokemon.gif;
