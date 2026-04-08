@@ -46,6 +46,21 @@ function convertirTipoAlEspanol(tipoIngles) {
     grass: "planta",
     fire: "fuego",
     water: "agua",
+    poison: "veneno",
+    flying: "volador",
+    electric: "electrico",
+    psychic: "psiquico",
+    ice: "hielo",
+    dragon: "dragon",
+    dark: "siniestro",
+    steel: "acero",
+    fairy: "hada",
+    normal: "normal",
+    fighting: "lucha",
+    ground: "tierra",
+    rock: "roca",
+    bug: "bicho",
+    ghost: "fantasma",
   };
   // Retorna el tipo en español o el tipo original si no se encuentra en el mapa
   return tiposMap[tipoIngles] || tipoIngles;
