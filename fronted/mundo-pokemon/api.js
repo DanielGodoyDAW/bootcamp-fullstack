@@ -22,14 +22,12 @@ async function cargarPokemons() {
 
         return {
           id: datosAPI.id,
-          nombre:
-            datosAPI.name.charAt(0).toUpperCase() + datosAPI.name.slice(1),
-          tipos: datosAPI.types.map((tipo) =>
-            tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
-          ),
+          nombre: datosAPI.name.charAt(0).toUpperCase() + datosAPI.name.slice(1),
+          tipos: datosAPI.types.map(
+            (tipo) =>tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
+                                    ),
           image: datosAPI.sprites.front_default,
-          gif: datosAPI.sprites.versions["generation-v"]["black-white"].animated
-            .front_default,
+          gif: datosAPI.sprites.versions["generation-v"]["black-white"].animated.front_default,
           tipo_color: tipoEspanol,
           evolucion: evolucion, // Aquí va el resultado de obtenerEvolucion
         };
