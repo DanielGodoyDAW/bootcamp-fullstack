@@ -1,3 +1,25 @@
+// MAPEO ÚNICO DE TIPOS - Punto de verdad para todos los tipos
+const TIPO_MAP = {
+  grass: "planta",
+  fire: "fuego",
+  water: "agua",
+  poison: "veneno",
+  flying: "volador",
+  electric: "electrico",
+  psychic: "psiquico",
+  ice: "hielo",
+  dragon: "dragon",
+  dark: "siniestro",
+  steel: "acero",
+  fairy: "hada",
+  normal: "normal",
+  fighting: "lucha",
+  ground: "tierra",
+  rock: "roca",
+  bug: "bicho",
+  ghost: "fantasma",
+};
+
 // Función para cargar los pokemons desde la API
 async function cargarPokemons() {
   try {
@@ -14,22 +36,26 @@ async function cargarPokemons() {
         // Obtener el tipo en inglés de la API
         const tipoIngles = datosAPI.types[0].type.name.toLowerCase();
         
-        // Convertir a español
-        const tipoEspanol = convertirTipoAlEspanol(tipoIngles);
+        // Convertir a español usando el mapeo único
+        const tipoEspanol = TIPO_MAP[tipoIngles] || tipoIngles;
 
         // Obtener la evolución
         const evolucion = await obtenerEvolucion(datosAPI.id);
+
+        // GIF con fallback a imagen estática
+        const gifUrl = datosAPI.sprites.versions?.["generation-v"]?.["black-white"]?.animated?.front_default;
+        const imagenFinal = gifUrl || datosAPI.sprites.front_default;
 
         return {
           id: datosAPI.id,
           nombre: datosAPI.name.charAt(0).toUpperCase() + datosAPI.name.slice(1),
           tipos: datosAPI.types.map(
-            (tipo) =>tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
-                                    ),
+            (tipo) => tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
+          ),
           image: datosAPI.sprites.front_default,
-          gif: datosAPI.sprites.versions["generation-v"]["black-white"].animated.front_default,
+          gif: imagenFinal,
           tipo_color: tipoEspanol,
-          evolucion: evolucion, // Aquí va el resultado de obtenerEvolucion
+          evolucion: evolucion,
         };
       }),
     );
@@ -37,18 +63,8 @@ async function cargarPokemons() {
     return pokemons;
   } catch (error) {
     console.error("Error:", error);
+    return [];
   }
-}
-
-// Función para convertir tipos y que el css funcione correctamente, ya que el css esta en español y la API devuelve los tipos en ingles
-function convertirTipoAlEspanol(tipoIngles) {
-  const tiposMap = {
-    grass: "planta",
-    fire: "fuego",
-    water: "agua",
-  };
-  // Retorna el tipo en español o el tipo original si no se encuentra en el mapa
-  return tiposMap[tipoIngles] || tipoIngles;
 }
 
 // Función para obtener la evolución
@@ -78,7 +94,7 @@ function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
   // Si encontramos el pokemon actual
   if (chain.species.name === nombrePokemon) {
     if (evolucionAnterior) {
-      return evolucionAnterior.charAt(0).toUpperCase() + evolucionAnterior.slice(1); // Retorna el nombre de la evolución anterior con la primera letra en mayúscula
+      return evolucionAnterior.charAt(0).toUpperCase() + evolucionAnterior.slice(1);
     }
     return null;
   }
@@ -88,9 +104,9 @@ function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
     const resultado = buscarEvolucion(
       evolucion, 
       nombrePokemon, 
-      chain.species.name // Pasamos el nombre actual como evolución anterior
+      chain.species.name
     );
-    if (resultado !== undefined) { // Si encontramos una evolución, la retornamos
+    if (resultado !== undefined) {
       return resultado;
     }
   }
@@ -98,8 +114,7 @@ function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
   return undefined;
 }
 
-
-//Funcion para mostrar los pokemons
+// Función para mostrar los pokemons
 function crearTarjetaPokemon(pokemon) {
   //crear contenedor principal
   const article = document.createElement("article");
@@ -149,16 +164,16 @@ function crearTarjetaPokemon(pokemon) {
 
   const parrafoTipo = document.createElement("p");
 
-  //iteramos sobre los tipos del pokemon y por cada tipo creamos un span con la clase del tipo y el texto del tipo, luego insertamos el span dentro del parrafo de tipo
+  //iteramos sobre los tipos del pokemon y por cada tipo creamos un span con la clase del tipo y el texto del tipo
   pokemon.tipos.forEach((tipo) => {
     const spanTipo = document.createElement("span");
-    spanTipo.className = `tipo ${obtenerTipoPokemon(tipo)}`;
-    spanTipo.textContent = tipo;
-    //insertamos el span dentro del parrafo
+    const tipoEspanol = obtenerTipoPokemon(tipo);  // Convertir a español
+    spanTipo.className = `tipo ${tipoEspanol}`;    // Usar nombre en español
+    spanTipo.textContent = tipo;                    // Mantener el texto en inglés
     parrafoTipo.append(spanTipo);
   });
 
-  //declaramos una variable para el div de evolucion, si el pokemon no tiene evolucion, esta variable quedara en null y no se renderizara el div de evolucion
+  //declaramos una variable para el div de evolucion
   let evolutionDiv = null;
   //si el pokemon tiene evolucion, creamos un div para mostrar la evolucion
   if (pokemon.evolucion) {
@@ -170,50 +185,38 @@ function crearTarjetaPokemon(pokemon) {
     spanEvolution.className = `evolution-pokemon evolution-${pokemon.tipo_color}`;
     spanEvolution.textContent = pokemon.evolucion;
 
-    //insertamos el span dentro del div de evolucion
     evolutionDiv.append(spanEvolution);
   }
-  //insertamos el parrafo de clase, el parrafo de tipo y el div de evolucion dentro del divTipo
+  
   divTipo.append(parrafoClase, parrafoTipo);
 
   if (evolutionDiv) {
-    //insertamos el div de evolucion dentro del divTipo
     divTipo.append(evolutionDiv);
   }
 
-  //insertamos el divTipo dentro del article
   article.append(containerDiv, divTipo);
 
   return article;
 }
 
-//funcion para determinar el tipo (los nombres asi son por las clases de css)
+// Función para determinar el tipo usando el mapeo único
 function obtenerTipoPokemon(tipo) {
-  const tiposPokemon = {
-    Poison: "veneno",
-    Grass: "hierva",
-    Fire: "fire",
-    Flying: "volador",
-    Water: "water",
-  };
-  return tiposPokemon[tipo] || "";
+  const tipoIngles = tipo.toLowerCase();
+  return TIPO_MAP[tipoIngles] || tipoIngles;
 }
 
-//funcion para hacer el renderizado de las tarjetas
+// Función para hacer el renderizado de las tarjetas
 function renderizado(coleccion) {
   const main = document.querySelector("main");
-  //vaciamos el main
   main.innerHTML = "";
 
-  //iteramos sobre la coleccion de pokemons y por cada pokemon creamos una tarjeta y la insertamos en el main
   coleccion.forEach((pokemon) => {
     const tarjeta = crearTarjetaPokemon(pokemon);
     main.append(tarjeta);
   });
 }
 
-//esperamos a que el DOM este cargado para hacer el renderizado de las tarjetas
-
+// Evento DOMContentLoaded
 document.addEventListener("DOMContentLoaded", async () => {
   const pokemons = await cargarPokemons();
   renderizado(pokemons);

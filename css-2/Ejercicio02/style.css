@@ -11,9 +11,9 @@ input[type="checkbox"] {
     accent-color: red;
 }
 
-input[disabled] {   
+input[disabled] {
+    padding: 2px;   
     background-color: #678bc1;
-    padding: 2px;
 }
 
 li:first-child, li:last-child {

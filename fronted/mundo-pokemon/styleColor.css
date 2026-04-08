@@ -3,11 +3,25 @@
     --color-container:#dcdcdc;
     --color-fondo-figcaption:#c3beb6;
     --color-letra-figcaption:#a49383;
+    --color-letra:white;
+    
+    /* Colores para cada tipo */
     --color-planta:#1bbb10;
     --color-fuego:#ff4500;
     --color-agua:#1e90ff;
-    --color-veneno:purple;
-    --color-hierva: green;
-    --color-fire: red;
-    --color-letra:white;
+    --color-veneno:#93f;
+    --color-volador:#87ceeb;
+    --color-electrico:#ffd700;
+    --color-psiquico:#ff69b4;
+    --color-hielo:#0ff;
+    --color-dragon:#ff6347;
+    --color-siniestro:#2f4f4f;
+    --color-acero:#a9a9a9;
+    --color-hada:#ffb6c1;
+    --color-normal:#d3d3d3;
+    --color-lucha:#8b4513;
+    --color-tierra:#cd853f;
+    --color-roca:#808080;
+    --color-bicho:#90ee90;
+    --color-fantasma:#9370db;
 }

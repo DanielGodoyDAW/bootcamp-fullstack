@@ -8,12 +8,12 @@ h2{
 
 .aviso{
     width: 80%;
-    background-color: greenyellow;
     height: 12vh;
+    background-color: greenyellow;
 }
 
 .container{
     width: 400px;
-    background-color: lightblue;
     height: 12vh;
+    background-color: lightblue;
 }
