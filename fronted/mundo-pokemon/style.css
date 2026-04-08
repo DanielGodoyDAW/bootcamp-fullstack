@@ -1,17 +1,17 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-.header{
+.header {
     display: flex;
-    justify-content: center;
+    width: 100%;
     margin: 20px auto;
     padding: 0 10px;
+    justify-content: center;
     max-width: 1000px;
-    width: 100%;
 }
 
-.header input{
+.header input {
     text-align: center;
     width: 100%;
     padding: 10px;
@@ -20,245 +20,560 @@
     box-shadow: 0 0 13px 0 #1e1e1e46;
 }
 
-body{
+body {
     position: relative;
-    background-color: var(--color-body);
-    padding: 10px;
-    margin: 0;
     display: flex;
+    margin: 0;
+    padding: 10px;
+    background-color: var(--color-body);
     flex-direction: column;
     align-items: stretch;
 }
 
-main{
-    font-family: Ubuntu, sans-serif;
+main {
     display: grid;
+    width: 100%;
+    margin: 0 auto;
+    font-family: Ubuntu, sans-serif;
     gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     justify-items: center;
     max-width: 1000px;
-    margin: 0 auto;
-    width: 100%;
 }
 
-.container{
-    background-color: var(--color-letra);
+.container {
+    display: flex;
     width: 100%;
     height: 270px;
-    display: flex;
+    background-color: var(--color-letra);
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 0 13px 0 #1e1e1e46;
 }
 
-.container-planta:hover{
-    box-shadow: 0 0 13px 0 #017f0946, 0 0 20px 0 #11b901b0;
-}
-
-.container-fuego:hover{
-    box-shadow: 0 0 13px 0 #ff44008e, 0 0 20px 0 #ff000046;
-}
-
-.container-agua:hover{
-    box-shadow: 0 0 13px 0 #1e90ff46, 0 0 20px 0 #004991f0;
-}
-
-.container-div{
-    background-color: var(--color-container); 
+.container-div {
+    position: relative;
     display: flex;
+    background-color: var(--color-container);
     justify-content: center;
     align-items: center;
-    position: relative;
     min-height: 140px;
 }
 
-.container-div-planta:hover{
-    background-color: var(--color-planta);
-}
-
-.container-div-fuego:hover{
-    background-color: var(--color-fuego);
-}
-
-.container-div-agua:hover{
-    background-color: var(--color-agua);
-}
-
-img{
-   min-width: 150px;
+img {
+    min-width: 150px;
 }
 
 .pokemon-img {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Ambas imágenes en el mismo sitio */
 .pokemon-img img {
-  position: absolute;
-  width: 150px;
-  transition: opacity 0.3s ease;
+    position: absolute;
+    width: 150px;
+    transition: opacity 0.3s ease;
 }
 
 /* Imagen normal visible por defecto */
 .pokemon-img .static {
-  opacity: 1;
-  z-index: 1;
+    opacity: 1;
+    z-index: 1;
 }
 
 /* GIF oculto */
 .pokemon-img .gif {
-  opacity: 0;
-  z-index: 2;
+    opacity: 0;
+    z-index: 2;
 }
 
 .container:hover .pokemon-img .static {
-  opacity: 0;
+    opacity: 0;
 }
 
 .container:hover .pokemon-img .gif {
-  opacity: 1;
+    opacity: 1;
 }
 
 figure {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-div-p-ID {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  margin: 0;
-  padding: 3px 8px;
-  font-size: 11px;
-  background-color: #cdcdc8;
-  color: #a49383;
-  z-index: 10; /* por si acaso */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    margin: 0;
+    padding: 3px 8px;
+    background-color: #cdcdc8;
+    color: #a49383;
+    font-size: 11px;
 }
 
-.container > div{
+.container>div {
     padding: 8px 10px;
 }
 
-p{
-    margin: 4px 0;  
+p {
+    margin: 4px 0;
 }
 
-strong{
+strong {
     font-size: 16px;
 }
 
-.planta:hover{
-    color: var(--color-planta);
-}
-
-.fuego:hover{
-    color: var(--color-fuego);
-}
-
-.agua:hover{
-    color: var(--color-agua);
-}
-
-.tipo{
+.tipo {
+    padding: 2px 6px;
     border: 1px solid #dfd6d2;
+    border-radius: 5px;
     background-color: #fdfdfc;
     color: #bbada0;
-    border-radius: 5px;
-    padding: 2px 6px;
-    margin-right: 5px;
     font-size: 12px;
+    margin-right: 5px;
 }
 
-.veneno:hover{
-    background-color: purple;
-    color: white;
-}
-
-.hierva:hover{
-    background-color: green;
-    color: white;
-}
-
-.fire:hover{
-    background-color: red;
-    color: white;
-}
-
-.volador:hover{
-    background-color: var(--color-agua);
-    color: white;
-}
-
-.water:hover{
-    background-color: var(--color-agua);
-    color: white;
-}
-
-.evolution{
+.evolution {
+    color: #333;
+    font-size: 14px;
     border-left: 3px solid brown;
     margin-top: 8px;
     padding-left: 8px;
-    font-size: 14px;
-    color: #333;
     white-space: nowrap;
 }
 
-.evolution-pokemon{
+.evolution-pokemon {
     display: block;
     font-weight: bold;
     color: #555;
 }
 
-.evolution-planta:hover{
-    color: var(--color-planta);
-}
-
-.evolution-fuego:hover{
-    color: var(--color-fuego);
-}
-
-.evolution-agua:hover{
-    color: var(--color-agua);
-}
-
-.box{
-    position: fixed; 
-    height: 100px;
-    width: 100px;
-    transform: rotate(45deg);
+.box {
+    position: fixed;
     z-index: -1;
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
 }
 
-.left-top{
-    background-color: #000;
+.left-top {
     top: -50px;
     left: -50px;
+    background-color: #000;
 }
 
 .right-top {
-    background-color: #000;
     top: -50px;
-    right: -50px; 
+    right: -50px;
+    background-color: #000;
 }
 
 .left-botton {
-    background-color: red;
-    border-radius: 50%;
     bottom: -50px;
     left: -50px;
-    
+    border-radius: 50%;
+    background-color: red;
 }
 
 .right-botton {
-    background-color: red;
-    border-radius: 50%;
-    bottom: -50px;
     right: -50px;
-    
+    bottom: -50px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+/* ============================================
+   HOVERS DINÁMICOS - USANDO VARIABLES CSS
+   ============================================ */
+
+/* CONTENEDOR PRINCIPAL - Brillo de tarjeta */
+.container-planta:hover {
+    box-shadow: 0 0 13px 0 rgb(27 187 16 / 30%), 0 0 20px 0 rgb(27 187 16 / 70%);
+}
+
+.container-fuego:hover {
+    box-shadow: 0 0 13px 0 rgb(255 69 0 / 30%), 0 0 20px 0 rgb(255 69 0 / 70%);
+}
+
+.container-agua:hover {
+    box-shadow: 0 0 13px 0 rgb(30 144 255 / 30%), 0 0 20px 0 rgb(30 144 255 / 70%);
+}
+
+.container-veneno:hover {
+    box-shadow: 0 0 13px 0 rgb(153 51 255 / 30%), 0 0 20px 0 rgb(153 51 255 / 70%);
+}
+
+.container-volador:hover {
+    box-shadow: 0 0 13px 0 rgb(135 206 235 / 30%), 0 0 20px 0 rgb(135 206 235 / 70%);
+}
+
+.container-electrico:hover {
+    box-shadow: 0 0 13px 0 rgb(255 215 0 / 30%), 0 0 20px 0 rgb(255 215 0 / 70%);
+}
+
+.container-psiquico:hover {
+    box-shadow: 0 0 13px 0 rgb(255 105 180 / 30%), 0 0 20px 0 rgb(255 105 180 / 70%);
+}
+
+.container-hielo:hover {
+    box-shadow: 0 0 13px 0 rgb(0 255 255 / 30%), 0 0 20px 0 rgb(0 255 255 / 70%);
+}
+
+.container-dragon:hover {
+    box-shadow: 0 0 13px 0 rgb(255 99 71 / 30%), 0 0 20px 0 rgb(255 99 71 / 70%);
+}
+
+.container-siniestro:hover {
+    box-shadow: 0 0 13px 0 rgb(47 79 79 / 30%), 0 0 20px 0 rgb(47 79 79 / 70%);
+}
+
+.container-acero:hover {
+    box-shadow: 0 0 13px 0 rgb(169 169 169 / 30%), 0 0 20px 0 rgb(169 169 169 / 70%);
+}
+
+.container-hada:hover {
+    box-shadow: 0 0 13px 0 rgb(255 182 193 / 30%), 0 0 20px 0 rgb(255 182 193 / 70%);
+}
+
+.container-normal:hover {
+    box-shadow: 0 0 13px 0 rgb(211 211 211 / 30%), 0 0 20px 0 rgb(211 211 211 / 70%);
+}
+
+.container-lucha:hover {
+    box-shadow: 0 0 13px 0 rgb(139 69 19 / 30%), 0 0 20px 0 rgb(139 69 19 / 70%);
+}
+
+.container-tierra:hover {
+    box-shadow: 0 0 13px 0 rgb(205 133 63 / 30%), 0 0 20px 0 rgb(205 133 63 / 70%);
+}
+
+.container-roca:hover {
+    box-shadow: 0 0 13px 0 rgb(128 128 128 / 30%), 0 0 20px 0 rgb(128 128 128 / 70%);
+}
+
+.container-bicho:hover {
+    box-shadow: 0 0 13px 0 rgb(144 238 144 / 30%), 0 0 20px 0 rgb(144 238 144 / 70%);
+}
+
+.container-fantasma:hover {
+    box-shadow: 0 0 13px 0 rgb(147 112 219 / 30%), 0 0 20px 0 rgb(147 112 219 / 70%);
+}
+
+/* FONDO DE IMAGEN - Cambio de color */
+.container-div-planta:hover {
+    background-color: var(--color-planta);
+}
+
+.container-div-fuego:hover {
+    background-color: var(--color-fuego);
+}
+
+.container-div-agua:hover {
+    background-color: var(--color-agua);
+}
+
+.container-div-veneno:hover {
+    background-color: var(--color-veneno);
+}
+
+.container-div-volador:hover {
+    background-color: var(--color-volador);
+}
+
+.container-div-electrico:hover {
+    background-color: var(--color-electrico);
+}
+
+.container-div-psiquico:hover {
+    background-color: var(--color-psiquico);
+}
+
+.container-div-hielo:hover {
+    background-color: var(--color-hielo);
+}
+
+.container-div-dragon:hover {
+    background-color: var(--color-dragon);
+}
+
+.container-div-siniestro:hover {
+    background-color: var(--color-siniestro);
+}
+
+.container-div-acero:hover {
+    background-color: var(--color-acero);
+}
+
+.container-div-hada:hover {
+    background-color: var(--color-hada);
+}
+
+.container-div-normal:hover {
+    background-color: var(--color-normal);
+}
+
+.container-div-lucha:hover {
+    background-color: var(--color-lucha);
+}
+
+.container-div-tierra:hover {
+    background-color: var(--color-tierra);
+}
+
+.container-div-roca:hover {
+    background-color: var(--color-roca);
+}
+
+.container-div-bicho:hover {
+    background-color: var(--color-bicho);
+}
+
+.container-div-fantasma:hover {
+    background-color: var(--color-fantasma);
+}
+
+/* TEXTO FUERTE (nombre) - Color del tipo */
+.planta:hover {
+    color: var(--color-planta);
+}
+
+.fuego:hover {
+    color: var(--color-fuego);
+}
+
+.agua:hover {
+    color: var(--color-agua);
+}
+
+.veneno:hover {
+    color: var(--color-veneno);
+}
+
+.volador:hover {
+    color: var(--color-volador);
+}
+
+.electrico:hover {
+    color: var(--color-electrico);
+}
+
+.psiquico:hover {
+    color: var(--color-psiquico);
+}
+
+.hielo:hover {
+    color: var(--color-hielo);
+}
+
+.dragon:hover {
+    color: var(--color-dragon);
+}
+
+.siniestro:hover {
+    color: var(--color-siniestro);
+}
+
+.acero:hover {
+    color: var(--color-acero);
+}
+
+.hada:hover {
+    color: var(--color-hada);
+}
+
+.normal:hover {
+    color: var(--color-normal);
+}
+
+.lucha:hover {
+    color: var(--color-lucha);
+}
+
+.tierra:hover {
+    color: var(--color-tierra);
+}
+
+.roca:hover {
+    color: var(--color-roca);
+}
+
+.bicho:hover {
+    color: var(--color-bicho);
+}
+
+.fantasma:hover {
+    color: var(--color-fantasma);
+}
+
+/* TIPOS - Fondo y texto */
+.tipo.veneno:hover {
+    background-color: var(--color-veneno);
+    color: white;
+}
+
+.tipo.planta:hover {
+    background-color: var(--color-planta);
+    color: white;
+}
+
+/* planta en lugar de hierva */
+.tipo.fuego:hover {
+    background-color: var(--color-fuego);
+    color: white;
+}
+
+/* fuego en lugar de fire */
+.tipo.volador:hover {
+    background-color: var(--color-volador);
+    color: white;
+}
+
+.tipo.agua:hover {
+    background-color: var(--color-agua);
+    color: white;
+}
+
+/* agua en lugar de water */
+.tipo.electrico:hover {
+    background-color: var(--color-electrico);
+    color: black;
+}
+
+.tipo.psiquico:hover {
+    background-color: var(--color-psiquico);
+    color: white;
+}
+
+.tipo.hielo:hover {
+    background-color: var(--color-hielo);
+    color: black;
+}
+
+.tipo.dragon:hover {
+    background-color: var(--color-dragon);
+    color: white;
+}
+
+.tipo.siniestro:hover {
+    background-color: var(--color-siniestro);
+    color: white;
+}
+
+.tipo.acero:hover {
+    background-color: var(--color-acero);
+    color: black;
+}
+
+.tipo.hada:hover {
+    background-color: var(--color-hada);
+    color: white;
+}
+
+.tipo.normal:hover {
+    background-color: var(--color-normal);
+    color: black;
+}
+
+.tipo.lucha:hover {
+    background-color: var(--color-lucha);
+    color: white;
+}
+
+.tipo.tierra:hover {
+    background-color: var(--color-tierra);
+    color: white;
+}
+
+.tipo.roca:hover {
+    background-color: var(--color-roca);
+    color: white;
+}
+
+.tipo.bicho:hover {
+    background-color: var(--color-bicho);
+    color: black;
+}
+
+.tipo.fantasma:hover {
+    background-color: var(--color-fantasma);
+    color: white;
+}
+
+/* EVOLUCIÓN - Color del tipo */
+.evolution-planta:hover {
+    color: var(--color-planta);
+}
+
+.evolution-fuego:hover {
+    color: var(--color-fuego);
+}
+
+.evolution-agua:hover {
+    color: var(--color-agua);
+}
+
+.evolution-veneno:hover {
+    color: var(--color-veneno);
+}
+
+.evolution-volador:hover {
+    color: var(--color-volador);
+}
+
+.evolution-electrico:hover {
+    color: var(--color-electrico);
+}
+
+.evolution-psiquico:hover {
+    color: var(--color-psiquico);
+}
+
+.evolution-hielo:hover {
+    color: var(--color-hielo);
+}
+
+.evolution-dragon:hover {
+    color: var(--color-dragon);
+}
+
+.evolution-siniestro:hover {
+    color: var(--color-siniestro);
+}
+
+.evolution-acero:hover {
+    color: var(--color-acero);
+}
+
+.evolution-hada:hover {
+    color: var(--color-hada);
+}
+
+.evolution-normal:hover {
+    color: var(--color-normal);
+}
+
+.evolution-lucha:hover {
+    color: var(--color-lucha);
+}
+
+.evolution-tierra:hover {
+    color: var(--color-tierra);
+}
+
+.evolution-roca:hover {
+    color: var(--color-roca);
+}
+
+.evolution-bicho:hover {
+    color: var(--color-bicho);
+}
+
+.evolution-fantasma:hover {
+    color: var(--color-fantasma);
 }

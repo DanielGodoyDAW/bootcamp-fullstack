@@ -13,8 +13,8 @@ h2 + p {
 }
 
 input[required] {
-    border: 1px solid #42e60b;
     padding: 5px;
+    border: 1px solid #42e60b;
 }
 
 input[type="email"] {

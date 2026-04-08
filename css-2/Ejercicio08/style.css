@@ -24,10 +24,10 @@ body{
     }
 
     & .header-encabezado-enlace{
-        color: white;
-        text-decoration: none;
         padding: 5px 10px;
         border-radius: 5px;
+        color: white;
+        text-decoration: none;
     }
 
     & .header-encabezado-enlace:hover{
@@ -52,11 +52,11 @@ body{
 /* TARJETAS */
 
 .section-article{
+    display: flex;
+    width: 250px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    padding: 15px;
-    width: 250px;
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
@@ -72,11 +72,11 @@ body{
     }
 
     & .article-boton{
-        text-decoration: none;
-        background-color: #1e4fdf;
-        color: white;
         padding: 8px;
         border-radius: 5px;
+        background-color: #1e4fdf;
+        color: white;
+        text-decoration: none;
         text-align: center;
     }
 
@@ -87,11 +87,11 @@ body{
 }
 
 .section-aviso {
-    margin-top: 30px;
     padding: 15px;
     border: 1px solid #fc0;
-    background-color: #fff3cd;
     border-radius: 5px;
+    background-color: #fff3cd;
+    margin-top: 30px;
     text-align: center;
 
     & .section-aviso-texto {

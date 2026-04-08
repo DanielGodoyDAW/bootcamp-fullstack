@@ -23,12 +23,12 @@ section {
     }
 
     & .enlace{
-        text-decoration: none;
-        color: white;
-        background-color: #1e4fdf;
+        display: inline-block;
         padding: 8px 12px;
         border-radius: 5px;
-        display: inline-block;
+        background-color: #1e4fdf;
+        color: white;
+        text-decoration: none;
     }
 
     & .enlace:hover {

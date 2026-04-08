@@ -14,10 +14,10 @@ height: 200px;
 }
 
 .enlaces-generic{
-    text-decoration: none;
-    color: #fff;
     border: 1px solid #45b92b;
     background-color: #1e4fdf;
+    color: #fff;
+    text-decoration: none;
 
 }
 
@@ -28,11 +28,11 @@ height: 200px;
 
     & .buton-generic{
         padding: 10px;
-        background-color: #1e4fdf;
         border: 1px solid #45b92b;
         border-radius: 5px;
-        cursor: pointer;
+        background-color: #1e4fdf;
         color: white;
+        cursor: pointer;
     }
 
     & .buton-generic:hover{
@@ -49,9 +49,9 @@ height: 200px;
 }
 
 .tarjeta {
-    background-color: #eee;
+    width: 150px;
     padding: 20px;
     border: 1px solid #ccc;
-    width: 150px;
+    background-color: #eee;
     text-align: center;
 }
