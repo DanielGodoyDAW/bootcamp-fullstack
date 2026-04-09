@@ -1,3 +1,58 @@
+//Busqueda
+const busqueda = document.querySelector("#busqueda");
+busqueda.addEventListener("input", realizarBusqueda);
+
+async function realizarBusqueda(nombre) {
+  try {
+    const pokemonNombre = nombre.target.value.trim().toLowerCase();
+    if (!pokemonNombre) {
+      renderizado(pokemonsBase);
+      return;
+    }
+    const responseBusqueda = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonNombre}`,
+    );
+    if (!responseBusqueda.ok) {
+      return;
+    }
+    const dataBusqueda = await responseBusqueda.json();
+    console.log(dataBusqueda);
+
+    // Obtener el tipo en inglés de la API
+    const tipoIngles = dataBusqueda.types[0].type.name.toLowerCase();
+
+    // Convertir a español usando el mapeo único
+    const tipoEspanol = TIPO_MAP[tipoIngles] || tipoIngles;
+
+    // Obtener la evolución
+    const evolucion = await obtenerEvolucion(dataBusqueda.id);
+
+    // GIF con fallback a imagen estática
+    const gifUrl =
+      dataBusqueda.sprites.versions?.["generation-v"]?.["black-white"]?.animated
+        ?.front_default;
+    const imagenFinal = gifUrl || dataBusqueda.sprites.front_default;
+
+    const pokemonRenderizado = {
+      id: dataBusqueda.id,
+      nombre:
+        dataBusqueda.name.charAt(0).toUpperCase() + dataBusqueda.name.slice(1),
+      tipos: dataBusqueda.types.map(
+        (tipo) =>
+          tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
+      ),
+      image: dataBusqueda.sprites.front_default,
+      gif: imagenFinal,
+      tipo_color: tipoEspanol,
+      evolucion: evolucion,
+    };
+    renderizado([pokemonRenderizado]);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+
 // MAPEO ÚNICO DE TIPOS - Punto de verdad para todos los tipos
 const TIPO_MAP = {
   grass: "planta",
@@ -35,7 +90,7 @@ async function cargarPokemons() {
 
         // Obtener el tipo en inglés de la API
         const tipoIngles = datosAPI.types[0].type.name.toLowerCase();
-        
+
         // Convertir a español usando el mapeo único
         const tipoEspanol = TIPO_MAP[tipoIngles] || tipoIngles;
 
@@ -43,14 +98,18 @@ async function cargarPokemons() {
         const evolucion = await obtenerEvolucion(datosAPI.id);
 
         // GIF con fallback a imagen estática
-        const gifUrl = datosAPI.sprites.versions?.["generation-v"]?.["black-white"]?.animated?.front_default;
+        const gifUrl =
+          datosAPI.sprites.versions?.["generation-v"]?.["black-white"]?.animated
+            ?.front_default;
         const imagenFinal = gifUrl || datosAPI.sprites.front_default;
 
         return {
           id: datosAPI.id,
-          nombre: datosAPI.name.charAt(0).toUpperCase() + datosAPI.name.slice(1),
+          nombre:
+            datosAPI.name.charAt(0).toUpperCase() + datosAPI.name.slice(1),
           tipos: datosAPI.types.map(
-            (tipo) => tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
+            (tipo) =>
+              tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
           ),
           image: datosAPI.sprites.front_default,
           gif: imagenFinal,
@@ -71,7 +130,9 @@ async function cargarPokemons() {
 async function obtenerEvolucion(pokemonId) {
   try {
     // Obtener los datos de la especie
-    const responseSpecies = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`);
+    const responseSpecies = await fetch(
+      `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`,
+    );
     const datosSpecies = await responseSpecies.json();
 
     // Obtener la cadena de evolución
@@ -80,9 +141,12 @@ async function obtenerEvolucion(pokemonId) {
     const datosEvolutionChain = await responseEvolutionChain.json();
 
     // Buscar el pokemon actual en la cadena y obtener su evolución
-    const evolucionEncontrada = buscarEvolucion(datosEvolutionChain.chain, datosSpecies.name);
-    
-    return evolucionEncontrada; 
+    const evolucionEncontrada = buscarEvolucion(
+      datosEvolutionChain.chain,
+      datosSpecies.name,
+    );
+
+    return evolucionEncontrada;
   } catch (error) {
     console.error("Error al obtener evolución:", error);
     return null;
@@ -94,7 +158,9 @@ function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
   // Si encontramos el pokemon actual
   if (chain.species.name === nombrePokemon) {
     if (evolucionAnterior) {
-      return evolucionAnterior.charAt(0).toUpperCase() + evolucionAnterior.slice(1);
+      return (
+        evolucionAnterior.charAt(0).toUpperCase() + evolucionAnterior.slice(1)
+      );
     }
     return null;
   }
@@ -102,9 +168,9 @@ function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
   // Si no es el pokemon actual, buscamos en las evoluciones posteriores
   for (let evolucion of chain.evolves_to) {
     const resultado = buscarEvolucion(
-      evolucion, 
-      nombrePokemon, 
-      chain.species.name
+      evolucion,
+      nombrePokemon,
+      chain.species.name,
     );
     if (resultado !== undefined) {
       return resultado;
@@ -167,9 +233,9 @@ function crearTarjetaPokemon(pokemon) {
   //iteramos sobre los tipos del pokemon y por cada tipo creamos un span con la clase del tipo y el texto del tipo
   pokemon.tipos.forEach((tipo) => {
     const spanTipo = document.createElement("span");
-    const tipoEspanol = obtenerTipoPokemon(tipo);  // Convertir a español
-    spanTipo.className = `tipo ${tipoEspanol}`;    // Usar nombre en español
-    spanTipo.textContent = tipo;                    // Mantener el texto en inglés
+    const tipoEspanol = obtenerTipoPokemon(tipo); // Convertir a español
+    spanTipo.className = `tipo ${tipoEspanol}`; // Usar nombre en español
+    spanTipo.textContent = tipo; // Mantener el texto en inglés
     parrafoTipo.append(spanTipo);
   });
 
@@ -187,7 +253,7 @@ function crearTarjetaPokemon(pokemon) {
 
     evolutionDiv.append(spanEvolution);
   }
-  
+
   divTipo.append(parrafoClase, parrafoTipo);
 
   if (evolutionDiv) {
@@ -216,8 +282,12 @@ function renderizado(coleccion) {
   });
 }
 
+
+
+let pokemonBase = [];
+
 // Evento DOMContentLoaded
 document.addEventListener("DOMContentLoaded", async () => {
-  const pokemons = await cargarPokemons();
-  renderizado(pokemons);
+  pokemonsBase = await cargarPokemons();
+  renderizado(pokemonsBase);
 });
