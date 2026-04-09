@@ -36,9 +36,10 @@ bootcamp-fullstack/
 
 ## Progreso (opcional)
 - HTML: Ejercicio01 → Ejercicio07
-- CSS: Ejercicio01 → Ejercicio08
 - FORM: Ejercicio01 → Ejercicio11
-- CSS-2: Ejercicios01 → Ejecicios08
+- CSS: 
+    - CSS-1: Ejercicio01 → Ejercicio08
+    - CSS-2: Ejercicios01 → Ejecicios08
 - JS: 
     - Variables y Condicionales: Ejercicios01 → Ejecicios13
     - Funciones y Bucles: Ejercicios01 → Ejecicios18
