@@ -10,13 +10,12 @@ async function realizarBusqueda(nombre) {
       return;
     }
     const responseBusqueda = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonNombre}`,
+      `https://pokeapi.co/api/v2/pokemon/${encodeURIComponent(pokemonNombre)}`,
     );
     if (!responseBusqueda.ok) {
       return;
     }
     const dataBusqueda = await responseBusqueda.json();
-    //console.log(dataBusqueda);
 
     const pokemonRenderizado = await formatearPokemon(dataBusqueda);
     renderizado([pokemonRenderizado]);
@@ -27,32 +26,28 @@ async function realizarBusqueda(nombre) {
 
 async function formatearPokemon(datosApi) {
   const tipoIngles = datosApi.types[0].type.name.toLowerCase();
+  const tipoEspanol = TIPO_MAP[tipoIngles] || tipoIngles;
+  const evolucion = await obtenerEvolucion(datosApi.id);
 
-    // Convertir a español usando el mapeo único
-    const tipoEspanol = TIPO_MAP[tipoIngles] || tipoIngles;
+  const gifUrl =
+    datosApi.sprites.versions?.["generation-v"]?.["black-white"]?.animated
+      ?.front_default;
+  const imagenFinal = gifUrl || datosApi.sprites.front_default;
 
-    // Obtener la evolución
-    const evolucion = await obtenerEvolucion(datosApi.id);
-
-    // GIF con fallback a imagen estática
-    const gifUrl = datosApi.sprites.versions?.["generation-v"]?.["black-white"]?.animated?.front_default;
-    const imagenFinal = gifUrl || datosApi.sprites.front_default;
-
-    return{
-      id: datosApi.id,
-      nombre:
-        datosApi.name.charAt(0).toUpperCase() + datosApi.name.slice(1),
-      tipos: datosApi.types.map(
-        (tipo) => tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
-      ),
-      image: datosApi.sprites.front_default,
-      gif: imagenFinal,
-      tipo_color: tipoEspanol,
-      evolucion: evolucion,
-    };
-    
+  return {
+    id: datosApi.id,
+    nombre:
+      datosApi.name.charAt(0).toUpperCase() + datosApi.name.slice(1),
+    tipos: datosApi.types.map(
+      (tipo) =>
+        tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
+    ),
+    image: datosApi.sprites.front_default,
+    gif: imagenFinal,
+    tipo_color: tipoEspanol,
+    evolucion: evolucion,
+  };
 }
-
 
 // MAPEO ÚNICO DE TIPOS - Punto de verdad para todos los tipos
 const TIPO_MAP = {
@@ -79,11 +74,9 @@ const TIPO_MAP = {
 // Función para cargar los pokemons desde la API
 async function cargarPokemons() {
   try {
-    // Obtener la lista de pokemons
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=9`);
     const datos = await response.json();
 
-    // Usar Promise.all para esperar a que se resuelvan todas las promesas de los pokemons
     const pokemons = await Promise.all(
       datos.results.map(async (pokemonLista) => {
         const respuesta = await fetch(pokemonLista.url);
@@ -103,18 +96,15 @@ async function cargarPokemons() {
 // Función para obtener la evolución
 async function obtenerEvolucion(pokemonId) {
   try {
-    // Obtener los datos de la especie
     const responseSpecies = await fetch(
       `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`,
     );
     const datosSpecies = await responseSpecies.json();
 
-    // Obtener la cadena de evolución
     const urlEvolutionChain = datosSpecies.evolution_chain.url;
     const responseEvolutionChain = await fetch(urlEvolutionChain);
     const datosEvolutionChain = await responseEvolutionChain.json();
 
-    // Buscar el pokemon actual en la cadena y obtener su evolución
     const evolucionEncontrada = buscarEvolucion(
       datosEvolutionChain.chain,
       datosSpecies.name,
@@ -129,7 +119,6 @@ async function obtenerEvolucion(pokemonId) {
 
 // Función recursiva para buscar la evolución en la cadena de evolución
 function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
-  // Si encontramos el pokemon actual
   if (chain.species.name === nombrePokemon) {
     if (evolucionAnterior) {
       return (
@@ -139,7 +128,6 @@ function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
     return null;
   }
 
-  // Si no es el pokemon actual, buscamos en las evoluciones posteriores
   for (let evolucion of chain.evolves_to) {
     const resultado = buscarEvolucion(
       evolucion,
@@ -156,73 +144,79 @@ function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
 
 // Función para mostrar los pokemons
 function crearTarjetaPokemon(pokemon) {
-  //crear contenedor principal
+  // crear contenedor principal
   const article = document.createElement("article");
-  article.className = `container container-${pokemon.tipo_color}`;
+  article.classList.add("container", `container-${pokemon.tipo_color}`);
 
-  //crear div para la imagen
+  // crear div para la imagen
   const containerDiv = document.createElement("div");
-  containerDiv.className = `container-div container-div-${pokemon.tipo_color}`;
+  containerDiv.classList.add(
+    "container-div",
+    `container-div-${pokemon.tipo_color}`,
+  );
 
-  //crear figure para la imagen
+  // crear figure para la imagen
   const figure = document.createElement("figure");
-  figure.className = `pokemon-img`;
+  figure.classList.add("pokemon-img");
 
-  //crear img static
+  // crear img static
   const imgStatic = document.createElement("img");
-  imgStatic.className = `static`;
+  imgStatic.classList.add("static");
   imgStatic.src = pokemon.image;
   imgStatic.alt = `imagen de ${pokemon.nombre}`;
 
-  //crear img gif
+  // crear img gif
   const imgGif = document.createElement("img");
-  imgGif.className = `gif`;
+  imgGif.classList.add("gif");
   imgGif.src = pokemon.gif;
   imgGif.alt = `imagen de ${pokemon.nombre}`;
 
-  //insertamos dentro de figure el img static y el img gif
+  // insertamos dentro de figure el img static y el img gif
   figure.append(imgStatic, imgGif);
 
   const pID = document.createElement("p");
-  pID.className = `container-div-p-ID`;
+  pID.classList.add("container-div-p-ID");
   pID.textContent = `ID: ${pokemon.id}`;
 
-  //insertamos dentro del div el figure y el pID
+  // insertamos dentro del div el figure y el pID
   containerDiv.append(figure, pID);
 
-  //crear div con clase y tipo
+  // crear div con clase y tipo
   const divTipo = document.createElement("div");
 
-  //parrafo y strong
+  // parrafo y strong
   const parrafoClase = document.createElement("p");
   const strongClase = document.createElement("strong");
-  strongClase.className = pokemon.tipo_color;
+  strongClase.classList.add(pokemon.tipo_color);
   strongClase.textContent = pokemon.nombre;
 
-  //insertamos el strong dentro del parrafo
+  // insertamos el strong dentro del parrafo
   parrafoClase.append(strongClase);
 
   const parrafoTipo = document.createElement("p");
 
-  //iteramos sobre los tipos del pokemon y por cada tipo creamos un span con la clase del tipo y el texto del tipo
+  // iteramos sobre los tipos del pokemon y por cada tipo creamos un span con la clase del tipo y el texto del tipo
   pokemon.tipos.forEach((tipo) => {
     const spanTipo = document.createElement("span");
     const tipoEspanol = obtenerTipoPokemon(tipo); // Convertir a español
-    spanTipo.className = `tipo ${tipoEspanol}`; // Usar nombre en español
+    spanTipo.classList.add("tipo", tipoEspanol); // Usar classList.add
     spanTipo.textContent = tipo; // Mantener el texto en inglés
     parrafoTipo.append(spanTipo);
   });
 
-  //declaramos una variable para el div de evolucion
+  // declaramos una variable para el div de evolucion
   let evolutionDiv = null;
-  //si el pokemon tiene evolucion, creamos un div para mostrar la evolucion
+  // si el pokemon tiene evolucion, creamos un div para mostrar la evolucion
   if (pokemon.evolucion) {
     evolutionDiv = document.createElement("div");
-    evolutionDiv.className = `evolution`;
+    evolutionDiv.classList.add("evolution");
     evolutionDiv.textContent = `Evoluciona de `;
 
     const spanEvolution = document.createElement("span");
-    spanEvolution.className = `evolution-pokemon evolution-${pokemon.tipo_color}`;
+    spanEvolution.classList.add(
+      "evolution-pokemon",
+      `evolution-${pokemon.tipo_color}`,
+    );
     spanEvolution.textContent = pokemon.evolucion;
 
     evolutionDiv.append(spanEvolution);
