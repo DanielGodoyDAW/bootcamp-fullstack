@@ -44,7 +44,7 @@ bootcamp-fullstack/
     - Funciones y Bucles: Ejercicios01 → Ejecicios18
     - Arrays y Objetos: Ejercicios01 → Ejecicios21
     - Métodos de Arrays y Transformaciones: Ejercicios01 → Ejecicios22
--Fronted: Proyecto Pokemon (en progreso)
+- Fronted: Proyecto Pokemon (en progreso)
 
 ## Autor
 - Daniel Godoy Medina ([@DanielGodoyDAW](https://github.com/DanielGodoyDAW))
