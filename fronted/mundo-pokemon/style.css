@@ -41,6 +41,11 @@ main {
     max-width: 1000px;
 }
 
+/* Cuando hay solo una tarjeta (búsqueda) */
+main > .container:only-child {
+    max-width: calc(33.33% - 14px); /* 1/3 del ancho, menos el gap */
+}
+
 .container {
     display: flex;
     width: 100%;

@@ -1,4 +1,4 @@
-//Coleccion de pokemons
+//Coleccion de pokemons, mapeo antiguo para la insercion manual de las tarjetas
 const pokemons = [
   {
     id: 1,

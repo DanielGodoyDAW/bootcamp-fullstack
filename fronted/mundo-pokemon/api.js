@@ -1,57 +1,4 @@
-//Busqueda
-const busqueda = document.querySelector("#busqueda");
-busqueda.addEventListener("input", realizarBusqueda);
-
-async function realizarBusqueda(nombre) {
-  try {
-    const pokemonNombre = nombre.target.value.trim().toLowerCase();
-    if (!pokemonNombre) {
-      renderizado(pokemonsBase);
-      return;
-    }
-    const responseBusqueda = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemonNombre}`,
-    );
-    if (!responseBusqueda.ok) {
-      return;
-    }
-    const dataBusqueda = await responseBusqueda.json();
-    console.log(dataBusqueda);
-
-    // Obtener el tipo en inglés de la API
-    const tipoIngles = dataBusqueda.types[0].type.name.toLowerCase();
-
-    // Convertir a español usando el mapeo único
-    const tipoEspanol = TIPO_MAP[tipoIngles] || tipoIngles;
-
-    // Obtener la evolución
-    const evolucion = await obtenerEvolucion(dataBusqueda.id);
-
-    // GIF con fallback a imagen estática
-    const gifUrl =
-      dataBusqueda.sprites.versions?.["generation-v"]?.["black-white"]?.animated
-        ?.front_default;
-    const imagenFinal = gifUrl || dataBusqueda.sprites.front_default;
-
-    const pokemonRenderizado = {
-      id: dataBusqueda.id,
-      nombre:
-        dataBusqueda.name.charAt(0).toUpperCase() + dataBusqueda.name.slice(1),
-      tipos: dataBusqueda.types.map(
-        (tipo) =>
-          tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
-      ),
-      image: dataBusqueda.sprites.front_default,
-      gif: imagenFinal,
-      tipo_color: tipoEspanol,
-      evolucion: evolucion,
-    };
-    renderizado([pokemonRenderizado]);
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
+//constantes
 
 // MAPEO ÚNICO DE TIPOS - Punto de verdad para todos los tipos
 const TIPO_MAP = {
@@ -75,6 +22,43 @@ const TIPO_MAP = {
   ghost: "fantasma",
 };
 
+//Funciones de utilidad
+
+// Función para determinar el tipo usando el mapeo único
+function obtenerTipoPokemon(tipo) {
+  const tipoIngles = tipo.toLowerCase();
+  return TIPO_MAP[tipoIngles] || tipoIngles;
+}
+
+// Función recursiva para buscar la evolución en la cadena de evolución
+function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
+  // Si encontramos el pokemon actual
+  if (chain.species.name === nombrePokemon) {
+    if (evolucionAnterior) {
+      return (
+        evolucionAnterior.charAt(0).toUpperCase() + evolucionAnterior.slice(1)
+      );
+    }
+    return null;
+  }
+
+  // Si no es el pokemon actual, buscamos en las evoluciones posteriores
+  for (let evolucion of chain.evolves_to) {
+    const resultado = buscarEvolucion(
+      evolucion,
+      nombrePokemon,
+      chain.species.name,
+    );
+    if (resultado !== undefined) {
+      return resultado;
+    }
+  }
+
+  return undefined;
+}
+
+//Funciones de API
+
 // Función para cargar los pokemons desde la API
 async function cargarPokemons() {
   try {
@@ -88,34 +72,7 @@ async function cargarPokemons() {
         const respuesta = await fetch(pokemonLista.url);
         const datosAPI = await respuesta.json();
 
-        // Obtener el tipo en inglés de la API
-        const tipoIngles = datosAPI.types[0].type.name.toLowerCase();
-
-        // Convertir a español usando el mapeo único
-        const tipoEspanol = TIPO_MAP[tipoIngles] || tipoIngles;
-
-        // Obtener la evolución
-        const evolucion = await obtenerEvolucion(datosAPI.id);
-
-        // GIF con fallback a imagen estática
-        const gifUrl =
-          datosAPI.sprites.versions?.["generation-v"]?.["black-white"]?.animated
-            ?.front_default;
-        const imagenFinal = gifUrl || datosAPI.sprites.front_default;
-
-        return {
-          id: datosAPI.id,
-          nombre:
-            datosAPI.name.charAt(0).toUpperCase() + datosAPI.name.slice(1),
-          tipos: datosAPI.types.map(
-            (tipo) =>
-              tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
-          ),
-          image: datosAPI.sprites.front_default,
-          gif: imagenFinal,
-          tipo_color: tipoEspanol,
-          evolucion: evolucion,
-        };
+        return formatearPokemon(datosAPI);
       }),
     );
 
@@ -153,32 +110,36 @@ async function obtenerEvolucion(pokemonId) {
   }
 }
 
-// Función recursiva para buscar la evolución en la cadena de evolución
-function buscarEvolucion(chain, nombrePokemon, evolucionAnterior = null) {
-  // Si encontramos el pokemon actual
-  if (chain.species.name === nombrePokemon) {
-    if (evolucionAnterior) {
-      return (
-        evolucionAnterior.charAt(0).toUpperCase() + evolucionAnterior.slice(1)
-      );
-    }
-    return null;
-  }
+// Función para formatear los datos del pokemon
+async function formatearPokemon(datosApi) {
+  const tipoIngles = datosApi.types[0].type.name.toLowerCase();
 
-  // Si no es el pokemon actual, buscamos en las evoluciones posteriores
-  for (let evolucion of chain.evolves_to) {
-    const resultado = buscarEvolucion(
-      evolucion,
-      nombrePokemon,
-      chain.species.name,
-    );
-    if (resultado !== undefined) {
-      return resultado;
-    }
-  }
+    // Convertir a español usando el mapeo único
+    const tipoEspanol = TIPO_MAP[tipoIngles] || tipoIngles;
 
-  return undefined;
+    // Obtener la evolución
+    const evolucion = await obtenerEvolucion(datosApi.id);
+
+    // GIF con fallback a imagen estática
+    const gifUrl = datosApi.sprites.versions?.["generation-v"]?.["black-white"]?.animated?.front_default;
+    const imagenFinal = gifUrl || datosApi.sprites.front_default;
+
+    return{
+      id: datosApi.id,
+      nombre:
+        datosApi.name.charAt(0).toUpperCase() + datosApi.name.slice(1),
+      tipos: datosApi.types.map(
+        (tipo) => tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
+      ),
+      image: datosApi.sprites.front_default,
+      gif: imagenFinal,
+      tipo_color: tipoEspanol,
+      evolucion: evolucion,
+    };
+    
 }
+
+//Funciones del DOM
 
 // Función para mostrar los pokemons
 function crearTarjetaPokemon(pokemon) {
@@ -265,12 +226,6 @@ function crearTarjetaPokemon(pokemon) {
   return article;
 }
 
-// Función para determinar el tipo usando el mapeo único
-function obtenerTipoPokemon(tipo) {
-  const tipoIngles = tipo.toLowerCase();
-  return TIPO_MAP[tipoIngles] || tipoIngles;
-}
-
 // Función para hacer el renderizado de las tarjetas
 function renderizado(coleccion) {
   const main = document.querySelector("main");
@@ -282,12 +237,42 @@ function renderizado(coleccion) {
   });
 }
 
+// Variables globales
 
+let pokemonsBase = [];
 
-let pokemonBase = [];
+//Eventos
 
 // Evento DOMContentLoaded
 document.addEventListener("DOMContentLoaded", async () => {
   pokemonsBase = await cargarPokemons();
   renderizado(pokemonsBase);
 });
+
+// Función para realizar la búsqueda
+async function realizarBusqueda(nombre) {
+  try {
+    const pokemonNombre = nombre.target.value.trim().toLowerCase();
+    if (!pokemonNombre) {
+      renderizado(pokemonsBase);
+      return;
+    }
+    const responseBusqueda = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${pokemonNombre}`,
+    );
+    if (!responseBusqueda.ok) {
+      return;
+    }
+    const dataBusqueda = await responseBusqueda.json();
+    //console.log(dataBusqueda);
+
+    const pokemonRenderizado = await formatearPokemon(dataBusqueda);
+    renderizado([pokemonRenderizado]);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+//Busqueda
+const busqueda = document.querySelector("#busqueda");
+busqueda.addEventListener("input", realizarBusqueda);
