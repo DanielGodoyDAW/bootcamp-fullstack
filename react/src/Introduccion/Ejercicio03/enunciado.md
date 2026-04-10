@@ -1,17 +1,18 @@
 Ejercicio 3. Corregir JSX con errores
 
 Este componente contiene varios errores. Corrígelo para que funcione correctamente.
-
+```jsx
 function app() {
     return (
-<section class="hero">
-    <h1>React desde cero</h1>
-    <p>Aprende a crear interfaces modernas.
-    <img src="https://via.placeholder.com/200" alt="Portada">
-    <button>Empezar</button>
-</section>
+    <section class="hero">
+        <h1>React desde cero</h1>
+        <p>Aprende a crear interfaces modernas.
+        <img src="https://via.placeholder.com/200" alt="Portada">
+        <button>Empezar</button>
+    </section>
     );
 }
+```
 
 Qué debes entregar
 
