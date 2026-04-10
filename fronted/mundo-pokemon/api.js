@@ -240,6 +240,7 @@ function renderizado(coleccion) {
 // Variables globales
 
 let pokemonsBase = [];
+let retardo;
 
 //Eventos
 
@@ -254,6 +255,15 @@ async function realizarBusqueda(nombre) {
   try {
     const pokemonNombre = nombre.target.value.trim().toLowerCase();
     if (!pokemonNombre) {
+      renderizado(pokemonsBase);
+      return;
+    }
+
+    // Si son SOLO números -> no permitir
+    if (/^\d+$/.test(pokemonNombre)) {
+      // aquí puedes mostrar un aviso o simplemente volver a la lista
+      console.warn("La búsqueda no puede contener solo números.");
+      // mostramos las tarjetas base
       renderizado(pokemonsBase);
       return;
     }
@@ -275,4 +285,9 @@ async function realizarBusqueda(nombre) {
 
 //Busqueda
 const busqueda = document.querySelector("#busqueda");
-busqueda.addEventListener("input", realizarBusqueda);
+busqueda.addEventListener("input", (e) => {
+  clearTimeout(retardo); // Limpiar el retardo anterior para evitar búsquedas innecesarias
+  retardo = setTimeout(() => {
+  realizarBusqueda(e); 
+  }, 400); //aplicmaos un retardo de 400ms para evitar hacer una búsqueda en cada pulsación
+});
