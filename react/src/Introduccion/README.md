@@ -38,4 +38,6 @@ reutilizar y organizar mejor tus componentes.
 ## Se consideran de recomendado cumplimiento y especialmente importantes para consolidar la sesión los ejercicios:
     3, 5, 7 y 9.
 
- 
+## Integraciones
+
+- Todos los ejercicios estan integrados en react/App.jsx con sus importaciones correspondientes, para que puedas verlos en el navegador sin necesidad de copiar y pegar código.
