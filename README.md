@@ -50,7 +50,8 @@ bootcamp-fullstack/
     - Arrays y Objetos: Ejercicios01 → Ejecicios21
     - Métodos de Arrays y Transformaciones: Ejercicios01 → Ejecicios22
 - Fronted: Proyecto Pokemon (en progreso)
-- React: Ejercicios01 → Ejecicios12
+- React: 
+    - Introducción: Ejercicio01 → Ejercicio12
 
 ## Autor
 - Daniel Godoy Medina ([@DanielGodoyDAW](https://github.com/DanielGodoyDAW))
