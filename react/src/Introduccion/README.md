@@ -21,18 +21,18 @@ reutilizar y organizar mejor tus componentes.
     detectar errores básicos de JSX y estructura de componentes.
 
 ## Índice
-- [Ejercicio01](./src/Ejercicio01)
-- [Ejercicio02](./src/Ejercicio02)
-- [Ejercicio03](./src/Ejercicio03)
-- [Ejercicio04](./src/Ejercicio04)
-- [Ejercicio05](./src/Ejercicio05)
-- [Ejercicio06](./src/Ejercicio06)
-- [Ejercicio07](./src/Ejercicio07)
-- [Ejercicio08](./src/Ejercicio08)
-- [Ejercicio09](./src/Ejercicio09)
-- [Ejercicio10](./src/Ejercicio10)
-- [Ejercicio11](./src/Ejercicio11)
-- [Ejercicio12](./src/Ejercicio12)
+- [Ejercicio01](./Ejercicio01/)
+- [Ejercicio02](./Ejercicio02/)
+- [Ejercicio03](./Ejercicio03/)
+- [Ejercicio04](./Ejercicio04/)
+- [Ejercicio05](./Ejercicio05/)
+- [Ejercicio06](./Ejercicio06/)
+- [Ejercicio07](./Ejercicio07/)
+- [Ejercicio08](./Ejercicio08/)
+- [Ejercicio09](./Ejercicio09/)
+- [Ejercicio10](./Ejercicio10/)
+- [Ejercicio11](./Ejercicio11/)
+- [Ejercicio12](./Ejercicio12/)
 
 
 ## Se consideran de recomendado cumplimiento y especialmente importantes para consolidar la sesión los ejercicios:
