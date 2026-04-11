@@ -9,6 +9,7 @@ A partir del siguiente código, crea una versión corregida y mejor construida e
 archivo.
 
 Código de partida
+```jsx
 
 <!DOCTYPE html>
 <html>
@@ -27,6 +28,7 @@ Acepto condiciones <input type="checkbox">
 </form>
 </body>
 </html>
+```
 
 Debes corregir obligatoriamente
 
