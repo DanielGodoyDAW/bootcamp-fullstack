@@ -8,7 +8,7 @@ A continuación tienes un HTML deliberadamente mejorable. No debes copiarlo tal 
 reconstruirlo correctamente en tu archivo.
 
 Código de partida
-’‘‘html
+
 
 <!DOCTYPE html>
 <html>
@@ -33,7 +33,7 @@ Código de partida
 </div>
 </body>
 </html>
-‘‘‘
+
 
 Tu tarea
 Reescribe esa página para convertirla en una versión mejor construida.
