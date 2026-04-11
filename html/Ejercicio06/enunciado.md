@@ -9,7 +9,7 @@ reconstruirlo correctamente en tu archivo.
 
 Código de partida
 
-
+```jsx
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +34,7 @@ Código de partida
 </body>
 </html>
 
+```
 
 Tu tarea
 Reescribe esa página para convertirla en una versión mejor construida.
