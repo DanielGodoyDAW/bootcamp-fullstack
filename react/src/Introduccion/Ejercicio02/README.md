@@ -3,6 +3,7 @@ Ejercicio 2. Pasar de HTML estático a JSX
 Convierte el siguiente fragmento de HTML a un componente React funcional llamado
 WelcomeCard .
 
+```jsx
 <section class="card">
     <img src="https://via.placeholder.com/150" alt="Imagen de bienvenida">
     <h2>Bienvenido al bloque de React</h2>
@@ -10,6 +11,7 @@ WelcomeCard .
     <label for="email">Email</label>
     <input id="email" type="email">
 </section>
+```
 
 Requisitos
 
