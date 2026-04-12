@@ -11,7 +11,7 @@ Quieres construir una pequeña página de inicio para un bootcamp con estas part
 
 Sin escribir todavía código, responde:
 
-1¿Qué partes de esta interfaz podrían convertirse en componentes?
+1. ¿Qué partes de esta interfaz podrían convertirse en componentes?
 2. ¿Cuáles crees que podrían quedarse juntas dentro de un mismo componente y cuáles
 separarías?
 3. ¿Qué ventajas tendría dividir esa interfaz en componentes en lugar de escribirla como un
