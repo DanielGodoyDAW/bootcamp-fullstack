@@ -12,26 +12,28 @@ Código de partida
 ```jsx
 <!DOCTYPE html>
 <html>
-<head>
-<title>Mi web</title>
-</head>
-<body>
-<div class="top">
-<div><a href="https://example.com" target="_blank">haz clic aquí</a></div>
-<div>Mi curso</div>
-</div>
-<div>
-<div>Aprende HTML rapido</div>
-<div>Esto es un curso intensivo para aprender mucho.</div>
-<img src="curso.jpg">
-</div>
-<div>
-<div>Temario</div>
-<div>HTML</div>
-<div>CSS</div>
-<div>JS</div>
-</div>
-</body>
+    <head>
+        <title>Mi web</title>
+    </head>
+    <body>
+        <div class="top">
+            <div>
+                <a href="https://example.com" target="_blank">haz clic aquí</a>
+            </div>
+        <div>Mi curso</div>
+        </div>
+        <div>
+            <div>Aprende HTML rapido</div>
+            <div>Esto es un curso intensivo para aprender mucho.</div>
+            <img src="curso.jpg">
+        </div>
+        <div>
+            <div>Temario</div>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>JS</div>
+        </div>
+    </body>
 </html>
 
 ```
