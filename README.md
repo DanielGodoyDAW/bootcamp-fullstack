@@ -53,6 +53,17 @@ bootcamp-fullstack/
 - React: 
     - Introducción: Ejercicio01 → Ejercicio12
 
+## ⚠️ Sobre las soluciones
+
+Cada ejercicio incluye **una solución propuesta** que refleja mi mejor enfoque en el momento de realizarlo. Sin embargo:
+
+- 🎯 No es la única solución correcta
+- 💡 Existen múltiples formas válidas de resolver cada ejercicio
+- 🔧 Tu solución puede ser igual de buena o incluso mejor
+- 📚 Úsalas como **guía de referencia**, no como verdad absoluta
+
+El objetivo es que aprendas el concepto, no que copies la solución. ¡Intenta resolver los ejercicios por tu cuenta primero! 💪
+
 ## Autor
 - Daniel Godoy Medina ([@DanielGodoyDAW](https://github.com/DanielGodoyDAW))
 - Inicio: 2026-03-16
