@@ -9,6 +9,7 @@ import ProfileCard from "./Props-composicion/Ejercicio03/ProfileCard";
 import TechCard from "./Props-composicion/Ejercicio04/TechCard";
 import ModuleCard from "./Props-composicion/Ejercicio05/ModuleCard";
 import { StudentCardA, StudentCardB } from "./Props-composicion/Ejercicio06/StudentCard";
+import Panel from "./Props-composicion/Ejercicio07/Panel";
 
 function App() {
   const modules = [
@@ -87,6 +88,23 @@ function App() {
       <h2>Ejercicio 6</h2>
       <StudentCardA name="Juan" group="B" level="medio"/>
       <StudentCardB name="Paco" group="C" level="intermedio"/>
+      <Separador/>
+      <h2>Ejercicio 7</h2>
+      <Panel>
+        <h2>Bienvenido</h2>
+        <p>Este es un párrafo dentro del panel.</p>
+      </Panel>
+       <Panel>
+        <h2>Mi lista</h2>
+        <ol>
+          <li>punto 1</li>
+          <li>punto 2</li>
+        </ol>
+      </Panel>
+      <Panel>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam harum dolor, esse autem distinctio exercitationem labore veniam vitae? Eaque perspiciatis doloremque expedita incidunt amet voluptatibus provident quaerat fugit in dignissimos.</p>
+        <button>Pulsame</button>
+      </Panel>
     </>
   );
 }
