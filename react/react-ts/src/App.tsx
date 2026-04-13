@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from './assets/vite.svg'
+// import heroImg from './assets/hero.png'
 import './App.css'
 import CourseCard from './Props-composicion/Ejercicio02/CourseCard'
 import Separador from './Props-composicion/Separador'
 import ProfileCard from './Props-composicion/Ejercicio03/ProfileCard'
+import TechCard from './Props-composicion/Ejercicio04/TechCard'
 
 function App() {
 
@@ -20,7 +21,9 @@ function App() {
       <Separador/>
       <ProfileCard name="Álvaro" role="Backend Developer" city="Sevilla" />
       <Separador />
-      
+      <h2>Ejercicio 4</h2>
+      <TechCard name='titulo 1' category='categoria 1' description='descripcion 1'/>
+      <TechCard name='titulo 2' category='categoria 2' description='descripcion 2'/>
     </>
   )
 }
