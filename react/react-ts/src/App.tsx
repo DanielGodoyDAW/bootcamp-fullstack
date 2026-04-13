@@ -10,6 +10,12 @@ import TechCard from "./Props-composicion/Ejercicio04/TechCard";
 import ModuleCard from "./Props-composicion/Ejercicio05/ModuleCard";
 import { StudentCardA, StudentCardB } from "./Props-composicion/Ejercicio06/StudentCard";
 import Panel from "./Props-composicion/Ejercicio07/Panel";
+import InfoCard from "./Props-composicion/Ejercicio08/InfoCard";
+import InfoCardContainer from "./Props-composicion/Ejercicio08/InfoCardContainer";
+import TargetCurso from "./Props-composicion/Ejercicio09/TargetCurso";
+import SectionBlock from "./Props-composicion/Ejercicio11/SectionBlock";
+import Header from "./Props-composicion/Ejercicio12/Header";
+import Target from "./Props-composicion/Ejercicio12/Target";
 
 function App() {
   const modules = [
@@ -18,30 +24,45 @@ function App() {
       sessions: 8,
       level: "Principiante",
       description: "Fundamentos de la web",
+      duration:"6 semanas",
+      modality: "Online",
+      text:"Suscripcion"
     },
     {
       name: "JavaScript",
       sessions: 12,
       level: "Principiante",
       description: "Lenguaje de la web",
+      duration:"5 semanas",
+      modality: "Semi",
+      text:"Ver curso"
     },
     {
       name: "React",
       sessions: 16,
       level: "Intermedio",
       description: "Librería para UI",
+      duration:"8 semanas",
+      modality: "Online",
+      text:"Ver curso"
     },
     {
       name: "Node.js",
       sessions: 14,
       level: "Intermedio",
       description: "Backend con JavaScript",
+      duration:"5 semanas",
+      modality: "Semi",
+      text:"Incripcion"
     },
     {
       name: "Bases de datos",
       sessions: 10,
       level: "Intermedio",
       description: "SQL y NoSQL",
+      duration:"9 semanas",
+      modality: "Presencial",
+      text:"Incripcion"
     },
   ];
 
@@ -105,6 +126,46 @@ function App() {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam harum dolor, esse autem distinctio exercitationem labore veniam vitae? Eaque perspiciatis doloremque expedita incidunt amet voluptatibus provident quaerat fugit in dignissimos.</p>
         <button>Pulsame</button>
       </Panel>
+      <Separador/>
+      <h2>Ejercicio 8</h2>
+      <InfoCard title="botijo" description="pa beber agüita"/>
+      <Separador/>
+      <InfoCardContainer title="Alpargata">
+        <p>Pa dar chancletazos</p>
+      </InfoCardContainer>
+      <Separador/>
+      <h2>Ejercicio 9</h2>
+      <div>
+        {modules.map((module) => (
+          <TargetCurso
+          key={module.name}
+          {...module}
+          />
+      ))}
+      </div>
+      <Separador/>
+      <h2>Ejercicio 10</h2>
+      <SectionBlock title="Qué aprenderás">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sapiente, tenetur provident quam enim quaerat, quidem, aliquid ea corporis quisquam pariatur assumenda vel odit quia aut molestias architecto. Neque, hic.</p>
+      </SectionBlock>
+      <SectionBlock title="Herramientas">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident inventore tempora voluptas quod ullam quis facilis cumque necessitatibus, dolorum, neque quibusdam? Perferendis pariatur quos distinctio odio ipsum possimus inventore iste!</p>
+      </SectionBlock>
+      <SectionBlock title="Recomendaciones iniciales">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident inventore tempora voluptas quod ullam quis facilis cumque necessitatibus, dolorum, neque quibusdam? Perferendis pariatur quos distinctio odio ipsum possimus inventore iste!</p>
+      </SectionBlock>
+      <Separador/>
+      <h2>Ejercicio 12</h2>
+      <Header/>
+      <SectionBlock title="Modulos">
+        <Target title="React" description="En este curso.." />
+        <Target title="JS" description="En este curso.." />
+        <Target title="JAVA" description="En este curso.." />
+      </SectionBlock>
+      <SectionBlock title="Otros Cursos">
+        <p>Curso de HTML</p>
+        <p>Curso de CSS</p>
+      </SectionBlock>
     </>
   );
 }
