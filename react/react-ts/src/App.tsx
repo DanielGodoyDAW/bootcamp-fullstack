@@ -13,6 +13,9 @@ import Panel from "./Props-composicion/Ejercicio07/Panel";
 import InfoCard from "./Props-composicion/Ejercicio08/InfoCard";
 import InfoCardContainer from "./Props-composicion/Ejercicio08/InfoCardContainer";
 import TargetCurso from "./Props-composicion/Ejercicio09/TargetCurso";
+import SectionBlock from "./Props-composicion/Ejercicio11/SectionBlock";
+import Header from "./Props-composicion/Ejercicio12/Header";
+import Target from "./Props-composicion/Ejercicio12/Target";
 
 function App() {
   const modules = [
@@ -142,7 +145,27 @@ function App() {
       </div>
       <Separador/>
       <h2>Ejercicio 10</h2>
-      
+      <SectionBlock title="Qué aprenderás">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sapiente, tenetur provident quam enim quaerat, quidem, aliquid ea corporis quisquam pariatur assumenda vel odit quia aut molestias architecto. Neque, hic.</p>
+      </SectionBlock>
+      <SectionBlock title="Herramientas">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident inventore tempora voluptas quod ullam quis facilis cumque necessitatibus, dolorum, neque quibusdam? Perferendis pariatur quos distinctio odio ipsum possimus inventore iste!</p>
+      </SectionBlock>
+      <SectionBlock title="Recomendaciones iniciales">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident inventore tempora voluptas quod ullam quis facilis cumque necessitatibus, dolorum, neque quibusdam? Perferendis pariatur quos distinctio odio ipsum possimus inventore iste!</p>
+      </SectionBlock>
+      <Separador/>
+      <h2>Ejercicio 12</h2>
+      <Header/>
+      <SectionBlock title="Modulos">
+        <Target title="React" description="En este curso.." />
+        <Target title="JS" description="En este curso.." />
+        <Target title="JAVA" description="En este curso.." />
+      </SectionBlock>
+      <SectionBlock title="Otros Cursos">
+        <p>Curso de HTML</p>
+        <p>Curso de CSS</p>
+      </SectionBlock>
     </>
   );
 }
