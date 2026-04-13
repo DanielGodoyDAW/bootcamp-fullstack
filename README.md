@@ -29,6 +29,7 @@ bootcamp-fullstack/
 ├─ fronted/     # Proyecto Pokemon
 ├─ react/       # Ejercicios de React
 ├─  ├─ Introduccion/   # Ejercicios de introducción a React
+├─  ├─ Props/   # Ejercicios de props/composiciones/children a React
 ├─
 ├─ ComandosGit.md #Listado de comandos de git
 └─ README.md
@@ -52,6 +53,7 @@ bootcamp-fullstack/
 - Fronted: Proyecto Pokemon (en progreso)
 - React: 
     - Introducción: Ejercicio01 → Ejercicio12
+    - Props: Ejercicio01 → Ejercicio12
 
 ## ⚠️ Sobre las soluciones
 
