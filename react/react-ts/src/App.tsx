@@ -8,6 +8,7 @@ import Separador from "./Props-composicion/Separador";
 import ProfileCard from "./Props-composicion/Ejercicio03/ProfileCard";
 import TechCard from "./Props-composicion/Ejercicio04/TechCard";
 import ModuleCard from "./Props-composicion/Ejercicio05/ModuleCard";
+import { StudentCardA, StudentCardB } from "./Props-composicion/Ejercicio06/StudentCard";
 
 function App() {
   const modules = [
@@ -82,6 +83,10 @@ function App() {
         />
       ))}
       </div>
+      <Separador/>
+      <h2>Ejercicio 6</h2>
+      <StudentCardA name="Juan" group="B" level="medio"/>
+      <StudentCardB name="Paco" group="C" level="intermedio"/>
     </>
   );
 }
