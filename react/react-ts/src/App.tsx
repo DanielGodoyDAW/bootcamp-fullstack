@@ -16,6 +16,11 @@ import TargetCurso from "./Props-composicion/Ejercicio09/TargetCurso";
 import SectionBlock from "./Props-composicion/Ejercicio11/SectionBlock";
 import Header from "./Props-composicion/Ejercicio12/Header";
 import Target from "./Props-composicion/Ejercicio12/Target";
+import Button from "./Estados/Ejercicio02/Button";
+import Sample from "./Estados/Ejercicio03/Sample";
+import BotonOculto from "./Estados/Ejercicio04/BotonOculto";
+import Multitarea from "./Estados/Ejercicio05/Multitarea";
+import ChangeText from "./Estados/Ejercicio06/ChangeText";
 
 function App() {
   const modules = [
@@ -68,6 +73,7 @@ function App() {
 
   return (
     <>
+      <h1>Props</h1>
       <Separador />
       <h2>Ejercicio 2</h2>
       <CourseCard
@@ -166,6 +172,24 @@ function App() {
         <p>Curso de HTML</p>
         <p>Curso de CSS</p>
       </SectionBlock>
+      <Separador/>
+      <Separador/>
+      <h1>Estados</h1>
+      <Separador/>
+      <h2>Ejericicio 2</h2>
+      <Button/>
+      <Separador/>
+      <h2>Ejericicio 3</h2>
+      <Sample/>
+      <Separador/>
+      <h2>Ejericicio 4</h2>
+      <BotonOculto/>
+      <Separador/>
+      <h2>Ejericicio 5</h2>
+      <Multitarea/>
+      <Separador/>
+      <h2>Ejericicio 6</h2>
+      <ChangeText/>
     </>
   );
 }
