@@ -19,6 +19,7 @@ import Target from "./Props-composicion/Ejercicio12/Target";
 import Button from "./Estados/Ejercicio02/Button";
 import Sample from "./Estados/Ejercicio03/Sample";
 import BotonOculto from "./Estados/Ejercicio04/BotonOculto";
+import Multitarea from "./Estados/Ejercicio05/Multitarea";
 
 function App() {
   const modules = [
@@ -182,6 +183,9 @@ function App() {
       <Separador/>
       <h2>Ejericicio 4</h2>
       <BotonOculto/>
+      <Separador/>
+      <h2>Ejericicio 5</h2>
+      <Multitarea/>
     </>
   );
 }
