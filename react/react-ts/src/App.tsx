@@ -20,6 +20,7 @@ import Button from "./Estados/Ejercicio02/Button";
 import Sample from "./Estados/Ejercicio03/Sample";
 import BotonOculto from "./Estados/Ejercicio04/BotonOculto";
 import Multitarea from "./Estados/Ejercicio05/Multitarea";
+import ChangeText from "./Estados/Ejercicio06/ChangeText";
 
 function App() {
   const modules = [
@@ -186,6 +187,9 @@ function App() {
       <Separador/>
       <h2>Ejericicio 5</h2>
       <Multitarea/>
+      <Separador/>
+      <h2>Ejericicio 6</h2>
+      <ChangeText/>
     </>
   );
 }
