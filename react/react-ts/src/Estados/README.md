@@ -47,3 +47,6 @@ Esta hoja reúne ejercicios prácticos breves y progresivos para trabajar con co
     12. ex09
     13. ex13
 
+## Integraciones
+
+- Todos los ejercicios estan integrados en react-ts/App.tsx con sus importaciones correspondientes, para que puedas verlos en el navegador sin necesidad de copiar y pegar código.

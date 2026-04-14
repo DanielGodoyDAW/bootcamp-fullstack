@@ -40,4 +40,4 @@ reutilizar y organizar mejor tus componentes.
 
 ## Integraciones
 
-- Todos los ejercicios estan integrados en react/App.jsx con sus importaciones correspondientes, para que puedas verlos en el navegador sin necesidad de copiar y pegar código.
+- Todos los ejercicios estan integrados en react-js/App.jsx con sus importaciones correspondientes, para que puedas verlos en el navegador sin necesidad de copiar y pegar código.

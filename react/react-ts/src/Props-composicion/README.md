@@ -43,3 +43,8 @@ Al terminar esta hoja deberías ser capaz de:
 ## Se consideran especialmente importantes para consolidar la sesión:
 
     3, 5, 7 y 9.
+
+
+## Integraciones
+
+- Todos los ejercicios estan integrados en react-ts/App.tsx con sus importaciones correspondientes, para que puedas verlos en el navegador sin necesidad de copiar y pegar código.
