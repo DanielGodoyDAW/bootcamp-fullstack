@@ -25,6 +25,21 @@ Al terminar esta hoja deberías ser capaz de:
     diferenciar entre props normales y children ;
     detectar cuándo un componente está demasiado rígido y conviene parametrizarlo.
 
+## Índice
+- [Ejercicio01](./Ejercicio01)
+- [Ejercicio02](./Ejercicio02)
+- [Ejercicio03](./Ejercicio03)
+- [Ejercicio04](./Ejercicio04)
+- [Ejercicio05](./Ejercicio05)
+- [Ejercicio06](./Ejercicio06)
+- [Ejercicio07](./Ejercicio07)
+- [Ejercicio08](./Ejercicio08)
+- [Ejercicio09](./Ejercicio09)
+- [Ejercicio10](./Ejercicio10)
+- [Ejercicio11](./Ejercicio11)
+- [Ejercicio12](./Ejercicio12)
+
+
 ## Se consideran especialmente importantes para consolidar la sesión:
 
     3, 5, 7 y 9.
