@@ -30,6 +30,7 @@ bootcamp-fullstack/
 ├─ react/       # Ejercicios de React
 ├─  ├─ Introduccion/   # Ejercicios de introducción a React
 ├─  ├─ Props/   # Ejercicios de props/composiciones/children a React
+├─  ├─ Estados/   # Ejercicios de estados a React
 ├─
 ├─ ComandosGit.md #Listado de comandos de git
 └─ README.md
@@ -54,6 +55,7 @@ bootcamp-fullstack/
 - React: 
     - Introducción: Ejercicio01 → Ejercicio12
     - Props: Ejercicio01 → Ejercicio12
+    - Estados: Ejercicio01 → Ejercicio13
 
 ## ⚠️ Sobre las soluciones
 
