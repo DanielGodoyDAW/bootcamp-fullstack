@@ -21,6 +21,12 @@ import Sample from "./Estados/Ejercicio03/Sample";
 import BotonOculto from "./Estados/Ejercicio04/BotonOculto";
 import Multitarea from "./Estados/Ejercicio05/Multitarea";
 import ChangeText from "./Estados/Ejercicio06/ChangeText";
+import DoubleComponent from "./Estados/Ejercicio07/DoubleComponent";
+import Sample2 from "./Estados/Ejercicio08/Sample2";
+import VariosComportamientos from "./Estados/Ejercicio09/VariosComportamientos";
+import Alterno from "./Estados/Ejercicio11/Alterno";
+import ItemCounter from "./Estados/Ejercicio12/ItemCounter";
+import TemaLibre from "./Estados/Ejercicio13/TemaLibre";
 
 function App() {
   const modules = [
@@ -190,6 +196,24 @@ function App() {
       <Separador/>
       <h2>Ejericicio 6</h2>
       <ChangeText/>
+      <Separador/>
+      <h2>Ejericicio 7</h2>
+      <DoubleComponent/>
+      <Separador/>
+      <h2>Ejericicio 8</h2>
+      <Sample2/>
+      <Separador/>
+      <h2>Ejericicio 9</h2>
+      <VariosComportamientos/>
+      <Separador/>
+      <h2>Ejericicio 11</h2>
+      <Alterno/>
+      <Separador/>
+      <h2>Ejericicio 12</h2>
+      <ItemCounter/>
+      <Separador/>
+      <h2>Ejericicio 13</h2>
+      <TemaLibre/>
     </>
   );
 }

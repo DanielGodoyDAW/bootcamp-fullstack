@@ -31,3 +31,22 @@ Esta hoja reúne ejercicios prácticos breves y progresivos para trabajar con co
 
     3, 5, 8, 11 y 12.
 
+## Orden recomendado
+
+    1. ex01
+    2. ex02
+    3. ex03
+    4. ex04
+    5. ex05
+    6. ex06
+    7. ex07
+    8. ex08
+    9. ex10
+    10. ex11
+    11. ex12
+    12. ex09
+    13. ex13
+
+## Integraciones
+
+- Todos los ejercicios estan integrados en react-ts/App.tsx con sus importaciones correspondientes, para que puedas verlos en el navegador sin necesidad de copiar y pegar código.
