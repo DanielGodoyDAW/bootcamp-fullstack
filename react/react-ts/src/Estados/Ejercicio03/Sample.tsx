@@ -1,13 +1,10 @@
-ex03 — Corrección de código
+import { useState } from "react";
 
-Corrige este componente para que funcione correctamente.
-
-```tsx
 function Sample() {
     const [value, setValue] = useState(0);
 
     function updateValue() {
-        value = value + 1;
+        setValue(value => value + 1);
     }
 
     return (
@@ -17,9 +14,4 @@ function Sample() {
         </section>
     );
 }
-```
-
-Entrega
-
-    Código corregido.
-    Explicación breve de los fallos detectados.
+export default Sample;

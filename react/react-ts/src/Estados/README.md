@@ -2,6 +2,15 @@
 
 Esta hoja reúne ejercicios prácticos breves y progresivos para trabajar con componentes interactivos sencillos.
 
+## Indicaciones generales
+
+    Trabaja dentro de tu proyecto del bloque.
+    Resuelve cada ejercicio con código claro y ordenado.
+    Evita soluciones innecesariamente complejas.
+    No uses librerías adicionales.
+    Si una tarea incluye código de partida, reutilízalo y corrígelo o amplíalo según se indique.
+    Cuando un ejercicio pida estilos, basta con una propuesta mínima funcional.
+
 ## Índice
 - [Ejercicio01](./Ejercicio01)
 - [Ejercicio02](./Ejercicio02)
