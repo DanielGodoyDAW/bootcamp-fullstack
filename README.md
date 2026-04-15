@@ -1,9 +1,9 @@
-# Bootcamp Fullstack
+# 📍 Bootcamp Fullstack
 
 Repositorio de prácticas del Bootcamp Fullstack.  
 Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, **JS**, **React** y otros bloques a medida que avanzo.
 
-## Contenido
+## 📜 Contenido
 - [HTML](./html)
 - [CSS](./css)
 - [Formularios](./form)
@@ -12,7 +12,7 @@ Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, *
 - [React](./react)
 - [ComandosGit](./ComandosGit.md)
 
-## Estructura del repositorio
+## 📑 Estructura del repositorio
 ```text
 bootcamp-fullstack/
 ├─ html/        # Ejercicios de HTML
@@ -36,11 +36,11 @@ bootcamp-fullstack/
 └─ README.md
 ```
 
-## Cómo ver los ejercicios
+## 🎲 Cómo ver los ejercicios
 - Abre el `index.html` del ejercicio en el navegador, o
 - Usa **Live Server** (VS Code) para recargar automáticamente.
 
-## Progreso (opcional)
+## 🛠️ Progreso (opcional)
 - HTML: Ejercicio01 → Ejercicio07
 - FORM: Ejercicio01 → Ejercicio11
 - CSS: 
@@ -68,6 +68,6 @@ Cada ejercicio incluye **una solución propuesta** que refleja mi mejor enfoque 
 
 El objetivo es que aprendas el concepto, no que copies la solución. ¡Intenta resolver los ejercicios por tu cuenta primero! 💪
 
-## Autor
+## 👦🏽 Autor
 - Daniel Godoy Medina ([@DanielGodoyDAW](https://github.com/DanielGodoyDAW))
 - Inicio: 2026-03-16
