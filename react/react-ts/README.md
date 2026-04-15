@@ -9,4 +9,5 @@ En esta seccion seran practicas con Typescript
 ## 📚 Contenido
 
 - [Ejercicios de Props](./src/Props-composicion/) - Props, composición y reutilización de componentes.
+- [Ejercicios de Estados](./src/Estados/) - Manejo de estado y eventos en React.
 
