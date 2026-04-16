@@ -2,6 +2,7 @@ import Separador from "../Separador";
 import Hello from "./Ejercicio02/Hello"
 import SampleAccess from "./Ejercicio03/SampleAccess";
 import VistaPrevia from "./Ejercicio04/VistaPrevia";
+import ComprobacionBasica from "./Ejercicio05/ComprobacionBasica";
 
 
 function Formularios() {
@@ -16,6 +17,9 @@ function Formularios() {
         <Separador/>
         <h2>Ejercicio 4</h2>
         <VistaPrevia/>
+        <Separador/>
+        <h2>Ejercicio 5</h2>
+        <ComprobacionBasica/>
     </div>
   )
 }

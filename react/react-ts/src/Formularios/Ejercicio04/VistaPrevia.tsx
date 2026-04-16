@@ -4,8 +4,6 @@ function VistaPrevia() {
 
     const[nombre, setNombre] = useState("");
 
-
-
   return (
     <div>
       <label htmlFor="nombre">Nombre: </label>
