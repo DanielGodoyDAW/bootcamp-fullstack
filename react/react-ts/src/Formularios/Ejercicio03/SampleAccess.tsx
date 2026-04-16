@@ -1,30 +1,25 @@
-ex03 — Corrección de código
-
-Corrige el siguiente componente.
-
-```tsx
 import { useState } from "react";
 
 function SampleAccess() {
     const [email, setEmail] = useState("");
 
-    function handleSubmit() {
+    function handleSubmit(event) {
+        event.preventDefault();
         alert(`Dato enviado: ${email}`);
+        setEmail("");
     }
     return (
         <form onSubmit={handleSubmit}>
-            <label for="email">Email</label>
+            <label htmlFor="email">Email </label>
             <input
             id="email"
             type="email"
             value={email}
+            onChange={(event) => setEmail(event.target.value)}
             />
             <button>Enviar</button>
         </form>
     );
 }
-```
-Entrega
 
-    Código corregido.
-    Lista breve de errores encontrados.
+export default SampleAccess;
