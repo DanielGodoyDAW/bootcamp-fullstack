@@ -12,6 +12,6 @@ Ejercicios prácticos del bootcamp para aprender React de forma progresiva.
 
     pnpm create vite@latest nombre-de-tu-proyecto --template react-ts
 
-## Para incializarlo en el repositorio acutal
+## Para incializarlo en el repositorio actual
 
     pnpm create vite@latest . --template react-ts
