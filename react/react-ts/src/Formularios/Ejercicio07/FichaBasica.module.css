@@ -1,0 +1,12 @@
+.nombre, .bio, .cursos, .terminos {
+    color: green;
+}
+
+.nombreError, .bioError, .cursosError, .terminosError {
+    color: red;
+}
+
+.resumen {
+    padding: 20px;
+    background-color: #b4e9e6;
+}
