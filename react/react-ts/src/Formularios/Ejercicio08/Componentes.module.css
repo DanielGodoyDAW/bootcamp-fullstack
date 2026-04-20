@@ -1,0 +1,7 @@
+.nombre, .apellido, .email {
+    color: green;
+}
+
+.nombreError, .apellidoError, .emailError {
+    color: red;
+}
