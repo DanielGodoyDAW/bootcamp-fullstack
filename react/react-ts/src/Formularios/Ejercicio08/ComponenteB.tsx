@@ -47,7 +47,7 @@ function ComponenteB() {
   }
   function validateApellido(apellido) {
     const regex =
-      /^(?=.{4,50}$)[A-Za-záéíóúÁÉÍÓÚñÑüÜ]+(?: [A-Za-záéíóúÁÉÍÓÚñÑüÜ]+)*$/;
+      /^(?=.{4,50}$)[A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+(?: [A-ZÁÉÍÓÚÑÜ][a-záéíóúñü]+)*$/;
     return regex.test(apellido);
   }
   function validateEmail(email) {
@@ -69,7 +69,7 @@ function ComponenteB() {
     const valor = e.target.value;
     setApellido(valor);
     if (!validateApellido(valor)) {
-      setErrorApellido("El apellido debe tener entre 4 y 50 caracteres y solo puede contener letras y espacios");
+      setErrorApellido("El apellido debe comenzar por mayuscula tener entre 4 y 50 caracteres y solo puede contener letras y espacios");
     } else {
       setErrorApellido("");
     }

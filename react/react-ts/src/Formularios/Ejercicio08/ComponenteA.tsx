@@ -24,6 +24,11 @@ function ComponenteA() {
             return;
         }
 
+        alert("Ficha completa");
+        setNombre("");
+        setApellido("");
+        setEmail("");
+
 
     }
     
