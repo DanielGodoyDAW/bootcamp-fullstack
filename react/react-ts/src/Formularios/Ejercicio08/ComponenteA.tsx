@@ -1,5 +1,5 @@
 import { useState } from "react"
-import styles from "./ComponenteA.module.css"
+
 
 function ComponenteA() {
 
@@ -12,7 +12,7 @@ function ComponenteA() {
         e.preventDefault();
 
         if (!validateNombre(nombre)) {
-            alert("El nombre debe comenzar con mayúscula y tener entre 4 y 20 caracteres");
+            alert("El nombre debe comenzar con mayúscula y tener entre 3 y 20 caracteres");
             return;
         }
         if (!validateApellido(apellido)) {
@@ -28,7 +28,7 @@ function ComponenteA() {
     }
     
     function validateNombre(nombre) {
-        const regex = /^[A-Z][a-zA-Z]{3,19}$/;
+        const regex = /^[A-Z][a-zA-Z]{2,19}$/;
         return regex.test(nombre);
     }
     function validateApellido(apellido) {
@@ -43,12 +43,15 @@ function ComponenteA() {
   return (
     <>
       <form onSubmit={handleSubmit}> 
-        <label htmlFor="nombre">Nombre </label>
+        <label htmlFor="nombre">Nombre: </label>
         <input type="text" id="nombre" value={nombre} onChange={(event) => setNombre(event.target.value)} />
-        <label htmlFor="apellido">Apellido </label>
+        <br />
+        <label htmlFor="apellido">Apellido: </label>
         <input type="text" id="apellido" value={apellido} onChange={(event) => setApellido(event.target.value)} />
-        <label htmlFor="email">Email </label>
+        <br />
+        <label htmlFor="email">Email: </label>
         <input type="email" id="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+        <br />
         <button type="submit">Enviar</button>
       </form>
     </>

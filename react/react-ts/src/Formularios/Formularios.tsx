@@ -5,6 +5,8 @@ import VistaPrevia from "./Ejercicio04/VistaPrevia";
 import ComprobacionBasica from "./Ejercicio05/ComprobacionBasica";
 import CasillaConfiguracion from "./Ejercicio06/CasillaConfiguracion";
 import FichaBasica from "./Ejercicio07/FichaBasica";
+import ComponenteA from "./Ejercicio08/ComponenteA";
+import ComponenteB from "./Ejercicio08/ComponenteB";
 
 
 function Formularios() {
@@ -28,6 +30,11 @@ function Formularios() {
         <Separador/>
         <h2>Ejercicio 7</h2>
         <FichaBasica/>
+        <Separador/>
+        <h2>Ejercicio 8</h2>
+        <ComponenteA/>
+        <Separador/>
+        <ComponenteB/>
     </div>
   )
 }
