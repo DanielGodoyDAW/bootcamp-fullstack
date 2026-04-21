@@ -1,0 +1,27 @@
+:root{
+    --color-body:#ffe628;
+    --color-container:#dcdcdc;
+    --color-fondo-figcaption:#c3beb6;
+    --color-letra-figcaption:#a49383;
+    --color-letra:white;
+    
+    /* Colores para cada tipo */
+    --color-grass:#1bbb10;
+    --color-fire:#ff4500;
+    --color-water:#1e90ff;
+    --color-poison:#93f;
+    --color-flying:#87ceeb;
+    --color-electric:#ffd700;
+    --color-psychic:#ff69b4;
+    --color-ice:#0ff;
+    --color-dragon:#ff6347;
+    --color-dark:#2f4f4f;
+    --color-steel:#a9a9a9;
+    --color-fairy:#ffb6c1;
+    --color-normal:#d3d3d3;
+    --color-fighting:#8b4513;
+    --color-ground:#cd853f;
+    --color-rock:#808080;
+    --color-bug:#90ee90;
+    --color-ghost:#9370db;
+}
