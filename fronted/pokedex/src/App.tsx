@@ -3,7 +3,7 @@ import './style/globals.css';
 import './style/variables.css';
 import PokemonCard from './components/PokemonCard'
 import { cargarPokemons } from './services/pokemonApi';
-import { BuscadorPokemon as SearchBar } from './components/SearchBar';
+import SearchBar from './components/SearchBar';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
