@@ -1,7 +1,23 @@
 import { useState } from 'react';
 import { buscarPokemonPorNombre } from '../services/pokemonApi';
 
-function BuscadorPokemon({ alBuscar, alLimpiar }) {
+interface Pokemon {
+  id: number;
+  name: string;
+  image: string;
+  gif: string;
+  type_color: string;
+  types: string[];
+  evolution?: string | null;
+}
+
+
+interface BuscadorPokemonProps {
+  alBuscar: (pokemon: Pokemon) => void;
+  alLimpiar: () => void;
+}
+
+function BuscadorPokemon({ alBuscar, alLimpiar }: BuscadorPokemonProps) {
   const [busqueda, setBusqueda] = useState('');
 
   const manejarInput = async (e) => {

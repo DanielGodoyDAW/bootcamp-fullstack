@@ -5,20 +5,30 @@ import PokemonCard from './components/PokemonCard'
 import { cargarPokemons } from './services/pokemonApi';
 import SearchBar from './components/SearchBar';
 
+interface Pokemon {
+  id: number;
+  name: string;
+  image: string;
+  gif: string;
+  type_color: string;
+  types: string[];
+  evolution?: string | null;
+}
+
 function App() {
-  const [pokemons, setPokemons] = useState([]);
-  const [pokemonsBase, setPokemonsBase] = useState([]);
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const [pokemonsBase, setPokemonsBase] = useState<Pokemon[]>([]);
 
   useEffect(() => {
     async function cargar() {
-      const data = await cargarPokemons();
+      const data : Pokemon[] = await cargarPokemons();
       setPokemons(data);
       setPokemonsBase(data);
     }
     cargar();
   }, []);
 
-  const manejarBusqueda = (pokemon) => {
+  const manejarBusqueda = (pokemon: Pokemon | null) => {
     if (pokemon) {
       setPokemons([pokemon]);
     }

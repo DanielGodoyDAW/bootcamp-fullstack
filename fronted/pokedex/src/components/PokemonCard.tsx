@@ -1,4 +1,16 @@
-function PokemonCard({ pokemon }) {
+interface PokemonCardProps {
+  pokemon: {
+    id: number;
+    name: string;
+    types: string[];
+    image: string;
+    gif: string;
+    type_color: string;
+    evolution?: string;
+  };
+}
+
+function PokemonCard({ pokemon }: PokemonCardProps) {
 
   return (
     <>
