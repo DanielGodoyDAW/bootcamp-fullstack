@@ -91,7 +91,7 @@ async function formatearPokemon(datosApi) {
       name:
         datosApi.name.charAt(0).toUpperCase() + datosApi.name.slice(1),
       types: datosApi.types.map(
-        (tipo) => tipo.type.name.charAt(0).toUpperCase() + tipo.type.name.slice(1),
+        (tipo) => tipo.type.name.toLowerCase(),
       ),
       image: datosApi.sprites.front_default,
       gif: imagenFinal,
@@ -101,38 +101,39 @@ async function formatearPokemon(datosApi) {
     
 }
 
+// Función para realizar la búsqueda
+async function buscarPokemonPorNombre(nombre :string) {
+  try {
+    // Si son SOLO números -> no permitir
+    if (/^\d+$/.test(nombre)) {
+      // aquí puedes mostrar un aviso o simplemente volver a la lista
+      console.warn("La búsqueda no puede contener solo números.");
+      // mostramos las tarjetas base
+      return null;
+    }
+
+    const responseBusqueda = await fetch(
+      `https://pokeapi.co/api/v2/pokemon/${nombre}`,
+    );
+    if (!responseBusqueda.ok) {
+      return null;
+    }
+    const dataBusqueda = await responseBusqueda.json();
+    return await formatearPokemon(dataBusqueda);
 
 
-export { cargarPokemons, formatearPokemon };
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
 
-// async function realizarBusqueda(nombre) {
-//   try {
-//     const pokemonNombre = nombre.target.value.trim().toLowerCase();
-//     if (!pokemonNombre) {
-//       renderizado(pokemonsBase);
-//       return;
-//     }
+async function filtrarPokemons(pokemons: any[], nombre: string) {
+  const nombreLower = nombre.toLowerCase();
+  return pokemons.filter(pokemon => 
+    pokemon.name.toLowerCase().includes(nombreLower)
+  );
+}
 
-//     // Si son SOLO números -> no permitir
-//     if (/^\d+$/.test(pokemonNombre)) {
-//       // aquí puedes mostrar un aviso o simplemente volver a la lista
-//       console.warn("La búsqueda no puede contener solo números.");
-//       // mostramos las tarjetas base
-//       renderizado(pokemonsBase);
-//       return;
-//     }
-//     const responseBusqueda = await fetch(
-//       `https://pokeapi.co/api/v2/pokemon/${pokemonNombre}`,
-//     );
-//     if (!responseBusqueda.ok) {
-//       return;
-//     }
-//     const dataBusqueda = await responseBusqueda.json();
-//     //console.log(dataBusqueda);
 
-//     const pokemonRenderizado = await formatearPokemon(dataBusqueda);
-//     renderizado([pokemonRenderizado]);
-//   } catch (error) {
-//     console.error("Error:", error);
-//   }
-// }
+
+export { cargarPokemons, formatearPokemon, buscarPokemonPorNombre };

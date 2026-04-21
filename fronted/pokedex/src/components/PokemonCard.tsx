@@ -1,10 +1,4 @@
 function PokemonCard({ pokemon }) {
-  // const nombre = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-  // const imagen = pokemon.sprites.front_default;
-  // const gif =
-  //   pokemon.sprites.versions["generation-v"]["black-white"].animated
-  //     .front_default;
-  // const tipoPrincipal = pokemon.types?.[0]?.type?.name ?? "normal";
 
   return (
     <>
@@ -18,12 +12,12 @@ function PokemonCard({ pokemon }) {
         </div>
         <div>
           <p>
-            <strong className={pokemon.types_color}>{pokemon.name}</strong>
+            <strong className={pokemon.type_color}>{pokemon.name}</strong>
           </p>
           <p>
             {pokemon.types.map((item) => (
               <span className={`tipo ${item}`} key={item}>
-                {item}
+                {item.charAt(0).toUpperCase() + item.slice(1)}
               </span>
             ))}
           </p>
