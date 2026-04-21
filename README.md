@@ -27,12 +27,15 @@ bootcamp-fullstack/
 │   ├── js-metodosArrays-transformaciones/     # Prácticas de métodos de arrays y transformaciones
 │ 
 ├─ fronted/     # Proyecto Pokemon
+│   ├── mundo-pokemon/   # Proyecto Pokemon, evolución desde HTML hasta JasvaScript con consumo de API (completo)
+│   ├── pokedex/   # Proyecto Pokedex, transicion de js a React (en progreso)
+│
 ├─ react/       # Ejercicios de React
-├─  ├─ Introduccion/   # Ejercicios de introducción a React
-├─  ├─ Props/   # Ejercicios de props/composiciones/children a React
-├─  ├─ Estados/   # Ejercicios de estados a React
-├─  ├─ Formularios/   # Ejercicios de formularios a React
-├─
+│  ├── Introduccion/   # Ejercicios de introducción a React
+│  ├── Props/   # Ejercicios de props/composiciones/children a React
+│  ├── Estados/   # Ejercicios de estados a React
+│  ├── Formularios/   # Ejercicios de formularios a React
+│
 ├─ ComandosGit.md #Listado de comandos de git
 └─ README.md
 ```
