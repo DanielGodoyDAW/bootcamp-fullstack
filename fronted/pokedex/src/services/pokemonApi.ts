@@ -50,6 +50,29 @@ async function obtenerEvolucion(pokemonId) {
   }
 }
 
+async function cargarPokemons() {
+  try {
+    // Obtener la lista de pokemons
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=9`);
+    const datos = await response.json();
+
+    // Usar Promise.all para esperar a que se resuelvan todas las promesas de los pokemons
+    const pokemons = await Promise.all(
+      datos.results.map(async (pokemonLista) => {
+        const respuesta = await fetch(pokemonLista.url);
+        const datosAPI = await respuesta.json();
+
+        return formatearPokemon(datosAPI);
+      }),
+    );
+
+    return pokemons;
+  } catch (error) {
+    console.error("Error:", error);
+    return [];
+  }
+}
+
 async function formatearPokemon(datosApi) {
 
     // aprovechamos el tipo original
@@ -78,28 +101,7 @@ async function formatearPokemon(datosApi) {
     
 }
 
-async function cargarPokemons() {
-  try {
-    // Obtener la lista de pokemons
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=9`);
-    const datos = await response.json();
 
-    // Usar Promise.all para esperar a que se resuelvan todas las promesas de los pokemons
-    const pokemons = await Promise.all(
-      datos.results.map(async (pokemonLista) => {
-        const respuesta = await fetch(pokemonLista.url);
-        const datosAPI = await respuesta.json();
-
-        return formatearPokemon(datosAPI);
-      }),
-    );
-
-    return pokemons;
-  } catch (error) {
-    console.error("Error:", error);
-    return [];
-  }
-}
 
 export { cargarPokemons, formatearPokemon };
 
