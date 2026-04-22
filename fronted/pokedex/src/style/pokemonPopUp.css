@@ -12,9 +12,33 @@
     position: relative;
     padding: 2em;
     border-radius: 12px;
-    background: white;
+    background: var(--color-container);
     min-width: 300px;
     min-height: 200px;
     text-align: center;
     box-shadow: 0 4px 12px rgb(0 0 0/ 2%);
+}
+
+.popup-content button {
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-body);
+    color: var(--color-letra-figcaption);
+    cursor: pointer;
+}
+
+.evolution {
+  margin-top: 10px;
+}
+
+.evolution-text {
+  color: #000;  /* Color del texto evoluciona */
+  font-weight: bold;
+}
+
+.evolution-pokemon {
+  color: #000;  /* Color del nombre del pokemon */
+  font-weight: bold;
 }
