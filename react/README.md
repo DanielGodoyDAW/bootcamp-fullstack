@@ -15,3 +15,7 @@ Ejercicios prácticos del bootcamp para aprender React de forma progresiva.
 ## Para incializarlo en el repositorio actual
 
     pnpm create vite@latest . --template react-ts
+
+## Para instalar React Router
+
+    pnpm i react-router

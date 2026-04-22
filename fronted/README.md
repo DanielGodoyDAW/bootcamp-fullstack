@@ -32,4 +32,4 @@ Llevaremos la aplicación a un nivel superior migrando el código a React, utili
 - CSS3
 - JavaScript (ES6+)
 - PokéAPI
-- React (próximamente)
+- React (En proceso de integración)
