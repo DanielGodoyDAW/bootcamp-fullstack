@@ -1,6 +1,6 @@
-# 🐱‍👤 PokeAPI Project (Vanilla JS → React)
+# 🧩 PokeAPI Project (Vanilla JS)
 
-Proyecto desarrollado a partir de una maqueta visual de Pokémon, evolucionando desde una implementación estática hasta el consumo de la API PokéAPI y posteriormente refactorizado a React.
+Proyecto desarrollado a partir de una maqueta visual de Pokémon, evolucionando desde una implementación estática hasta el consumo de la API PokéAPI.
 
 ---
 
@@ -14,7 +14,6 @@ A partir de ahí, el desarrollo fue evolucionando progresivamente:
 2. Aplicación de estilos CSS
 3. Transformación a renderizado dinámico con JavaScript
 4. Sustitución de datos mock por consumo real de API
-5. Refactorización final a React
 
 ---
 
@@ -109,24 +108,6 @@ Y que requirió adaptarse sobre una base ya construida.
 
 ---
 
-## ✅ Mejora aplicada (React)
-
-En la refactorización con React se aplicó un enfoque más alineado con la API:
-
-* Uso de nombres en inglés para lógica y clases
-* Eliminación del sistema de mapeo
-* Traducción solo en la capa visual (si se desea)
-
-Ejemplo:
-
-```jsx
-<span className={`tipo ${tipo.type.name}`}>
-  {traducirTipo(tipo.type.name)}
-</span>
-```
-
----
-
 ## 💡 Aprendizajes clave
 
 * Los requisitos pueden cambiar durante el desarrollo
@@ -145,9 +126,8 @@ Este proyecto refleja una evolución real:
 
 * De maquetación estática basada en diseño
 * A aplicación dinámica conectada a una API
-* Y finalmente a una arquitectura más limpia en React
 
-La solución intermedia (mapeo de tipos) fue necesaria en su contexto, aunque posteriormente se optimizó.
+La solución intermedia (mapeo de tipos) fue necesaria en su contexto.
 
 ---
 
@@ -156,7 +136,6 @@ La solución intermedia (mapeo de tipos) fue necesaria en su contexto, aunque po
 * HTML5
 * CSS3
 * JavaScript (Vanilla)
-* React
 * Fetch API
 * PokéAPI
 
@@ -167,5 +146,3 @@ La solución intermedia (mapeo de tipos) fue necesaria en su contexto, aunque po
 ✔ Maquetación inicial fiel al diseño
 ✔ Render dinámico con JavaScript
 ✔ Integración con API
-✔ Refactorización a React
-✔ Mejora de arquitectura aplicada
