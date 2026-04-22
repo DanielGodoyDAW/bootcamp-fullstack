@@ -1,4 +1,4 @@
-## Proyecto: Pokedex
+lo## Proyecto: Pokedex
 
 ### Descripción
 En este proyecto, construimos una aplicación de Pokedex utilizando React. La aplicación muestra una lista de Pokémon y permite a los usuarios buscar Pokémon por nombre. Utilizamos la API de Pokémon (PokeAPI) para obtener los datos necesarios.
@@ -135,4 +135,4 @@ Luego abre `http://localhost:5173` en tu navegador para ver la aplicación en ac
 
 ## Autor
 
-- Daniel Godoy Medina ([@DanielGodoyDAW])
+- Daniel Godoy Medina [@DanielGodoyDAW]
