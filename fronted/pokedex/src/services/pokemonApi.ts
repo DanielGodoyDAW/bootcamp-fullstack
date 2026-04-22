@@ -140,11 +140,4 @@ async function buscarPokemonPorNombre(nombre: string) {
   }
 }
 
-async function filtrarPokemons(pokemons: any[], nombre: string) {
-  const nombreLower = nombre.toLowerCase();
-  return pokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(nombreLower),
-  );
-}
-
 export { cargarPokemons, formatearPokemon, buscarPokemonPorNombre };
