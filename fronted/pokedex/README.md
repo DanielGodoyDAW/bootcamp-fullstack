@@ -135,4 +135,4 @@ Luego abre `http://localhost:5173` en tu navegador para ver la aplicación en ac
 
 ## Autor
 
-- Daniel Godoy Medina [@DanielGodoyDAW]
+- Daniel Godoy Medina ([@DanielGodoyDAW](https://github.com/DanielGodoyDAW))
