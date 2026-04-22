@@ -1,35 +1,171 @@
-## Ejercicio: Mundo Pokémon
+# 🐱‍👤 PokeAPI Project (Vanilla JS → React)
 
-Este ejercicio documenta la evolución de una aplicación de Pokémon, desde la maquetación básica hasta la integración con una API externa y componentes modernos.
+Proyecto desarrollado a partir de una maqueta visual de Pokémon, evolucionando desde una implementación estática hasta el consumo de la API PokéAPI y posteriormente refactorizado a React.
 
-### Evolución del Proyecto
+---
 
-#### 1. **Base HTML**
-Comenzamos creando una estructura base en HTML puro, estableciendo los elementos fundamentales para mostrar información de Pokémon.
+## 🚀 Descripción
 
-#### 2. **Maquetación CSS**
-Posteriormente, maquetamos la interfaz utilizando CSS, dando estilo y diseño visual a los elementos HTML creados inicialmente.
+Este proyecto comenzó como un ejercicio de maquetación a partir de una imagen que mostraba 9 Pokémon.
 
-#### 3. **Tarjetas Dinámicas con JavaScript**
-Sustituimos las tarjetas estáticas de HTML puro por una creación dinámica de tarjetas a través de JavaScript. Para ello, utilizamos un objeto Pokémon creado manualmente que contenía:
-- `id`: Identificador único del Pokémon
-- `nombre`: Nombre del Pokémon
-- `tipos`: Tipos del Pokémon
-- `imagenes`: URLs de las imágenes del Pokémon
-- `gifs`: URLs de los gif del Pokémon
-- `tipos_color`: los distintos tipos de Pokémon y su color asociado
-- `evolucion`: en caso de no tener seria null, en caso de tener una evolución se mostraría el nombre del Pokémon al que evoluciona
+A partir de ahí, el desarrollo fue evolucionando progresivamente:
 
+1. Creación de HTML manual basado en la maqueta
+2. Aplicación de estilos CSS
+3. Transformación a renderizado dinámico con JavaScript
+4. Sustitución de datos mock por consumo real de API
+5. Refactorización final a React
 
-#### 4. **Integración con PokéAPI**
-Integramos la [PokéAPI](https://pokeapi.co/) para extraer la información de Pokémon desde una fuente externa, reemplazando el objeto creado manualmente y permitiendo acceso a una base de datos completa y actualizada.
+---
 
-#### 5. **Refactorización con React** (Próximo paso)
-Llevaremos la aplicación a un nivel superior migrando el código a React, utilizando componentes reutilizables, hooks para gestionar el estado y los efectos, y mejorando la arquitectura general de la aplicación.
+## 🧩 Contexto inicial
 
-### Tecnologías Utilizadas
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- PokéAPI
-- React (En proceso de integración)
+El proyecto **no partía del uso de una API**, sino de una referencia visual.
+
+* No se había trabajado aún con APIs
+* No se conocía previamente la existencia de PokéAPI
+* El objetivo inicial era reproducir fielmente el diseño
+
+Por ello, la estructura se diseñó en base a lo visual:
+
+* Clases CSS en español (`.planta`, `.fuego`, etc.)
+* Estructura pensada únicamente para render estático
+
+👉 El resultado fue una maqueta visual muy fiel incluso antes de usar datos dinámicos.
+
+---
+
+## ⚠️ Cambio de requisitos
+
+Posteriormente, el proyecto evolucionó:
+
+> Se sustituyeron los datos mock por datos reales consumidos desde la API
+
+Aquí apareció el punto clave:
+
+* La API trabaja en inglés (`grass`, `fire`, etc.)
+* El proyecto estaba estructurado en español
+
+---
+
+## 🔧 Solución aplicada
+
+Para integrar ambos mundos sin rehacer todo el CSS, se implementó un sistema de mapeo:
+
+```js
+const TIPO_MAP = {
+  grass: "planta",
+  fire: "fuego",
+  water: "agua",
+  poison: "veneno",
+  flying: "volador",
+  electric: "electrico",
+  psychic: "psiquico",
+  ice: "hielo",
+  dragon: "dragon",
+  dark: "siniestro",
+  steel: "acero",
+  fairy: "hada",
+  normal: "normal",
+  fighting: "lucha",
+  ground: "tierra",
+  rock: "roca",
+  bug: "bicho",
+  ghost: "fantasma",
+};
+```
+
+Y funciones auxiliares para adaptar los datos:
+
+```js
+function obtenerTipoPokemon(tipo) {
+  const tipoIngles = tipo.toLowerCase();
+  return TIPO_MAP[tipoIngles] || tipoIngles;
+}
+```
+
+Esto permitió reutilizar toda la estructura previa sin rehacer el diseño.
+
+---
+
+## ❌ Impacto técnico
+
+Aunque la solución fue válida, introdujo:
+
+* 🔁 Conversión constante entre idiomas
+* 🧩 Complejidad adicional en la lógica
+* 🔧 Dependencia de funciones de adaptación
+* 📉 Menor claridad en el flujo de datos
+
+---
+
+## 🧠 Lectura correcta del problema
+
+Este caso no fue un error de diseño inicial, sino:
+
+> Un proyecto que cambió de enfoque (de estático a dinámico con API)
+
+Y que requirió adaptarse sobre una base ya construida.
+
+---
+
+## ✅ Mejora aplicada (React)
+
+En la refactorización con React se aplicó un enfoque más alineado con la API:
+
+* Uso de nombres en inglés para lógica y clases
+* Eliminación del sistema de mapeo
+* Traducción solo en la capa visual (si se desea)
+
+Ejemplo:
+
+```jsx
+<span className={`tipo ${tipo.type.name}`}>
+  {traducirTipo(tipo.type.name)}
+</span>
+```
+
+---
+
+## 💡 Aprendizajes clave
+
+* Los requisitos pueden cambiar durante el desarrollo
+* Adaptar código existente es parte del trabajo real
+* Es importante separar:
+
+  * lógica interna (datos)
+  * presentación (UI)
+* Alinear estructura con fuentes de datos externas simplifica el código
+
+---
+
+## 🏁 Conclusión
+
+Este proyecto refleja una evolución real:
+
+* De maquetación estática basada en diseño
+* A aplicación dinámica conectada a una API
+* Y finalmente a una arquitectura más limpia en React
+
+La solución intermedia (mapeo de tipos) fue necesaria en su contexto, aunque posteriormente se optimizó.
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+* HTML5
+* CSS3
+* JavaScript (Vanilla)
+* React
+* Fetch API
+* PokéAPI
+
+---
+
+## 📌 Estado del proyecto
+
+✔ Maquetación inicial fiel al diseño
+✔ Render dinámico con JavaScript
+✔ Integración con API
+✔ Refactorización a React
+✔ Mejora de arquitectura aplicada
