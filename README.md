@@ -17,8 +17,9 @@ Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, *
 bootcamp-fullstack/
 ├─ html/        # Ejercicios de HTML
 ├─ css/         # Ejercicios de CSS
-├─  ├─ css-1/       # Ejercicios de CSS basico
-├─  ├─ css-2/       # Ejercicios de CSS avanzado
+│  ├── css-1/       # Ejercicios de CSS basico
+│  ├── css-2/       # Ejercicios de CSS avanzado
+│
 ├─ form/        # Prácticas relacionadas con formularios
 ├─ js/          # Prácticas de JS
 │   ├── js-variables-condicionales/   # Prácticas de condicionales,variables..
@@ -28,7 +29,7 @@ bootcamp-fullstack/
 │ 
 ├─ fronted/     # Proyecto Pokemon
 │   ├── mundo-pokemon/   # Proyecto Pokemon, evolución desde HTML hasta JasvaScript con consumo de API (completo)
-│   ├── pokedex/   # Proyecto Pokedex, transicion de js a React (en progreso)
+│   ├── pokedex/   # Proyecto Pokedex, transicion de js a React (completo)
 │
 ├─ react/       # Ejercicios de React
 │  ├── Introduccion/   # Ejercicios de introducción a React
@@ -55,7 +56,7 @@ bootcamp-fullstack/
     - Funciones y Bucles: Ejercicios01 → Ejecicios18
     - Arrays y Objetos: Ejercicios01 → Ejecicios21
     - Métodos de Arrays y Transformaciones: Ejercicios01 → Ejecicios22
-- Fronted: Proyecto Pokemon (en progreso)
+- Fronted: Proyecto Pokemon (HTML → JS) y Pokedex (JS → React)
 - React: 
     - Introducción: Ejercicio01 → Ejercicio12
     - Props: Ejercicio01 → Ejercicio12
