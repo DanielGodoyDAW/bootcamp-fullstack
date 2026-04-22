@@ -1,3 +1,6 @@
+import { useState } from "react";
+import PokemonPopup from "./PokemonPopUp"; 
+
 interface PokemonCardProps {
   pokemon: {
     id: number;
@@ -11,10 +14,11 @@ interface PokemonCardProps {
 }
 
 function PokemonCard({ pokemon }: PokemonCardProps) {
+  const [popupAbierto, setPopupAbierto] = useState(false)
 
   return (
     <>
-      <article className={`container container-${pokemon.type_color}`}>
+      <article className={`container container-${pokemon.type_color}`} onClick={() => setPopupAbierto(true)}>
         <div className={`container-div container-div-${pokemon.type_color}`}>
           <figure className="pokemon-img">
             <img className="static" src={pokemon.image} alt={`imagen de ${pokemon.name}`} />
@@ -39,6 +43,12 @@ function PokemonCard({ pokemon }: PokemonCardProps) {
           </div>)}
         </div>
       </article>
+      {/* Popup */}
+       <PokemonPopup
+        pokemon={pokemon}
+        visible={popupAbierto}
+        onClose={() => setPopupAbierto(false)}
+      />
     </>
   );
 }

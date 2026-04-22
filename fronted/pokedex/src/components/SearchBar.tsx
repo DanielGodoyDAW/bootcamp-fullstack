@@ -29,9 +29,21 @@ function BuscadorPokemon({ alBuscar, alLimpiar }: BuscadorPokemonProps) {
       return;
     }
 
-    const pokemon = await buscarPokemonPorNombre(valor);
-    if (pokemon) {
-      alBuscar(pokemon);
+    if (valor.length < 3){
+      alLimpiar();
+      return; 
+    } 
+
+    try{
+      const pokemon = await buscarPokemonPorNombre(valor);
+      if (pokemon) {
+        alBuscar(pokemon);
+      }else{
+        alLimpiar();
+      }
+    } catch (error) {
+      alLimpiar();
+      console.error("Error en la búsqueda:", error);
     }
   };
 

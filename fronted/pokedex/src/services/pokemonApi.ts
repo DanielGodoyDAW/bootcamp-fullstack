@@ -30,6 +30,17 @@ async function obtenerEvolucion(pokemonId) {
     const responseSpecies = await fetch(
       `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`,
     );
+
+    if (!responseSpecies.ok) {
+      if (responseSpecies.status !== 404) {
+        // Solo loguea si no es 404, para no ensuciar la consola de mensajes esperados
+        console.error(
+          "Error al obtener datos de la especie:",
+          responseSpecies.status,
+        );
+      }
+      return null;
+    }
     const datosSpecies = await responseSpecies.json();
 
     // Obtener la cadena de evolución
@@ -53,7 +64,7 @@ async function obtenerEvolucion(pokemonId) {
 async function cargarPokemons() {
   try {
     // Obtener la lista de pokemons
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=9`);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=151`);
     const datos = await response.json();
 
     // Usar Promise.all para esperar a que se resuelvan todas las promesas de los pokemons
@@ -74,35 +85,39 @@ async function cargarPokemons() {
 }
 
 async function formatearPokemon(datosApi) {
+  // aprovechamos el tipo original
+  const mainType = datosApi.types?.[0]?.type?.name ?? "normal";
 
-    // aprovechamos el tipo original
-    const mainType = datosApi.types?.[0]?.type?.name ?? "normal"
+  // Obtener la evolución
+  const evolucion = await obtenerEvolucion(datosApi.id);
 
-    // Obtener la evolución
-    const evolucion = await obtenerEvolucion(datosApi.id);
+  // GIF con fallback a imagen estática
+  const gifUrl =
+    datosApi.sprites.versions?.["generation-v"]?.["black-white"]?.animated
+      ?.front_default || null;
+  // Pokéball como imagen fallback universal
+  const imageDefault = datosApi.sprites.front_default || null;
+  // Si no hay ni GIF ni imagen estática, usar una imagen de pokéball como último recurso
+  const fallbackImage =
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png";
+  // Determinar la imagen final a mostrar
+  const imagenFinal = imageDefault || fallbackImage;
+  // Determinar el GIF final a mostrar, con fallback a imagen estática o pokéball
+  const gifFinal = gifUrl || imagenFinal;
 
-    // GIF con fallback a imagen estática
-    const gifUrl = datosApi.sprites.versions?.["generation-v"]?.["black-white"]?.animated?.front_default;
-    const imagenFinal = gifUrl || datosApi.sprites.front_default;
-
-
-    return{
-      id: datosApi.id,
-      name:
-        datosApi.name.charAt(0).toUpperCase() + datosApi.name.slice(1),
-      types: datosApi.types.map(
-        (tipo) => tipo.type.name.toLowerCase(),
-      ),
-      image: datosApi.sprites.front_default,
-      gif: imagenFinal,
-      type_color: mainType,
-      evolution: evolucion,
-    };
-    
+  return {
+    id: datosApi.id,
+    name: datosApi.name.charAt(0).toUpperCase() + datosApi.name.slice(1),
+    types: datosApi.types.map((tipo) => tipo.type.name.toLowerCase()),
+    image: imagenFinal,
+    gif: gifFinal,
+    type_color: mainType,
+    evolution: evolucion,
+  };
 }
 
 // Función para realizar la búsqueda
-async function buscarPokemonPorNombre(nombre :string) {
+async function buscarPokemonPorNombre(nombre: string) {
   try {
     // Si son SOLO números -> no permitir
     if (/^\d+$/.test(nombre)) {
@@ -120,20 +135,9 @@ async function buscarPokemonPorNombre(nombre :string) {
     }
     const dataBusqueda = await responseBusqueda.json();
     return await formatearPokemon(dataBusqueda);
-
-
   } catch (error) {
     console.error("Error:", error);
   }
 }
-
-async function filtrarPokemons(pokemons: any[], nombre: string) {
-  const nombreLower = nombre.toLowerCase();
-  return pokemons.filter(pokemon => 
-    pokemon.name.toLowerCase().includes(nombreLower)
-  );
-}
-
-
 
 export { cargarPokemons, formatearPokemon, buscarPokemonPorNombre };
