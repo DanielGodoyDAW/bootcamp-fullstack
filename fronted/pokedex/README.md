@@ -4,6 +4,8 @@ Esta versión del proyecto representa la evolución de la implementación inicia
 
 Se continúa utilizando la API PokéAPI como fuente de datos.
 
+  🔗 Este proyecto parte de una versión inicial en Vanilla JS (disponible en la carpeta `mundo-pokemon`), desarrollada a partir de una maqueta visual.
+
 ---
 
 ## 🚀 Objetivo de la refactorización
