@@ -121,7 +121,7 @@ Todos los colores de tipos se definen en variables.css, facilitando cambios glob
 
 ```bash
 pnpm install
-pnpm run dev
+pnpm dev
 ```
 
 Luego abre `http://localhost:5173` en tu navegador para ver la aplicación en acción.
