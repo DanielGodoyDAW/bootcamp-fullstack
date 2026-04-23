@@ -1,16 +1,4 @@
 import { useState } from 'react';
-// import { buscarPokemonPorNombre } from '../services/pokemonApi';
-
-interface Pokemon {
-  id: number;
-  name: string;
-  image: string;
-  gif: string;
-  type_color: string;
-  types: string[];
-  evolution?: string | null;
-}
-
 
 interface BuscadorPokemonProps {
   alBuscar: (texto:string) => void;
@@ -32,22 +20,6 @@ function BuscadorPokemon({ alBuscar, alLimpiar }: BuscadorPokemonProps) {
       return;
     }
 
-    // if (valor.length < 3){
-    //   alLimpiar();
-    //   return; 
-    // } 
-
-    // try{
-    //   const pokemon = await buscarPokemonPorNombre(valor);
-    //   if (pokemon) {
-    //     alBuscar(pokemon);
-    //   }else{
-    //     alLimpiar();
-    //   }
-    // } catch (error) {
-    //   alLimpiar();
-    //   console.error("Error en la búsqueda:", error);
-    // }
   };
 
   return (
