@@ -1,10 +1,10 @@
-# 🧩 PokeAPI Project (Vanilla JS)
+# ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) PokeAPI Project (Vanilla JS)
 
 Proyecto desarrollado a partir de una maqueta visual de Pokémon, evolucionando desde una implementación estática hasta el consumo de la API PokéAPI.
 
 ---
 
-## 🚀 Descripción
+##  Descripción
 
 Este proyecto comenzó como un ejercicio de maquetación a partir de una imagen que mostraba 9 Pokémon.
 
@@ -17,7 +17,7 @@ A partir de ahí, el desarrollo fue evolucionando progresivamente:
 
 ---
 
-## 🧩 Contexto inicial
+##  Contexto inicial
 
 El proyecto **no partía del uso de una API**, sino de una referencia visual.
 
@@ -34,7 +34,7 @@ Por ello, la estructura se diseñó en base a lo visual:
 
 ---
 
-## ⚠️ Cambio de requisitos
+##  Cambio de requisitos
 
 Posteriormente, el proyecto evolucionó:
 
@@ -47,7 +47,7 @@ Aquí apareció el punto clave:
 
 ---
 
-## 🔧 Solución aplicada
+##  Solución aplicada
 
 Para integrar ambos mundos sin rehacer todo el CSS, se implementó un sistema de mapeo:
 
@@ -87,7 +87,7 @@ Esto permitió reutilizar toda la estructura previa sin rehacer el diseño.
 
 ---
 
-## ❌ Impacto técnico
+##  Impacto técnico
 
 Aunque la solución fue válida, introdujo:
 
@@ -98,7 +98,7 @@ Aunque la solución fue válida, introdujo:
 
 ---
 
-## 🧠 Lectura correcta del problema
+##  Lectura correcta del problema
 
 Este caso no fue un error de diseño inicial, sino:
 
@@ -108,7 +108,7 @@ Y que requirió adaptarse sobre una base ya construida.
 
 ---
 
-## 💡 Aprendizajes clave
+##  Aprendizajes clave
 
 * Los requisitos pueden cambiar durante el desarrollo
 * Adaptar código existente es parte del trabajo real
@@ -120,7 +120,7 @@ Y que requirió adaptarse sobre una base ya construida.
 
 ---
 
-## 🏁 Conclusión
+##  Conclusión
 
 Este proyecto refleja una evolución real:
 
@@ -131,7 +131,7 @@ La solución intermedia (mapeo de tipos) fue necesaria en su contexto.
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+##  Tecnologías utilizadas
 
 * HTML5
 * CSS3
@@ -141,7 +141,7 @@ La solución intermedia (mapeo de tipos) fue necesaria en su contexto.
 
 ---
 
-## 📌 Estado del proyecto
+##  Estado del proyecto
 
 ✔ Maquetación inicial fiel al diseño
 ✔ Render dinámico con JavaScript
