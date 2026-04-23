@@ -149,6 +149,14 @@ strong {
     color: #bbada0;
     font-size: 12px;
     margin-right: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tipo:hover {
+  border: 2px solid #333;
+  box-shadow: 0 0 10px rgb(0 0 0/ 40%);
+  transform: scale(1.05);
 }
 
 .evolution {
