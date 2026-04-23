@@ -140,4 +140,10 @@ async function buscarPokemonPorNombre(nombre: string) {
   }
 }
 
-export { cargarPokemons, formatearPokemon, buscarPokemonPorNombre };
+function filtrarPokemonsPorNombre(pokemons, texto) {
+  const palabra = texto.trim().toLowerCase();
+  if (!palabra) return pokemons;
+  return pokemons.filter((p) => p.name.toLowerCase().includes(palabra));
+}
+
+export { cargarPokemons, formatearPokemon, buscarPokemonPorNombre, filtrarPokemonsPorNombre };

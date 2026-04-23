@@ -4,6 +4,7 @@ import './style/variables.css';
 import PokemonCard from './components/PokemonCard'
 import { cargarPokemons } from './services/pokemonApi';
 import SearchBar from './components/SearchBar';
+import {filtrarPokemonsPorNombre} from './services/pokemonApi';
 
 interface Pokemon {
   id: number;
@@ -28,10 +29,9 @@ function App() {
     cargar();
   }, []);
 
-  const manejarBusqueda = (pokemon: Pokemon | null) => {
-    if (pokemon) {
-      setPokemons([pokemon]);
-    }
+  const manejarBusqueda = (texto:string | null) => {
+    const resultado = filtrarPokemonsPorNombre(pokemonsBase, texto)
+    setPokemons(resultado)
   };
 
   const manejarLimpiar = () => {
