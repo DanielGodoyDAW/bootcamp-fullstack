@@ -1,7 +1,12 @@
 import { useState } from "react";
 import PokemonPopup from "./PokemonPopUp";
+import type { Pokemon } from "../services/pokemonApi";
 
-function CartaPokemon({ pokemon }) {
+interface CartaPokemonProps {
+  pokemon: Pokemon;
+}
+
+function CartaPokemon({ pokemon }: CartaPokemonProps) {
   const [popupAbierto, setPopupAbierto] = useState(false);
 
   return (
@@ -22,3 +27,5 @@ function CartaPokemon({ pokemon }) {
     </div>
   );
 }
+
+export default CartaPokemon;

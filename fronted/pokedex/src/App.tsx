@@ -2,19 +2,11 @@ import { useEffect, useState } from 'react';
 import './style/globals.css';
 import './style/variables.css';
 import PokemonCard from './components/PokemonCard'
+import BackgroundBoxes from './components/BackgroundBoxes';
 import { cargarPokemons } from './services/pokemonApi';
 import SearchBar from './components/SearchBar';
 import {filtrarPokemonsPorNombre} from './services/pokemonApi';
-
-interface Pokemon {
-  id: number;
-  name: string;
-  image: string;
-  gif: string;
-  type_color: string;
-  types: string[];
-  evolution?: string | null;
-}
+import type { Pokemon } from './services/pokemonApi';
 
 function App() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -40,10 +32,7 @@ function App() {
 
   return (
     <>
-      <div className="box left-top"></div>
-      <div className="box right-top"></div>
-      <div className="box left-botton"></div>
-      <div className="box right-botton"></div>
+      <BackgroundBoxes />
       <SearchBar alBuscar={manejarBusqueda} alLimpiar={manejarLimpiar} />
       <main>
         {pokemons.map((pokemon) => (
