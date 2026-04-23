@@ -1,16 +1,9 @@
 import { useState } from "react";
 import PokemonPopup from "./PokemonPopUp"; 
+import type { Pokemon } from "../services/pokemonApi";
 
 interface PokemonCardProps {
-  pokemon: {
-    id: number;
-    name: string;
-    types: string[];
-    image: string;
-    gif: string;
-    type_color: string;
-    evolution?: string;
-  };
+  pokemon: Pokemon;
 }
 
 function PokemonCard({ pokemon }: PokemonCardProps) {

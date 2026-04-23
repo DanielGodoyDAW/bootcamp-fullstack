@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 
 interface BuscadorPokemonProps {
   alBuscar: (texto:string) => void;
@@ -8,7 +8,7 @@ interface BuscadorPokemonProps {
 function BuscadorPokemon({ alBuscar, alLimpiar }: BuscadorPokemonProps) {
   const [busqueda, setBusqueda] = useState('');
 
-  const manejarInput = async (e) => {
+  const manejarInput = (e: ChangeEvent<HTMLInputElement>) => {
     const valor = e.target.value.toLowerCase();
     setBusqueda(valor);
 
@@ -28,6 +28,7 @@ function BuscadorPokemon({ alBuscar, alLimpiar }: BuscadorPokemonProps) {
         type="search"
         placeholder="Filtra Pokémon por nombre ..."
         onChange={manejarInput}
+        value={busqueda}
         autoFocus
       />
     </header>

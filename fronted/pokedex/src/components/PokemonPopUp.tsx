@@ -1,14 +1,5 @@
 import "../style/pokemonPopUp.css";
-
-interface Pokemon {
-  id: number;
-  name: string;
-  types: string[];
-  image: string;
-  gif: string;
-  type_color: string;
-  evolution?: string;
-}
+import type { Pokemon } from "../services/pokemonApi";
 
 interface PokemonPopupProps {
   pokemon: Pokemon;
