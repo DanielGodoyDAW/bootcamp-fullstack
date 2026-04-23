@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { buscarPokemonPorNombre } from '../services/pokemonApi';
+// import { buscarPokemonPorNombre } from '../services/pokemonApi';
 
 interface Pokemon {
   id: number;
@@ -13,7 +13,7 @@ interface Pokemon {
 
 
 interface BuscadorPokemonProps {
-  alBuscar: (pokemon: Pokemon) => void;
+  alBuscar: (texto:string) => void;
   alLimpiar: () => void;
 }
 
@@ -27,24 +27,27 @@ function BuscadorPokemon({ alBuscar, alLimpiar }: BuscadorPokemonProps) {
     if (!valor) {
       alLimpiar();
       return;
+    }else{
+      alBuscar(valor);
+      return;
     }
 
-    if (valor.length < 3){
-      alLimpiar();
-      return; 
-    } 
+    // if (valor.length < 3){
+    //   alLimpiar();
+    //   return; 
+    // } 
 
-    try{
-      const pokemon = await buscarPokemonPorNombre(valor);
-      if (pokemon) {
-        alBuscar(pokemon);
-      }else{
-        alLimpiar();
-      }
-    } catch (error) {
-      alLimpiar();
-      console.error("Error en la búsqueda:", error);
-    }
+    // try{
+    //   const pokemon = await buscarPokemonPorNombre(valor);
+    //   if (pokemon) {
+    //     alBuscar(pokemon);
+    //   }else{
+    //     alLimpiar();
+    //   }
+    // } catch (error) {
+    //   alLimpiar();
+    //   console.error("Error en la búsqueda:", error);
+    // }
   };
 
   return (
