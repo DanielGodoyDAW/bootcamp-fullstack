@@ -1,4 +1,4 @@
-# ⚛️ Refactorización a React – PokeAPI Project
+# ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black) Refactorización a React – PokeAPI Project
 
 Esta versión del proyecto representa la evolución de la implementación inicial en JavaScript hacia una arquitectura basada en React, corrigiendo decisiones anteriores y mejorando la mantenibilidad del código.
 
@@ -8,7 +8,7 @@ Se continúa utilizando la API PokéAPI como fuente de datos.
 
 ---
 
-## 🚀 Objetivo de la refactorización
+##  Objetivo de la refactorización
 
 Tras la versión inicial en Vanilla JS, el objetivo principal fue:
 
@@ -19,7 +19,7 @@ Tras la versión inicial en Vanilla JS, el objetivo principal fue:
 
 ---
 
-## 🔧 Mejora clave: alineación con la API
+##  Mejora clave: alineación con la API
 
 En la versión anterior, los tipos de Pokémon requerían un sistema de mapeo (inglés → español), lo que añadía complejidad innecesaria.
 
@@ -41,11 +41,11 @@ Ejemplo en el componente:
 
 ---
 
-## 🧩 Estructura del proyecto
+##  Estructura del proyecto
 
 Se separa claramente la lógica en distintos niveles:
 
-### 📡 Capa de datos (`pokemonApi.ts`)
+###  Capa de datos (`pokemonApi.ts`)
 
 Encargada de:
 
@@ -63,7 +63,7 @@ Aquí ya no existe ningún mapeo, se trabaja directamente con los datos original
 
 ---
 
-### 🧱 Capa de presentación (`PokemonCard.tsx`)
+###  Capa de presentación (`PokemonCard.tsx`)
 
 Encargada de:
 
@@ -81,7 +81,7 @@ El tipo (`type_color`) ya está alineado con la API, eliminando conversiones inn
 
 ---
 
-## 🔄 Transformación de datos optimizada
+##  Transformación de datos optimizada
 
 La función `formatearPokemon` se simplifica respecto a la versión anterior:
 
@@ -95,7 +95,7 @@ type_color: mainType,
 
 ---
 
-## 🧠 Mejora respecto a la versión anterior
+##  Mejora respecto a la versión anterior
 
 | Aspecto        | Antes (Vanilla JS)     | Ahora (React)         |
 | -------------- | ---------------------- | --------------------- |
@@ -107,7 +107,7 @@ type_color: mainType,
 
 ---
 
-## 💡 Buenas prácticas aplicadas
+##  Buenas prácticas aplicadas
 
 * Uso de la API como única fuente de verdad
 * Separación clara entre lógica y presentación
@@ -118,7 +118,7 @@ type_color: mainType,
 
 ---
 
-## 🏁 Conclusión
+##  Conclusión
 
 La refactorización a React no solo supuso un cambio de tecnología, sino una mejora en el diseño del proyecto:
 
@@ -130,7 +130,7 @@ El resultado es una aplicación más limpia, mantenible y preparada para escalar
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+##  Tecnologías utilizadas
 
 * React
 * TypeScript
@@ -140,7 +140,7 @@ El resultado es una aplicación más limpia, mantenible y preparada para escalar
 
 ---
 
-## 📌 Estado
+##  Estado
 
 ✔ Refactorización completada
 ✔ Código optimizado
