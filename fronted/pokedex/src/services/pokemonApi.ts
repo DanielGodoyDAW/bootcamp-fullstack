@@ -21,6 +21,9 @@ interface PokemonListResponse {
 interface PokemonApiResponse {
   id: number;
   name: string;
+  species: {
+    url: string;
+  };
   types: Array<{
     type: {
       name: string;
@@ -80,12 +83,10 @@ function buscarEvolucion(
   return undefined;
 }
 
-async function obtenerEvolucion(pokemonId: number): Promise<string | null> {
+async function obtenerEvolucion(speciesUrl: string): Promise<string | null> {
   try {
     // Obtener los datos de la especie
-    const responseSpecies = await fetch(
-      `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`,
-    );
+    const responseSpecies = await fetch(speciesUrl);
 
     if (!responseSpecies.ok) {
       if (responseSpecies.status !== 404) {
@@ -127,7 +128,7 @@ async function obtenerEvolucion(pokemonId: number): Promise<string | null> {
 async function cargarPokemons(): Promise<Pokemon[]> {
   try {
     // Obtener la lista de pokemons
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=151`);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=-1`);
     if (!response.ok) {
       return [];
     }
@@ -155,7 +156,7 @@ async function formatearPokemon(datosApi: PokemonApiResponse): Promise<Pokemon> 
   const mainType = datosApi.types?.[0]?.type?.name ?? "normal";
 
   // Obtener la evolución
-  const evolucion = await obtenerEvolucion(datosApi.id);
+  const evolucion = await obtenerEvolucion(datosApi.species.url);
 
   // GIF con fallback a imagen estática
   const gifUrl =

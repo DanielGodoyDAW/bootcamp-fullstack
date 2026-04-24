@@ -23,7 +23,7 @@ function PokemonPopUp({ pokemon, visible, onClose }: PokemonPopupProps) {
 
   // Función para obtener el color del boton de popup basado en el tipo del Pokémon
   const obtenerColorComplementario = (tipo: string) => {
-    const tipoLower = tipo.toLowerCase();
+    const transfor = tipo.toLowerCase();
     const complementos: Record<string, string> = {
       fire: "water",
       water: "fire",
@@ -43,7 +43,7 @@ function PokemonPopUp({ pokemon, visible, onClose }: PokemonPopupProps) {
       steel: "fire",
       fairy: "poison",
     };
-    return complementos[tipoLower] || "normal";
+    return complementos[transfor] || "normal";
   };
 
   const colorBoton = `var(--color-${obtenerColorComplementario(pokemon.types[0])})`;
