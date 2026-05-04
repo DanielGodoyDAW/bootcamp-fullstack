@@ -67,7 +67,7 @@ bootcamp-fullstack/
     - Props: Ejercicio01 → Ejercicio12
     - Estados: Ejercicio01 → Ejercicio13
     - Formularios: Ejercicio01 → Ejercicio12
-- Java:
+- Java: Ejercicios01 → Ejecicios08
 
 ## ⚠️ Sobre las soluciones
 
