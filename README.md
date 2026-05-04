@@ -7,6 +7,7 @@ Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, *
 - [HTML](./html)
 - [CSS](./css)
 - [Formularios](./form)
+- [Java](./java)
 - [JavaSript](./js)
 - [Frontend](./fronted)
 - [React](./react)
@@ -16,11 +17,13 @@ Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, *
 ```text
 bootcamp-fullstack/
 ├─ html/        # Ejercicios de HTML
+│
 ├─ css/         # Ejercicios de CSS
 │  ├── css-1/       # Ejercicios de CSS basico
 │  ├── css-2/       # Ejercicios de CSS avanzado
 │
 ├─ form/        # Prácticas relacionadas con formularios
+│
 ├─ js/          # Prácticas de JS
 │   ├── js-variables-condicionales/   # Prácticas de condicionales,variables..
 │   ├── js-funciones-bucles/          # Prácticas de funciones, bucles...
@@ -36,6 +39,8 @@ bootcamp-fullstack/
 │  ├── Props/   # Ejercicios de props/composiciones/children a React
 │  ├── Estados/   # Ejercicios de estados a React
 │  ├── Formularios/   # Ejercicios de formularios a React
+│
+├─ java/        # Prácticas de Java
 │
 ├─ ComandosGit.md #Listado de comandos de git
 └─ README.md
@@ -62,6 +67,7 @@ bootcamp-fullstack/
     - Props: Ejercicio01 → Ejercicio12
     - Estados: Ejercicio01 → Ejercicio13
     - Formularios: Ejercicio01 → Ejercicio12
+- Java:
 
 ## ⚠️ Sobre las soluciones
 
