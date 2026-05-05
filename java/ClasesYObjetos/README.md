@@ -39,6 +39,24 @@ Debes entregar un pequeño proyecto Java o conjunto de archivos .java que incluy
 13. Nombres claros y convenciones Java.
 14. Código que compile y pueda ejecutarse.
 
+## Errores frecuentes
+
+Evita estos errores:
+
+    resolverlo todo con variables sueltas en main ;
+    usar atributos públicos;
+    crear setters para todo sin pensar;
+    no validar datos en constructores o métodos;
+    usar setEstado("...") para cualquier cambio de estado;
+    crear clases sin comportamiento cuando representan dominio;
+    hacer que una clase haga demasiadas cosas;
+    olvidar toString() ;
+    comparar objetos con == esperando igualdad de contenido;
+    confundir DTO con modelo de dominio;
+    usar record para una clase que necesita cambiar de estado;
+    crear nombres poco claros como Datos , Gestor , Cosa , Objeto1 ;
+    mezclar impresión, validación, persistencia y lógica de negocio en una sola clase.
+
 ##  Ejercicios recomendados y evaluables
 
     2, 3, 4, 6 y 7.
