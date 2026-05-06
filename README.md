@@ -41,6 +41,8 @@ bootcamp-fullstack/
 │  ├── Formularios/   # Ejercicios de formularios a React
 │
 ├─ java/        # Prácticas de Java
+│  ├── ClasesYObjetos/   # Ejercicios de clases y objetos
+│  ├── Fundamentos/   # Ejercicios de fundamentos de Java
 │
 ├─ ComandosGit.md #Listado de comandos de git
 └─ README.md
@@ -67,7 +69,9 @@ bootcamp-fullstack/
     - Props: Ejercicio01 → Ejercicio12
     - Estados: Ejercicio01 → Ejercicio13
     - Formularios: Ejercicio01 → Ejercicio12
-- Java: Ejercicios01 → Ejecicios08
+- Java: 
+    - Clases y Objetos: Ejercicio01 → Ejercicio08
+    - Fundamentos: Ejercicio01 → Ejercicio08
 
 ## ⚠️ Sobre las soluciones
 
