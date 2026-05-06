@@ -75,6 +75,5 @@ refactor: – Código que ni arregla un error ni añade una función, solo lo me
 test: – Añadir o corregir pruebas.
 
 chore: – Tareas de mantenimiento (actualizar dependencias, configurar herramientas).
-----------------------------
 
-control + h 
+----------------------------
