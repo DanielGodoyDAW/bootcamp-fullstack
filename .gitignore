@@ -16,3 +16,7 @@ build/
 # Archivos de entorno (si los usas)
 .env
 .env.*
+
+# Configuraciones de editores
+.idea/
+.vscode/
