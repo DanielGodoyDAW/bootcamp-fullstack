@@ -5,6 +5,7 @@ Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, *
 
 ## 📜 Contenido
 - [HTML](./html)
+- [Bases de Datos](./BaseDeDatos)
 - [CSS](./css)
 - [Formularios](./form)
 - [Java](./java)
@@ -21,6 +22,8 @@ bootcamp-fullstack/
 ├─ css/         # Ejercicios de CSS
 │  ├── css-1/       # Ejercicios de CSS basico
 │  ├── css-2/       # Ejercicios de CSS avanzado
+│
+├─ BaseDeDatos/   # Ejercicios de bases de datos
 │
 ├─ form/        # Prácticas relacionadas con formularios
 │
@@ -55,6 +58,7 @@ bootcamp-fullstack/
 ## 🛠️ Progreso (opcional)
 - HTML: Ejercicio01 → Ejercicio07
 - FORM: Ejercicio01 → Ejercicio11
+- Base de Datos: Ejercicio01 → Ejercicio05
 - CSS: 
     - CSS-1: Ejercicio01 → Ejercicio08
     - CSS-2: Ejercicios01 → Ejecicios08
