@@ -76,5 +76,3 @@ test: – Añadir o corregir pruebas.
 
 chore: – Tareas de mantenimiento (actualizar dependencias, configurar herramientas).
 ----------------------------
-
-control + h 
