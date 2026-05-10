@@ -52,7 +52,7 @@ bootcamp-fullstack/
 ```
 
 ## 🎲 Cómo ver los ejercicios
-- Abre el `index.html` del ejercicio en el navegador, o
+- Abre el `index.html` del ejercicio en el navegador
 - Usa **Live Server** (VS Code) para recargar automáticamente.
 
 ## 🛠️ Progreso (opcional)
