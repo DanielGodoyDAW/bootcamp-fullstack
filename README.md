@@ -1,7 +1,7 @@
 # 📍 Bootcamp Fullstack
 
 Repositorio de prácticas del Bootcamp Fullstack.  
-Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, **JS**, **React** y otros bloques a medida que avanzo.
+Aquí están subidos los ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, **JS**, **React**, **Java**, **Base de Datos** y otros bloques a medida que avanzo.
 
 ## 📜 Contenido
 - [HTML](./html)
@@ -9,7 +9,7 @@ Aquí voy subiendo ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, *
 - [CSS](./css)
 - [Formularios](./form)
 - [Java](./java)
-- [JavaSript](./js)
+- [JavaScript](./js)
 - [Frontend](./fronted)
 - [React](./react)
 - [ComandosGit](./ComandosGit.md)
