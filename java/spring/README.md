@@ -3,7 +3,7 @@
 En esta carpeta guardo los apuntes de clase de Spring Boot, anotaciones de clase
 y ejercicios prácticos relacionados con Spring Boot.
 
-En springboot dividimos las funcionalidades en distintos paquetes  como controllers, services, repositories, etc. para mantener una estructura organizada
+En springboot dividimos las funcionalidades en distintos paquetes como controllers, services, repositories, etc. para mantener una estructura organizada
 
 - controllers se manejan las solicitudes HTTP y se definen los endpoints de la aplicación
 - services se implementa la lógica de negocio de la aplicación
@@ -15,16 +15,16 @@ En springboot dividimos las funcionalidades en distintos paquetes  como controll
 
 Los controladores son responsables de manejar las solicitudes HTTP y definir los endpoints de la aplicación.
 
-- se use @RestController para indicar que la clase es un controlador REST y se encargará de manejar las solicitudes HTTP
-- se use @RequestMapping para definir la ruta base del controlador, por ejemplo @RequestMapping ("/api/users") para un controlador que maneja las operaciones relacionadas con usuarios
-  - se use @GetMapping, @PostMapping, @PutMapping, @DeleteMapping para definir los endpoints específicos para cada tipo de solicitud HTTP
-  el get vale para obtener datos
-  el post para crear nuevos recursos
-  el put para actualizar recursos existentes 
-  el delete para eliminar recursos
-- se use @PathVariable para extraer variables de la ruta, por ejemplo @GetMapping("/{id}") public ResponseEntity getById(@PathVariable Long id)
-- se use @RequestBody para recibir el cuerpo de la solicitud en formato JSON, por ejemplo @PostMapping public ResponseEntity create(@RequestBody User user)
-- se use ResponseEntity para devolver respuestas HTTP con el código de estado adecuado y el cuerpo de la respuesta, por ejemplo return ResponseEntity.ok(user) o return ResponseEntity.notFound().build()
+- se usa @RestController para indicar que la clase es un controlador REST y se encargará de manejar las solicitudes HTTP
+- se usa @RequestMapping para definir la ruta base del controlador, por ejemplo @RequestMapping ("/api/users") para un controlador que maneja las operaciones relacionadas con usuarios
+- se usa @GetMapping, @PostMapping, @PutMapping, @DeleteMapping para definir los endpoints específicos para cada tipo de solicitud HTTP
+  * el get vale para obtener datos
+  * el post para crear nuevos recursos
+  * el put para actualizar recursos existentes 
+  * el delete para eliminar recursos
+- se usa @PathVariable para extraer variables de la ruta, por ejemplo @GetMapping("/{id}") public ResponseEntity getById(@PathVariable Long id)
+- se usa @RequestBody para recibir el cuerpo de la solicitud en formato JSON, por ejemplo @PostMapping public ResponseEntity create(@RequestBody User user)
+- se usa ResponseEntity para devolver respuestas HTTP con el código de estado adecuado y el cuerpo de la respuesta, por ejemplo return ResponseEntity.ok(user) o return ResponseEntity.notFound().build()
 ###
 - @pathvariable se utiliza para extraer variables de la ruta en los controladores de Spring Boot. Por ejemplo, si tenemos un endpoint definido como @GetMapping("/{id}"), podemos usar @PathVariable para extraer el valor de "id" de la ruta y utilizarlo 
 en el método del controlador. Esto nos permite manejar solicitudes dinámicas y acceder a los datos específicos que se pasan a través de la URL.
