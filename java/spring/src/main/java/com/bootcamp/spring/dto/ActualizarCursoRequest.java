@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 
-public class CrearCursoRequest {
+public class ActualizarCursoRequest {
     //! agregamos la validacion
     @NotBlank(message = "El titulo es obligatorio")
     @Pattern(regexp = "^[a-zA-Z0-9 ]+$", message = "El titulo solo puede contener letras, numeros y espacios")
@@ -15,11 +15,11 @@ public class CrearCursoRequest {
     @PositiveOrZero(message = "El precio no puede ser negativo")
     private Double precio;
 
-    public CrearCursoRequest() {
+    public ActualizarCursoRequest() {
 
     }
 
-    public CrearCursoRequest(String titulo, int duracionHoras, double precio) {
+    public ActualizarCursoRequest(String titulo, int duracionHoras, double precio) {
         this.titulo = titulo;
         this.duracionHoras = duracionHoras;
         this.precio = precio;

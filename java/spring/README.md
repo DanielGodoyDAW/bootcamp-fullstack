@@ -85,3 +85,17 @@ En este ejemplo, el método crearCurso recibe un objeto CrearCursoRequest en el 
 devuelve una respuesta exitosa con el nuevo curso en el cuerpo de la respuesta.
 
 Las cosas que vayan desde la api hacia fuera hay que ponerlas en el **dto**, y las cosas que vengan desde fuera hacia la api hay que ponerlas en el **request**, para mantener una separación clara entre los objetos de transferencia de datos y los objetos de solicitud.
+
+Para instalar cualquier dependencia en Spring Boot, se puede utilizar el archivo pom.xml si se está utilizando Maven como sistema de construcción.
+En el archivo pom.xml, se pueden agregar las dependencias necesarias para el proyecto. Por ejemplo, si se desea agregar la dependencia de Spring Web para crear una aplicación web, se puede agregar lo siguiente al archivo pom.xml:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+</dependencies>
+```
+Después de agregar la dependencia al archivo pom.xml, se debe guardar el archivo y el sistema de construcción (Maven) descargará automáticamente la dependencia y la agregará al proyecto.
+

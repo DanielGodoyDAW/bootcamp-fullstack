@@ -13,9 +13,11 @@ public class Curso {
             throw new IllegalArgumentException("El id es obligatorio");
         }
         this.id = id;
+        /*
         if(titulo == null || titulo.isBlank()){
             throw new IllegalArgumentException("El titulo es obligatorio");
-        }
+        }*/
+        setTitulo(titulo);
         this.titulo = titulo;
         if(duracionHoras <= 0){
             throw new IllegalArgumentException("El duracion horas es obligatorio");
@@ -37,6 +39,32 @@ public class Curso {
         return  duracionHoras >= 80;
     }
     //TODO ----
+
+    // ! agregamos una funcion para actualizar los datos y le agregamos comprobaciones
+    public void actualizarDatos(String titulo, int duracionHoras, double precio){
+        /*
+        if(titulo == null || titulo.isBlank()){
+            throw new IllegalArgumentException("El titulo es obligatorio");
+        }*/
+        setTitulo(titulo); //! podriamos hacerlo de las 2 maneras o agregando seters privados o haciendo la comprobacion, por eso comento las 2 funcionalidades
+        if(duracionHoras <= 0){
+            throw new IllegalArgumentException("El duracion horas es obligatorio");
+        }
+        if (precio < 0){
+            throw new IllegalArgumentException("El precio no puede ser negativo");
+        }
+        this.titulo = titulo;
+        this.duracionHoras = duracionHoras;
+        this.precio = precio;
+    }
+
+    // ! para hacer el ejemplo con set privados
+    private void setTitulo(String titulo){
+        if(titulo == null || titulo.isBlank()){
+            throw new IllegalArgumentException("El titulo es obligatorio");
+        }
+        this.titulo = titulo;
+    }
 
     public void activar(){
         this.activo = true;
