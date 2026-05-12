@@ -46,6 +46,9 @@ bootcamp-fullstack/
 ├─ java/        # Prácticas de Java
 │  ├── ClasesYObjetos/   # Ejercicios de clases y objetos
 │  ├── Fundamentos/   # Ejercicios de fundamentos de Java
+│  ├── POO-Avanzado/   # Ejercicio practica en grupo de POO avanzado
+│  ├── practicaSpringboot/   # Transformación de una aplicación Java a Spring Boot (ejercicio de grupo)
+│  ├── spring/   # Practicas de clase de Spring    
 │
 ├─ ComandosGit.md #Listado de comandos de git
 └─ README.md
@@ -76,6 +79,8 @@ bootcamp-fullstack/
 - Java: 
     - Clases y Objetos: Ejercicio01 → Ejercicio08
     - Fundamentos: Ejercicio01 → Ejercicio08
+    - POO-Avanzado: Ejercicio practica en grupo (completo)
+    - practicaSpringboot: Transformación de una aplicación Java a Spring Boot (ejercicio de grupo) 
 
 ## ⚠️ Sobre las soluciones
 
@@ -91,3 +96,4 @@ El objetivo es que aprendas el concepto, no que copies la solución. ¡Intenta r
 ## 👦🏽 Autor
 - Daniel Godoy Medina ([@DanielGodoyDAW](https://github.com/DanielGodoyDAW))
 - Inicio: 2026-03-16
+- Fin: 2026-06-12
