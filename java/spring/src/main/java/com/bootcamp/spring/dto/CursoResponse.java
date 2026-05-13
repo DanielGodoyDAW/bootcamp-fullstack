@@ -7,9 +7,11 @@ public class CursoResponse {
     private int duracionHoras;
     private double precio;
     private boolean activo;
+    private boolean gratuito;
+    private boolean intensivo;
 
     //constructor con todos los parametros
-    public CursoResponse(Long id, int duracionHoras, String titulo, double precio, boolean activo) {
+    public CursoResponse(Long id, int duracionHoras, String titulo, double precio, boolean activo , boolean gratuito, boolean intensivo) {
         this.id = id;
         this.duracionHoras = duracionHoras;
         this.titulo = titulo;
