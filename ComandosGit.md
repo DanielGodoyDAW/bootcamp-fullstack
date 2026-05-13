@@ -59,6 +59,13 @@ git push origin --delete nombre-rama
 git fetch --prune
 ```
 
+## Ver commits candidatos durante un bisect
+Muestra todos los commits que todavía pueden ser la causa del problema dentro de una sesión activa de `git bisect`:
+```bash
+git bisect --all
+```
+
+
 
 ## Palabras clave para tener buenas practicas a la hora de subir un commit
 

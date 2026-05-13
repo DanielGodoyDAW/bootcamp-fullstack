@@ -278,3 +278,92 @@ public interface UserRepository extends JpaRepository<User, Long> {
 }
 ```
 En este ejemplo, se ha creado una interfaz UserRepository que extiende de JpaRepository.
+
+los metodos que heredan de JpaRepository mas comunes son:
+- save: se utiliza para guardar un nuevo objeto en la base de datos o actualizar un objeto existente. Por ejemplo, userRepository.save(user) guardará el objeto "user" en la base de datos.
+- findById: se utiliza para buscar un objeto por su ID. Por ejemplo userRepository.findById(id) devolverá un Optional<User> que contiene el objeto "user" con el ID especificado, o un Optional vacío si no se encuentra.
+- findAll: se utiliza para obtener una lista de todos los objetos de una entidad. Por ejemplo, userRepository.findAll() devolverá una lista de todos los objetos "user" en la base de datos.
+- deleteById: se utiliza para eliminar un objeto por su ID. Por ejemplo, userRepository.deleteById(id) eliminará el objeto "user" con el ID especificado de la base de datos.
+- count: se utiliza para contar el número de objetos de una entidad en la base de datos. Por ejemplo, userRepository.count() devolverá el número total de objetos "user" en la base de datos.
+
+con **@Component** se indica que la clase es un componente de Spring y se puede inyectar en otras clases utilizando la anotación @Autowired.
+Esto permite que Spring gestione la creación y el ciclo de vida de los objetos de la clase, lo que facilita la inyección de dependencias y la reutilización de código en toda la aplicación.
+
+con **@Transactional** se indica que el método o la clase debe ser ejecutado dentro de una transacción. 
+Esto significa que todas las operaciones realizadas dentro del método o la clase serán tratadas como una unidad de trabajo, 
+y si ocurre algún error durante la ejecución, todas las operaciones serán revertidas para mantener la integridad de los datos en la base de datos.
+
+Esto es especialmente útil cuando se realizan operaciones que involucran múltiples pasos, como la creación de un nuevo recurso 
+que requiere la inserción de datos en varias tablas de la base de datos. Al utilizar @Transactional, se garantiza que todas las 
+operaciones se realicen de manera atómica, lo que significa que o todas las operaciones se completan con éxito o ninguna de ellas 
+se aplica a la base de datos, evitando así inconsistencias en los datos en caso de errores durante la ejecución.
+
+agregamos la dependecia de mysql al pon.xml para poder conectar con mysql
+
+```xml
+<dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <scope>runtime</scope>
+</dependency>
+```
+
+modificamos el properties para conectar con mysql
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/mi_base_de_datos
+spring.datasource.username=usuario
+spring.datasource.password=contraseña
+spring.jpa.hibernate.ddl-auto=update
+```
+
+se recomienda proteger el archivo application.properties o application.yml que contiene las credenciales de la base de datos, ya que puede contener información sensible como el nombre de usuario y la contraseña.
+Para proteger el archivo, se pueden seguir las siguientes prácticas:
+- No incluir el archivo en el control de versiones (por ejemplo, utilizando .gitignore)
+
+usar un archivo .env para almacenar las variables de entorno con las credenciales de la base de datos, y luego referenciar esas variables en el archivo application.properties o application.yml.
+
+```properties
+spring.datasource.url=${DB_URL}
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
+```
+
+En config crearemos las clases que crean los objetos de configuración de la aplicación, como la configuración de seguridad, CORS, etc.
+le implementamos el implements CommandLineRunner para ejecutar código al iniciar la aplicación, por ejemplo para cargar datos de prueba en la base de datos.
+
+esta interfaz nos implementa una clase abstracta que tiene un método run que se ejecutará al iniciar la aplicación.
+
+para asegurarnos de que cada vez que inicialice la aplicacion no vuelva a cargar los mismos datos de prueba, podemos agregar una condición para verificar si la base de datos ya contiene datos antes de cargar los datos de prueba.
+
+```java
+@Component
+public class DataLoader implements CommandLineRunner {
+    private final UserRepository userRepository;
+    public DataLoader(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+    @Override
+    public void run(String... args) throws Exception {
+        if (userRepository.count() == 0) {
+            User user1 = new User();
+            user1.setNombre("Juan");
+            user1.setEmail("ejemplo@ejemplo.com");
+            userRepository.save(user1);
+           }
+    }
+}
+```
+
+**@Param** se utiliza para indicar que un parámetro de un método de consulta es un parámetro de la consulta.
+
+para hacer una consulta se usa **@Query** en el repositorio, por ejemplo:
+
+```java
+public interface UserRepository extends JpaRepository<User, Long> {
+    @Query("SELECT u FROM User u WHERE u.nombre = :nombre")
+    List<User> findByNombre(@Param("nombre") String nombre);
+}
+```
+
+Aqui el * comunmente usado para coger todos los campos de la tabla varia, en este caso se esta utilizando el alias "u" para referirse a la entidad User, por lo que se debe usar "u" en lugar de "*" para seleccionar todos los campos de la entidad User.

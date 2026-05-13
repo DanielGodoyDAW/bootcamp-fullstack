@@ -4,6 +4,7 @@ import com.bootcamp.spring.dto.ActualizarCursoRequest;
 import com.bootcamp.spring.dto.CrearCursoRequest;
 import com.bootcamp.spring.dto.CursoResponse;
 import com.bootcamp.spring.service.CursoService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -89,7 +90,7 @@ public class CursosController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<CursoResponse> crearCursoResponseEntity(@RequestBody CrearCursoRequest curso){
+    public ResponseEntity<CursoResponse> crearCursoResponseEntity(@Valid @RequestBody CrearCursoRequest curso){
         CursoResponse cursoCreado = cursoService.crearCurso(curso);
         return ResponseEntity.status(HttpStatus.CREATED).body(cursoCreado);
     }
