@@ -3,7 +3,6 @@ package com.bootcamp.spring.controller;
 import com.bootcamp.spring.dto.ActualizarCursoRequest;
 import com.bootcamp.spring.dto.CrearCursoRequest;
 import com.bootcamp.spring.dto.CursoResponse;
-import com.bootcamp.spring.model.Curso;
 import com.bootcamp.spring.service.CursoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,11 +62,14 @@ public class CursosController {
         //el orElseThroiw vale para lanzar una excepcion en caso de no encontrar el curso por id y se usa ese, porque usabamos un optional
     }
 
+    /*
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CursoResponse crearCruso(@RequestBody CrearCursoRequest curso){
          return cursoService.crearCurso(curso);
     }
+
+     */
 
     @PatchMapping("/{id}/desactivar")
     public CursoResponse desactivar(@PathVariable Long id){

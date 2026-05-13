@@ -1,19 +1,28 @@
-package com.bootcamp.spring.model;
+package com.bootcamp.spring.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name= "cursos")
 public class Curso {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
     private int duracionHoras;
     private double precio;
     private boolean activo;
 
+    protected Curso() {}
+
     //TODO agregamos comprobaciones para que no introduzcan datos erroneos
-    public Curso(Long id, String titulo, int duracionHoras, double precio) {
+    public Curso(String titulo, int duracionHoras, double precio) {
+        /*public Curso(Long id, String titulo, int duracionHoras, double precio)
         if(id == null){
             throw new IllegalArgumentException("El id es obligatorio");
         }
         this.id = id;
-        /*
+
         if(titulo == null || titulo.isBlank()){
             throw new IllegalArgumentException("El titulo es obligatorio");
         }*/

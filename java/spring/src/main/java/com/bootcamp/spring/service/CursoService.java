@@ -4,19 +4,21 @@ import com.bootcamp.spring.dto.ActualizarCursoRequest;
 import com.bootcamp.spring.dto.CrearCursoRequest;
 import com.bootcamp.spring.dto.CursoResponse;
 import com.bootcamp.spring.exception.CursoNoEncontradoException;
-import com.bootcamp.spring.model.Curso;
+import com.bootcamp.spring.entity.Curso;
+import com.bootcamp.spring.repository.CursoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CursoService {
     private Long singuienteId = 1L;
     private final List<Curso> cursos = new ArrayList<>();
+    private CursoRepository cursoRepository;
 
-    public CursoService() {
+    public CursoService(CursoRepository cursoRepository) {
+        this.cursoRepository = cursoRepository;
         crearCurso(new CrearCursoRequest("Java", 80, 199.99));
         crearCurso(new CrearCursoRequest("Spring", 100, 299.99));
         crearCurso(new CrearCursoRequest("Sql", 200, 259.99));
@@ -101,6 +103,7 @@ public class CursoService {
                 .findFirst();
     }*/
 
+    /*
     public CursoResponse crearCurso(CrearCursoRequest request){
         Curso curso = new Curso(
                 singuienteId,
@@ -110,6 +113,21 @@ public class CursoService {
         );
         cursos.add(curso);
         singuienteId++;
+        return convertirApiResponse(curso);
+    }
+     */
+
+    public CursoResponse crearCurso(CrearCursoRequest request){
+        Curso curso = new Curso(
+                request.getTitulo(),
+                request.getDuracionHoras(),
+                request.getPrecio()
+        );
+        cursoRepository.save(curso);
+        /*
+        cursos.add(curso);
+        singuienteId++;
+         */
         return convertirApiResponse(curso);
     }
 
