@@ -10,8 +10,12 @@ En springboot dividimos las funcionalidades en distintos paquetes como controlle
 - repositories se manejan las operaciones de acceso a datos, como consultas a la base de datos
 - models se definen las entidades o modelos de datos que representan las tablas de la base de datos
 - config se pueden colocar las configuraciones de la aplicación, como seguridad, CORS, etc
-- dto se pueden colocar los objetos de transferencia de datos, que son clases que se utilizan para transferir datos entre capas de la aplicación
+- dto (data transfer objet) se pueden colocar los objetos de transferencia de datos, que son clases que se utilizan para transferir datos entre capas de la aplicación
 - exceptions se pueden colocar las clases de excepciones personalizadas que se utilizan para manejar errores en la aplicación
+- mappers se pueden colocar las clases que se encargan de mapear entre objetos de diferentes capas, como mapear entre entidades y DTOs
+los mapper se usan para convertir objetos de una capa a otra, por ejemplo, para convertir una entidad de la base de datos a un DTO que se envía al cliente, o para convertir un DTO recibido del cliente a una entidad que se guarda en la base de datos.
+
+los paquetes que instalamos springdatajpa el paquete de validation i/o, el paquete de mysql, etc. se pueden colocar en la carpeta dependencies para mantener una estructura organizada y facilitar la gestión de las dependencias del proyecto.
 
 Los controladores son responsables de manejar las solicitudes HTTP y definir los endpoints de la aplicación.
 
@@ -367,3 +371,46 @@ public interface UserRepository extends JpaRepository<User, Long> {
 ```
 
 Aqui el * comunmente usado para coger todos los campos de la tabla varia, en este caso se esta utilizando el alias "u" para referirse a la entidad User, por lo que se debe usar "u" en lugar de "*" para seleccionar todos los campos de la entidad User.
+
+**@ManyToOne** se utiliza para establecer una relación de muchos a uno entre dos entidades en JPA.
+
+```java
+@Entity
+public class Curso {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nombre;
+    private String descripcion;
+    private double precio;
+    @ManyToOne
+    private Categoria categoria;
+    // getters y setters
+}   
+```
+
+**@ManyToOne(FetchType.LAZY)** se utiliza para establecer una relación de muchos a uno entre dos entidades en JPA, y además indica que la carga de la entidad relacionada se realizará de manera perezosa (lazy loading).
+**@ManyToOne(FetchType.EAGER)** se utiliza para establecer una relación de muchos a uno entre dos entidades en JPA, y además indica que la carga de la entidad relacionada se realizará de manera ansiosa (eager loading).
+
+**@OneToMany** se utiliza para establecer una relación de uno a muchos entre dos entidades en JPA.
+**@OneToMany(mappedBy = "categoria")** se utiliza para establecer una relación de uno a muchos entre dos entidades en JPA, y además indica que la entidad relacionada es la propietaria de la relación y que el campo "categoria" en la entidad relacionada es el que mapea la relación.
+
+**@JoinColumn** se utiliza para especificar la columna de unión en una relación de muchos a uno en JPA.
+```java
+@Entity
+public class Curso {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
+    private Long id;
+    private String nombre;
+    private String descripcion;
+    private double precio;
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+    // getters y setters
+}
+```
+
+**@JoinColumn(name = "categoria_id")** se utiliza para especificar que la columna de unión en la tabla de la base de datos se llamará "categoria_id".
+
