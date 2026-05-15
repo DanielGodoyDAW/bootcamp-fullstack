@@ -414,3 +414,199 @@ public class Curso {
 
 **@JoinColumn(name = "categoria_id")** se utiliza para especificar que la columna de unión en la tabla de la base de datos se llamará "categoria_id".
 
+**JWT** (JSON Web Token) es un estándar abierto para la transmisión segura de información entre partes como un objeto JSON.
+Funciona mediante la generación de un token que contiene información codificada, como el ID del usuario o los roles, y se firma digitalmente para garantizar su integridad.
+El token se envía al cliente después de que el usuario inicia sesión correctamente, y el cliente lo incluye en las solicitudes posteriores para autenticar al usuario y autorizar el acceso a los recursos protegidos en la aplicación. 
+En Spring Boot, se puede utilizar la biblioteca jjwt para generar y validar tokens JWT, y se puede configurar un filtro de seguridad para interceptar las solicitudes y verificar la validez del token antes de permitir el acceso a los recursos protegidos.
+
+Ejemplo de planteamiento de una app
+
+  * Configuracion(tiempoValidezToken, claveSecretaToken)
+  * DataLoader(admin)
+  * AuthController(login, register) -Rutas no protegidas-
+  * Dto (LoginRequest, RegisterRequest, LoginResponse -token-)
+  * AuthService
+  * Repository (findByEmail, existsByEmail, findByEmailAndPassword)
+  * Entidad usuario (id, nopmbre, email, password, roles)
+  * Entidad Rol
+  * Encriptador de Contraseña
+  * Generar Token JWT y comprobar validez del token
+  * Filtro de peticiones para validar el token en cada solicitud -Rutas protegidas y no protegidas-
+  * Manejo de excepciones para errores de autenticación y autorización
+
+----
+
+Dependencias de seguridad del proyecto:
+
+- Security: spring-boot-starter-security
+
+```properties
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+```
+
+Creamos una clase de congiguracion por ejemplo SecurityConfig y agregamos las etiquetas
+**@Configuration** y **@EnableWebSecurity** para indicar que es una clase de configuración de seguridad.
+
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+  @Bean
+  SecurityFilterChain securityFilterChain(HttpSecurity http){
+      return http
+              .csrf().disable()
+              .authorizeHttpRequests()
+              .requestMatchers("/api/auth/**").permitAll() // Rutas no protegidas
+              .anyRequest().authenticated() // Rutas protegidas
+              .and()
+              .build();
+       }
+}
+```
+En este ejemplo, se ha configurado la seguridad para permitir el acceso a las rutas que comienzan con "/api/auth/" sin autenticación, mientras que todas las demás rutas requieren autenticación.
+
+**@ElementCollection** se utiliza para definir una colección de elementos embebidos en una entidad JPA.
+```java
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nombre;
+    private String email;
+    private String password;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<String> roles = new HashSet<>();
+    // getters y setters
+}
+```
+
+**@CollencionTable** se utiliza para definir una tabla de colección en la base de datos para almacenar los elementos de una colección embebida en una entidad JPA.
+```java
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nombre;  
+    private String email;
+    private String password;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"))
+    @Column(name = "role")
+    private Set<String> roles = new HashSet<>();
+    // getters y setters
+}
+```
+
+El **PasswordEncoder** se utiliza para encriptar las contraseñas de los usuarios antes de almacenarlas en la base de datos, lo que mejora la seguridad de la aplicación al evitar almacenar contraseñas en texto plano.
+En Spring Boot, se puede configurar un PasswordEncoder utilizando la clase BCryptPasswordEncoder, que utiliza el algoritmo de encriptación bcrypt para proteger las contraseñas de los usuarios. 
+Al utilizar un PasswordEncoder, se garantiza que las contraseñas de los usuarios estén protegidas y se reduce el riesgo de que las contraseñas sean comprometidas en caso de una brecha de seguridad en la base de datos. Además, al encriptar las contraseñas, se dificulta que los atacantes puedan obtener las contraseñas originales incluso si tienen acceso a la base de datos, lo que mejora la seguridad general de la aplicación.
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+@Configuration
+public class SecurityConfig {
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}
+```
+Para crear el JWT, se puede utilizar la biblioteca jjwt para generar y validar tokens JWT en Spring Boot.
+
+habra que instalar la dependencia de **OAuth2 Resource ServerOAuth2 Resource Server**
+
+```xml
+ <dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-security-oauth2-resource-server</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-security-oauth2-resource-server-test</artifactId>
+  <scope>test</scope>
+</dependency>
+```
+
+Usaremos la clase **JwtEncoder** para generar el token JWT, y la clase **JwtDecoder** para validar el token JWT en las solicitudes entrantes.
+
+```java
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
+import org.springframework.stereotype.Service;
+@Service
+public class JwtService {
+    private final JwtEncoder jwtEncoder;
+    private final JwtDecoder jwtDecoder;
+    public JwtService(JwtEncoder jwtEncoder, JwtDecoder jwtDecoder) {
+        this.jwtEncoder = jwtEncoder; 
+        this.jwtDecoder = jwtDecoder;
+    }
+    public String generateToken(String email, Set<String> roles) {
+        // Lógica para generar el token JWT utilizando jwtEncoder
+    }
+    public boolean validateToken(String token) {
+        // Lógica para validar el token JWT utilizando jwtDecoder
+    }
+}
+```
+
+Con **@Value("${jwt.expiration-minutes}")** se inyecta el valor de la propiedad jwt.expiration-minutes desde el archivo application.properties o application.yml en la variable expirationMinutes de la clase JwtService.
+
+```java
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
+import org.springframework.stereotype.Service;
+
+@Service
+public class JwtService {
+    private final JwtEncoder jwtEncoder;
+    private final JwtDecoder jwtDecoder;
+    @Value("${jwt.expiration-minutes}")
+    private long expirationMinutes;
+    public JwtService(JwtEncoder jwtEncoder, JwtDecoder jwtDecoder) {
+        this.jwtEncoder = jwtEncoder;
+        this.jwtDecoder = jwtDecoder;
+    }
+    public String generateToken(String email, Set<String> roles) {
+        // Lógica para generar el token JWT utilizando jwtEncoder y expirationMinutes
+    }
+    public boolean validateToken(String token) {
+        // Lógica para validar el token JWT utilizando jwtDecoder
+    }
+}
+```
+En aplication.properties habra que agregar la propiedad jwt.expiration-minutes para configurar el tiempo de expiración del token JWT, por ejemplo:
+
+```properties
+jwt.expiration-minutes=60
+```
+En este ejemplo, se ha configurado el tiempo de expiración del token JWT a 60 minutos. Esto significa que el token JWT 
+generado por la aplicación será válido durante 60 minutos desde el momento de su creación. Después de ese tiempo, el token expirará 
+y ya no será válido para autenticar al usuario en las solicitudes posteriores. 
+Configurar un tiempo de expiración adecuado para los tokens JWT es importante para mejorar la seguridad de la aplicación, 
+ya que limita el tiempo durante el cual un token comprometido puede ser utilizado por un atacante. 
+Además, también se puede configurar un tiempo de expiración más corto para tokens de acceso y un tiempo de expiración más largo 
+para tokens de actualización, lo que permite a los usuarios mantener su sesión activa sin tener que volver a autenticarse con frecuencia, 
+pero al mismo tiempo limita el tiempo de validez de los tokens de acceso para mejorar la seguridad.
+
+Lo aconsejable sería agregarlo a una variable de entorno en lugar de tenerlo en el archivo application.properties, para evitar exponer información sensible en el código fuente.
+```properties
+jwt.expiration-minutes=${JWT_EXPIRATION}
+```
+En este ejemplo, se ha configurado el tiempo de expiración del token JWT utilizando una variable de entorno llamada JWT_EXPIRATION.
+
