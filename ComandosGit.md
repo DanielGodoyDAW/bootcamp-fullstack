@@ -38,6 +38,21 @@ git switch main
 git merge feature/form
 ```
 
+## Para ver solo ramas locales
+```bash
+git branch
+```
+
+## Para ver todas las ramas (locales y remotas)
+```bash
+git branch -a
+``` 
+
+## Para ver solo ramas remotas
+```bash
+git branch -r
+```
+
 ## Borrar una rama
 ### 1) Borrar rama local
 ```bash
