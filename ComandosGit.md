@@ -79,7 +79,15 @@ Muestra todos los commits que todavía pueden ser la causa del problema dentro d
 ```bash
 git bisect --all
 ```
-
+## para hacer un merge (merge significa combinar ramas)
+primero te situas en la rama a la que quieres combinar (ejemplo: main) y luego haces el merge con la rama que quieres combinar (ejemplo: feature/form)
+```bash
+git merge nombre-rama
+```
+una vez hecho esto, un push para subir los cambios a GitHub
+```bash
+git push
+```
 
 
 ## Palabras clave para tener buenas practicas a la hora de subir un commit
