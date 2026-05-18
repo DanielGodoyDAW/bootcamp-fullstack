@@ -610,3 +610,65 @@ jwt.expiration-minutes=${JWT_EXPIRATION}
 ```
 En este ejemplo, se ha configurado el tiempo de expiración del token JWT utilizando una variable de entorno llamada JWT_EXPIRATION.
 
+## Codigos de estado HTTP:
+
+**HTTPSTATUS.CONFLICT.(value)** se utiliza para indicar que la solicitud no se pudo completar debido a un conflicto con el estado actual del recurso.
+
+**HTTPSTATUS.BAD_REQUEST(value)** se utiliza para indicar que la solicitud no se pudo completar debido a una sintaxis incorrecta o datos inválidos proporcionados por el cliente.
+
+**HTTPSTATUS.NOT_FOUND(value)** se utiliza para indicar que el recurso solicitado no se pudo encontrar en el servidor. Esto puede ocurrir cuando el cliente solicita un recurso que no existe o ha sido eliminado.
+
+la etiqueta **@EnableMethodSecurity** se utiliza para habilitar la seguridad a nivel de método en una aplicación Spring Boot. Esto permite proteger métodos específicos en los controladores o servicios utilizando anotaciones como **@PreAuthorize** o **@Secured** para definir las reglas de autorización basadas en roles o permisos. Al habilitar la seguridad a nivel de método, se puede controlar el acceso a los recursos de manera más granular y garantizar que solo los usuarios autorizados puedan acceder a ciertos métodos o realizar ciertas acciones en la aplicación.
+
+**Authetication Manager** se utiliza para gestionar el proceso de autenticación en una aplicación Spring Boot.
+El Authentication Manager es responsable de autenticar a los usuarios y verificar sus credenciales, como el nombre de usuario y la contraseña, para determinar si el usuario es válido y tiene acceso a los recursos protegidos en la aplicación.
+En Spring Boot, se puede configurar un Authentication Manager utilizando la clase AuthenticationManagerBuilder para definir cómo se autenticarán los usuarios, por ejemplo, utilizando una base de datos, un servicio de autenticación externo o un proveedor de autenticación personalizado.
+
+```java
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+@Configuration
+@EnableWebSecurity
+@EnableMethodSecurity
+public class SecurityConfig {
+    private final UserDetailsService userDetailsService;
+    private final PasswordEncoder passwordEncoder;
+    public SecurityConfig(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
+        this.userDetailsService = userDetailsService;
+        this.passwordEncoder = passwordEncoder;
+    }
+    @Bean
+    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+        return http.getSharedObject(AuthenticationManagerBuilder.class)
+                .userDetailsService(userDetailsService)
+                .passwordEncoder(passwordEncoder)
+                .and()
+                .build();
+    }
+}
+```
+En este ejemplo, se ha configurado un Authentication Manager que utiliza un UserDetailsService para cargar los detalles del usuario desde la base de datos y un PasswordEncoder para verificar las contraseñas de los usuarios durante el proceso de autenticación.
+
+**Authetication** se utiliza para representar la información de autenticación de un usuario en una aplicación Spring Boot.
+La interfaz Authentication es parte del framework de seguridad de Spring y se utiliza para almacenar información sobre el usuario autenticado, como su nombre de usuario, roles y permisos.
+
+En Spring Boot, se puede acceder a la información de autenticación del usuario utilizando el objeto Authentication en los controladores o servicios.
+Por ejemplo, se puede obtener el nombre de usuario del usuario autenticado utilizando el método getName del objeto Authentication, o se pueden verificar los roles del usuario utilizando el método getAuthorities para determinar si el usuario tiene acceso a ciertos recursos protegidos en la aplicación.
+
+```java
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+@RestController
+public class UserController {
+    @GetMapping("/user")
+    public String getUserInfo(Authentication authentication) {
+        String username = authentication.getName();
+        return "Información del usuario: " + username;
+    }
+}
+``` 
+En este ejemplo, se ha creado un controlador UserController con un endpoint "/user" que devuelve la información del usuario autenticado utilizando el objeto Authentication para obtener el nombre de usuario del usuario autenticado.
