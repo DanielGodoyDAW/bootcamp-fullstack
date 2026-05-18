@@ -1,5 +1,19 @@
 # Git — comandos básicos (ramas)
 
+## Para clonar un repositorio de GitHub a tu máquina local:
+```bash 
+git clone <url>
+```
+
+## Para actualizar tu repositorio local con los cambios del remoto:
+```bash
+git pull
+```
+## Para subir tus cambios al remoto (GitHub):
+```bash
+git push
+```
+
 ## Crear una rama
 Crea la rama **localmente** (no cambia a ella):
 ```bash
