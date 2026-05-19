@@ -45,7 +45,7 @@ public class AuthService {
           request.getNombre(),
           request.getEmail(),
           passwordEncoder.encode(request.getPassword()),
-                Set.of(Rol.ROL_USER)
+                Set.of(Rol.ROLE_USER)
         );
         Usuario entity = repository.save(usuario);
         String token = jwtService.generarToken(usuario);
