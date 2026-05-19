@@ -30,7 +30,7 @@ public class JwtService {
                 .map(Enum::name)
                 .collect(Collectors.joining(" "));
         JwsHeader jwsHeader = JwsHeader.with(MacAlgorithm.HS256).build();
-        // ROL_USER ROL_ADMIN ROL_OTRO
+        // ROL_USER ROLE_ADMIN ROL_OTRO
         JwtClaimsSet claims = JwtClaimsSet.builder()
                 .issuer("OnlyFran")
                 .issuedAt(now)

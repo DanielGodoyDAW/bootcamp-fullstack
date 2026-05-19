@@ -34,7 +34,7 @@ public class DataLoader implements CommandLineRunner {
                 "Juan",
                 "juan@email.com",
                 passwordEncoder.encode("juanilloElMolon123"),
-                Set.of(Rol.ROL_ADMIN)
+                Set.of(Rol.ROLE_ADMIN)
         )
         );
 
