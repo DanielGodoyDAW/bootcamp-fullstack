@@ -1,7 +1,7 @@
 # 📍 Bootcamp Fullstack
 
 Repositorio de prácticas del Bootcamp Fullstack.  
-Aquí están subidos los ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, **JS**, **React**, **Java**, **Base de Datos** y otros bloques a medida que avanzo.
+Aquí están subidos los ejercicios y apuntes de **HTML**, **CSS**, **Formularios**, **JS**, **React**, **Java**, **Base de Datos** y otros bloques.
 
 ## 📜 Contenido
 - [HTML](./html)
@@ -34,7 +34,7 @@ bootcamp-fullstack/
 │   ├── js-metodosArrays-transformaciones/     # Prácticas de métodos de arrays y transformaciones
 │ 
 ├─ fronted/     # Proyecto Pokemon
-│   ├── mundo-pokemon/   # Proyecto Pokemon, evolución desde HTML hasta JasvaScript con consumo de API (completo)
+│   ├── mundo-pokemon/   # Proyecto Pokemon, evolución desde HTML hasta JavaScript con consumo de API (completo)
 │   ├── pokedex/   # Proyecto Pokedex, transicion de js a React (completo)
 │
 ├─ react/       # Ejercicios de React
@@ -64,12 +64,12 @@ bootcamp-fullstack/
 - Base de Datos: Ejercicio01 → Ejercicio05
 - CSS: 
     - CSS-1: Ejercicio01 → Ejercicio08
-    - CSS-2: Ejercicios01 → Ejecicios08
+    - CSS-2: Ejercicios01 → Ejercicios08
 - JS: 
-    - Variables y Condicionales: Ejercicios01 → Ejecicios13
-    - Funciones y Bucles: Ejercicios01 → Ejecicios18
-    - Arrays y Objetos: Ejercicios01 → Ejecicios21
-    - Métodos de Arrays y Transformaciones: Ejercicios01 → Ejecicios22
+    - Variables y Condicionales: Ejercicios01 → Ejercicios13
+    - Funciones y Bucles: Ejercicios01 → Ejercicios18
+    - Arrays y Objetos: Ejercicios01 → Ejercicios21
+    - Métodos de Arrays y Transformaciones: Ejercicios01 → Ejercicios22
 - Fronted: Proyecto Pokemon (HTML → JS) y Pokedex (JS → React)
 - React: 
     - Introducción: Ejercicio01 → Ejercicio12
